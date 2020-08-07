@@ -856,15 +856,15 @@
 <ul>
 <li><code>Name</code>: the name of the category</li>
 <li><code>ParentCategoryName</code>: the name of the parent category. If there is no parent, the value should be <code>null</code>.</li>
-<li><code>NumberOfProducts</code>: number of products in this categeory. If there are no products the value should be <strong>0</strong>.</li>
+<li><code>NumberOfProducts</code>: number of products in this category. If there are no products, the value should be <strong>0</strong>.</li>
 </ul>
 <p>The outline of the solution is as follows.</p>
 <ol>
 <li>
-<p>Create an initialize a new <code>productCollection</code> similarly to how <code>categoryCollection</code> is initialized. The name of the collection is <code>categories</code> - you can verify this using <em>Robo3T</em>.</p>
+<p>Create and initialize a new <code>productCollection</code> similar to how <code>categoryCollection</code> is initialized. The name of the collection is <code>categories</code> - you can verify this using <em>Robo3T</em>.</p>
 </li>
 <li>
-<p><code>ListCategories()</code> should first query all categoires. Perform this similarly to how it was done in the previous exercise. Store the result set in variable <code>dbCategories</code>.</p>
+<p><code>ListCategories()</code> should first query all categories. Perform this similarly to how it was done in the previous exercise. Store the result set in variable <code>dbCategories</code>.</p>
 </li>
 <li>
 <p>Query the number of products associated with each category (<code>Product.CategoryID</code>). Use an aggregation pipeline and a <a href="https://docs.mongodb.com/manual/reference/operator/aggregation/group/"><code>$group</code></a> step as follows.</p>
@@ -877,7 +877,7 @@
 <p>This query yields a list where each item has a <code>CategoryID</code> and the number of associated products.</p>
 </li>
 <li>
-<p>At this stage we have all information we need: all categories (including the parents) and the number of products for each. The final step is to "merge" the results in C# code.</p>
+<p>We have all information we need: all categories (including the parents) and the number of products for each. The final step is to "merge" the results in C# code.</p>
 <div class="highlight"><pre><span></span><code><span class="k">return</span> <span class="n">dbCategories</span>
 <span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">c</span> <span class="p">=&gt;</span>
 <span class="p">{</span>
@@ -891,13 +891,13 @@
 <span class="p">.</span><span class="n">ToList</span><span class="p">();</span>
 </code></pre></div>
 
-<p>As seen above this is performed using LINQ. </p>
+<p>As seen above, this is performed using LINQ. </p>
 <div class="admonition note">
-<p>This is not the only solution to "join" collections in MongoDB. Although there is no <code>join</code> operation there are ways to query data across collections. Instead of doing this in MongoDB we do the merging in C# as above. This would not be good if the data set was large. Also, if there was filtering involved, the code above would be much more complicated.</p>
+<p>This is not the only solution to "join" collections in MongoDB. Although there is no <code>join</code> operation, there are ways to query data across collections. Instead of doing this in MongoDB, we do the merging in C# as above. This would not be good if the data set was large. Also, if there was filtering involved, the code above would be much more complicated.</p>
 </div>
 </li>
 <li>
-<p>Use the <code>Categories</code> link of the website to test your solution. This will list the data provided by your code in a tabular format. You can use the <code>Add new product</code> functionality from before to create new products. This must result in an increase of the number of product in one of the categories. (Remember that inserting the product hard-coded a category ID.)</p>
+<p>Use the <code>Categories</code> link of the website to test your solution. This will list the data provided by your code in a tabular format. You can use the <code>Add new product</code> functionality from before to create new products. This must result in an increase in the number of products in one of the categories. (Remember that inserting the product hard-coded a category ID.)</p>
 </li>
 </ol>
 <div class="admonition example">

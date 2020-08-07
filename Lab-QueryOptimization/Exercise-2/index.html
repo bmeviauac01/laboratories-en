@@ -1031,7 +1031,7 @@
 <p>Continue documenting the results the same way.</p>
 </div>
 <h2 id="exercise-6-1p">Exercise 6 (1p)<a class="headerlink" href="#exercise-6-1p" title="Permanent link">&para;</a></h2>
-<p>Repeat the queries on the <code>Product</code> table but instead of fetching the entire record only get the ID and the <code>Price</code> columns. How do the execution plans change? Explain the differences!</p>
+<p>Repeat the queries on the <code>Product</code> table, but instead of fetching the entire record, only get the ID and the <code>Price</code> columns. How do the execution plans change? Explain the differences!</p>
 <h2 id="exercise-7-1p">Exercise 7 (1p)<a class="headerlink" href="#exercise-7-1p" title="Permanent link">&para;</a></h2>
 <p>Analyze the following queries executed on the <code>Product</code> table:</p>
 <ul>
@@ -1040,18 +1040,18 @@
 </ul>
 <p>Document the SQL commands you used and explain the actual query execution plan!</p>
 <h2 id="exercise-8-1p">Exercise 8 (1p)<a class="headerlink" href="#exercise-8-1p" title="Permanent link">&para;</a></h2>
-<p>In Exercises 6 <code>WHERE Price=</code> compared an integer and a floating point number. Let us experiment with this:</p>
+<p>In Exercises 6 <code>WHERE Price=</code> compared an integer and a floating-point number. Let us experiment with this:</p>
 <ul>
 <li>m) <code>where cast(Price as int) = integer number</code></li>
 <li>n) <code>where Price BETWEEN integer number-0.0001 AND integer number+0.0001</code></li>
 </ul>
-<p>Chose a random integer number of these queries, and fetch <strong>only the primary key</strong>. Analyze the execution plans.</p>
+<p>Chose a random integer number in these queries and fetch <strong>only the primary key</strong>. Analyze the execution plans.</p>
 <h2 id="exercise-9-1p">Exercise 9 (1p)<a class="headerlink" href="#exercise-9-1p" title="Permanent link">&para;</a></h2>
 <p>Analyze the following queries execute on the <code>Product</code> table:</p>
 <ul>
 <li>o) query entire records where <code>Price</code> is less than a constant value (the filter should yield few matches), ordered by ID descending</li>
 <li>p) the same, but fetch only <code>ID</code> and <code>Price</code></li>
-<li>q) query entire records where <code>Price</code> is greater than a constant value (the filter should yield a lot of matches), ordered by ID descending</li>
+<li>q) query entire records where <code>Price</code> is greater than a constant value (the filter should yield many matches), ordered by ID descending</li>
 <li>r) the same, but fetch only <code>ID</code> and <code>Price</code></li>
 </ul>
 <p>Document the SQL commands you used and explain the actual query execution plan!</p>
@@ -1084,8 +1084,8 @@
 <h2 id="exercise-14-1p">Exercise 14 (1p)<a class="headerlink" href="#exercise-14-1p" title="Permanent link">&para;</a></h2>
 <p>List the <code>Name</code> of each <code>Product</code> where <code>CategoryId</code> equals 2. Document the SQL commands you used and explain the actual query execution plan! Explain whether the index added in the previous exercises helps the performance.</p>
 <h2 id="exercise-15-1p">Exercise 15 (1p)<a class="headerlink" href="#exercise-15-1p" title="Permanent link">&para;</a></h2>
-<p>Improve the performance of the previous query. Extend the index added before by adding the name: right click the index -&gt; <em>Properties</em> -&gt; and add <code>Name</code> to <em>Included columns</em>.</p>
-<p>Repeat the previous query again and analyze the plan.</p>
+<p>Improve the performance of the previous query. Extend the index added before by adding the name: right-click the index -&gt; <em>Properties</em> -&gt; and add <code>Name</code> to <em>Included columns</em>.</p>
+<p>Repeat the previous query and analyze the plan.</p>
                 
               
               

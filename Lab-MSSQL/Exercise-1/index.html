@@ -916,7 +916,7 @@
                 <h1 id="exercise-1-category-view-and-data-insertion">Exercise 1: Category view and data insertion<a class="headerlink" href="#exercise-1-category-view-and-data-insertion" title="Permanent link">&para;</a></h1>
 <p><strong>You can earn 8 points with the completion of this exercise.</strong></p>
 <h2 id="create-a-view">Create a view<a class="headerlink" href="#create-a-view" title="Permanent link">&para;</a></h2>
-<p>Create a new <code>CategoryWithParent</code> view that lists the contents of the <code>Category</code> table as follows. It should have two columns: the <code>Name</code> of the category and the name of the parent category (or null if it does not exist).</p>
+<p>Create a new <code>CategoryWithParent</code> view that lists the <code>Category</code> table's contents as follows. It should have two columns: the <code>Name</code> of the category and the name of the parent category (or null if it does not exist).</p>
 <p>Open a new <em>Query</em> window. Make sure to select the right database. Create the view by executing the T-SQL command below.</p>
 <div class="highlight"><pre><span></span><code><span class="k">create</span> <span class="k">view</span> <span class="n">CategoryWithParent</span>
 <span class="k">as</span>
@@ -928,7 +928,7 @@
 <p>Check the contents of the view!</p>
 <p><img alt="List the view" src="../../images/sql-management-query-view.png" /></p>
 <h2 id="insert-via-the-view">Insert via the view<a class="headerlink" href="#insert-via-the-view" title="Permanent link">&para;</a></h2>
-<p>Create a trigger with the name <code>InsertCategoryWithParent</code> that allows inserting a new category through the view (that is, by specifying the category name and the parent category name). It is not necessary to set a parent category, but if it is specified and there is no category with the provided name, an error should be raised and the operation aborted.</p>
+<p>Create a trigger with the name <code>InsertCategoryWithParent</code> that allows inserting a new category through the view (that is, by specifying the category name and the parent category name). It is not necessary to set a parent category. Still, if it is specified and there is no category with the provided name, an error should be raised, and the operation aborted.</p>
 <p>You will need an <em>instead of</em> trigger that allows us to define how to insert the data. The skeleton of the trigger is provided below.</p>
 <div class="highlight"><pre><span></span><code><span class="k">create</span> <span class="k">trigger</span> <span class="n">InsertCategoryWithParent</span> <span class="c1">-- name of the trigger</span>
 <span class="k">on</span> <span class="n">CategoryWithParent</span> <span class="c1">-- name of the view</span>
@@ -962,10 +962,10 @@
 <p>Finish this trigger by completing the code in the cycle.</p>
 <ul>
 <li>
-<p>If a parent category name is provided, check whether any category with the same name as <code>@parentname</code> exist.</p>
+<p>If a parent category name is provided, check whether any category with the same name as <code>@parentname</code> exists.</p>
 </li>
 <li>
-<p>If not, raise and error and abort the trigger.</p>
+<p>If not, raise an error and abort the trigger.</p>
 </li>
 <li>
 <p>If everything is fine, insert the data into the <code>Category</code> table (and not the view... since the view does not store any data, hence this trigger).</p>
@@ -978,14 +978,14 @@
 </li>
 <li>
 <p>Verify the correct behavior of the trigger! Write an insert statement that successfully inserts a new category record through the view. Then write an insert statement that fails.</p>
-<p>Suppose that the database is in its initial state: the categories in the table are the ones included in the initializer script. The two tests should <em>not</em> depend on each other. Both shall produce the expected output regardless whether the other was executed before!</p>
+<p>Suppose that the database is in its initial state: the categories in the table are the ones included in the initializer script. The two tests should <em>not</em> depend on each other. Both shall produce the expected output regardless of whether the other was executed before!</p>
 <div class="admonition warning">
 <p class="admonition-title">Use simple names</p>
-<p>It is recommended to use names (i.e. category names) that contain no special characters. Incorrect encoding of the SQL file might result in incorrect behavior otherwise. E.g. you may use the <em>LEGO</em> category as a known existing category.</p>
+<p>It is recommended to use names (i.e., category names) that contain no special characters. Incorrect encoding of the SQL file might result in incorrect behavior otherwise. E.g., you may use the <em>LEGO</em> category as a known existing category.</p>
 </div>
 <div class="admonition example">
 <p class="admonition-title">SUBMISSION</p>
-<p>Write the test insert statements into files <code>f1-ok.sql</code> and <code>f1-error.sql</code>. Each file shall contain a single <code>insert</code> statement! They should not contain any <code>use</code> or <code>go</code> commands. Each file can earn you 2 points.</p>
+<p>Write the test insert statements into files <code>f1-ok.sql</code> and <code>f1-error.sql</code>. Each file shall contain a single <code>insert</code> statement! They should not include any <code>use</code> or <code>go</code> commands. Each file can earn you 2 points.</p>
 </div>
 </li>
 </ol>

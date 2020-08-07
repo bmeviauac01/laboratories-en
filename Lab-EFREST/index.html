@@ -972,14 +972,14 @@
 <h2 id="pre-requisites-and-preparation">Pre-requisites and preparation<a class="headerlink" href="#pre-requisites-and-preparation" title="Permanent link">&para;</a></h2>
 <p>Required tools to complete the tasks:</p>
 <ul>
-<li>Windows, Linux or MacOS: All tools are platform-independent, or a platform-independent alternative is available.</li>
+<li>Windows, Linux, or macOS: All tools are platform-independent, or a platform-independent alternative is available.</li>
 <li>Microsoft Visual Studio 2019 <a href="../VisualStudio/">with the settings here</a><ul>
-<li>When using Linux or MacOS you can use Visual Studio Code, the .NET Core SDK and <a href="https://docs.microsoft.com/en-us/dotnet/core/tools/">dotnet CLI</a>.</li>
+<li>When using Linux or macOS, you can use Visual Studio Code, the .NET Core SDK, and <a href="https://docs.microsoft.com/en-us/dotnet/core/tools/">dotnet CLI</a>.</li>
 </ul>
 </li>
 <li><a href="https://dotnet.microsoft.com/download/dotnet-core/3.1">.NET Core 3.1 SDK</a><ul>
 <li>Usually installed with Visual Studio; if not, use the link above to install (the SDK and <em>not</em> the runtime).</li>
-<li>You need to install it manually when using Linux or MacOS.</li>
+<li>You need to install it manually when using Linux or macOS.</li>
 </ul>
 </li>
 <li><a href="https://www.getpostman.com/">Postman</a></li>
@@ -995,14 +995,14 @@
 <li>Official Microsoft tutorial for <a href="https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-3.1&amp;tabs=visual-studio">Web API</a></li>
 </ul>
 <h2 id="exercise-overview">Exercise overview<a class="headerlink" href="#exercise-overview" title="Permanent link">&para;</a></h2>
-<p>In this exercise we will implement the backend of a simple task management web application. The application handles <strong>two types of entities: statuses and tasks</strong> where a status is associated with multiple tasks (1-* connection). (In the text of the exercises will use <em>tasks</em> only for referring to this entity of the application.)</p>
-<p>If we had a frontend the the application would be a <a href="https://en.wikipedia.org/wiki/Kanban_board">Kanban-table</a>. We will not be creating a frontend here only the REST Api-t and Entity Framework + ASP.NET Core Web Api server.</p>
+<p>In this exercise, we will implement the backend of a simple task management web application. The application handles <strong>two types of entities: statuses and tasks</strong> where a status is associated with multiple tasks (1-* connection). (In the text of the exercises will use <em>tasks</em> only for referring to this entity of the application.)</p>
+<p>If we had a frontend, the application would be a <a href="https://en.wikipedia.org/wiki/Kanban_board">Kanban-board</a>. We will not create a frontend here, only the REST API and Entity Framework + ASP.NET Core Web API server.</p>
 <h2 id="initial-steps">Initial steps<a class="headerlink" href="#initial-steps" title="Permanent link">&para;</a></h2>
 <p>Keep in mind that you are expected to follow the <a href="../GitHub/">submission process</a>.</p>
 <h3 id="create-and-check-out-your-git-repository">Create and check out your Git repository<a class="headerlink" href="#create-and-check-out-your-git-repository" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
-<p>Create your personal git repository at: <TBD></p>
+<p>Create your git repository at: <TBD></p>
 </li>
 <li>
 <p>Wait for the repository creation to complete, then check out the repository.</p>
@@ -1018,7 +1018,7 @@
 </li>
 </ol>
 <h3 id="creating-database"><del>Creating</del> database<a class="headerlink" href="#creating-database" title="Permanent link">&para;</a></h3>
-<p>We will not be using Microsoft SQL Server here, but <em>Sqlite</em>. It is a light-weight relational database management system mainly for client-side applications. Although it is not recommended for servers we will use it for simplicity. <strong>Sqlite requires no installation.</strong></p>
+<p>We will not be using Microsoft SQL Server here, but <em>Sqlite</em>. It is a light-weight relational database management system mainly for client-side applications. Although it is not recommended for servers, we will use it for simplicity. <strong>Sqlite requires no installation.</strong></p>
 <p>We will define the database schema with <em>code first</em> using C# code. Therefore, we will not need to create the schema with SQL commands.</p>
                 
               

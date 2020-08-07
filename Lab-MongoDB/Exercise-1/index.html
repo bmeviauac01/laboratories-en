@@ -985,15 +985,15 @@
                 
                 <h1 id="exercise-1-listing-and-modifying-products">Exercise 1: Listing and modifying products<a class="headerlink" href="#exercise-1-listing-and-modifying-products" title="Permanent link">&para;</a></h1>
 <p><strong>You can earn 7 points with the completion of this exercise.</strong></p>
-<p>In this exercise we will implement CRUD (create, retrieve, update, delete) operations for Product entities.</p>
+<p>This exercise will implement CRUD (create, retrieve, update, delete) operations for Product entities.</p>
 <h2 id="open-the-visual-studio-solution">Open the Visual Studio solution<a class="headerlink" href="#open-the-visual-studio-solution" title="Permanent link">&para;</a></h2>
-<p>Open the Visual Studio solution (the <code>.sln</code>) file in the checked out repository. If Visual Studio tells you that the project is not supported you need install a missing component (see <a href="../../VisualStudio/">here</a>).</p>
+<p>Open the Visual Studio solution (the <code>.sln</code>) file in the checked out repository. If Visual Studio tells you that the project is not supported, you need to install a missing component (see <a href="../../VisualStudio/">here</a>).</p>
 <div class="admonition warning">
 <p class="admonition-title">Do NOT upgrade any version</p>
-<p>Do not upgrade the project, the .NET Core version or any Nuget package! If you see such a question, always choose no!</p>
+<p>Do not upgrade the project, the .NET Core version, or any Nuget package! If you see such a question, always choose no!</p>
 </div>
-<p>You will need to work in class <code>monolab.DAL.Repository</code>! You can make changes to this class as long and the source code complies, the repository implements interface <code>mongolab.DAL.IRepository</code>, and the constructor accepts a single <code>IMongoDatabase</code> parameter.</p>
-<p>The database access is configured in class  <code>mongolab.DAL.MongoConnectionConfig</code>. If needed you can change the database name in this file.</p>
+<p>You will need to work in class <code>monolab.DAL.Repository</code>! You can make changes to this class as long as the source code complies, the repository implements interface <code>mongolab.DAL.IRepository</code>, and the constructor accepts a single <code>IMongoDatabase</code> parameter.</p>
+<p>The database access is configured in class  <code>mongolab.DAL.MongoConnectionConfig</code>. If needed, you can change the database name in this file.</p>
 <p>Other parts of the application should <strong>NOT</strong> be modified!</p>
 <div class="admonition info">
 <p>The web application is a so-called <a href="https://docs.microsoft.com/en-us/aspnet/core/razor-pages/"><em>Razor Pages</em></a> ASP.NET Core project. This includes a presentation layer that is rendered on the server using C# code and the Razor engine. (You do not need to concern yourself with the UI.)</p>
@@ -1009,13 +1009,13 @@
 </li>
 </ol>
 <div class="admonition success">
-<p>If everything was successful you should see a page with links where you will be able to test your code. (The links will not work as the data access layer is not implemented yet.)</p>
+<p>If everything was successful, you should see a page with links where you will be able to test your code. (The links will not work as the data access layer is not implemented yet.)</p>
 </div>
 <h2 id="display-the-neptun-code-on-the-web-page">Display the Neptun code on the web page<a class="headerlink" href="#display-the-neptun-code-on-the-web-page" title="Permanent link">&para;</a></h2>
 <p>You will need to create screenshots that display your Neptun code.</p>
 <ol>
 <li>
-<p>Open file <code>Pages\Shared\_Layout.cshtml</code>. In the middle of the file find the following section and edit your Neptun code.</p>
+<p>Open file <code>Pages\Shared\_Layout.cshtml</code>. In the middle of the file, find the following section, and edit your Neptun code.</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="p">=</span><span class="s">&quot;container body-content&quot;</span><span class="p">&gt;</span>
     <span class="n">@RenderBody</span><span class="p">()</span>
     <span class="p">&lt;</span><span class="n">hr</span> <span class="p">/&gt;</span>
@@ -1038,7 +1038,7 @@
 <h2 id="listing">Listing<a class="headerlink" href="#listing" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
-<p>First you will need a way to access the <code>products</code> collection from C#. Create and initialize a new variable that represents the collection in class <code>Repository</code>. Use the injected <code>IMongoDatabase</code> variable to get the collection:</p>
+<p>First, you will need a way to access the <code>products</code> collection from C#. Create and initialize a new variable that represents the collection in class <code>Repository</code>. Use the injected <code>IMongoDatabase</code> variable to get the collection:</p>
 <div class="highlight"><pre><span></span><code><span class="k">private</span> <span class="k">readonly</span> <span class="n">IMongoCollection</span><span class="p">&lt;</span><span class="n">Enites</span><span class="p">.</span><span class="n">Product</span><span class="p">&gt;</span> <span class="n">productCollection</span><span class="p">;</span>
 
 <span class="k">public</span> <span class="nf">Repository</span><span class="p">(</span><span class="n">IMongoDatabase</span> <span class="n">database</span><span class="p">)</span>
@@ -1049,14 +1049,14 @@
 
 </li>
 <li>
-<p>You can use <code>productCollection</code> to access the product records of the database from now on. Let us start with implementing <code>ListProducts</code>. This will require two steps: first to query the data from the database, then transform each record to an instance of <code>Models.Product</code>.</p>
+<p>You can use <code>productCollection</code> to access the product records of the database from now on. Let us start by implementing <code>ListProducts</code>. This will require two steps: first, to query the data from the database, then transform each record to an instance of <code>Models.Product</code>.</p>
 <p>The query is as follows:</p>
 <div class="highlight"><pre><span></span><code><span class="kt">var</span> <span class="n">dbProducts</span> <span class="p">=</span> <span class="n">productCollection</span>
     <span class="p">.</span><span class="n">Find</span><span class="p">(</span><span class="n">_</span> <span class="p">=&gt;</span> <span class="k">true</span><span class="p">)</span> <span class="c1">// listing all products hence an empty filter</span>
     <span class="p">.</span><span class="n">ToList</span><span class="p">();</span>
 </code></pre></div>
 
-<p>All items then are transformed.</p>
+<p>All items are then transformed.</p>
 <div class="highlight"><pre><span></span><code><span class="k">return</span> <span class="n">dbProducts</span>
     <span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">t</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="n">Product</span>
     <span class="p">{</span>
@@ -1070,7 +1070,7 @@
 
 </li>
 <li>
-<p>The implementation of <code>FindProduct(string id)</code> is similar with the exception of querying a single record by matching the <code>ID</code>. The transformation to the model remains identical. However, we should also handle when there is no matching record found and return a <code>null</code> value in this case (without converting anything to a model).</p>
+<p>The implementation of <code>FindProduct(string id)</code> is similar, except for querying a single record by matching the <code>ID</code>. The transformation to the model remains identical. However, we should also handle when there is no matching record found and return a <code>null</code> value in this case (without converting anything to a model).</p>
 <p>The query is as follows:</p>
 <div class="highlight"><pre><span></span><code><span class="kt">var</span> <span class="n">dbProduct</span> <span class="p">=</span> <span class="n">productCollection</span>
     <span class="p">.</span><span class="n">Find</span><span class="p">(</span><span class="n">t</span> <span class="p">=&gt;</span> <span class="n">t</span><span class="p">.</span><span class="n">ID</span> <span class="p">==</span> <span class="n">ObjectId</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">id</span><span class="p">))</span>
@@ -1078,8 +1078,8 @@
 <span class="c1">// ... model conversion</span>
 </code></pre></div>
 
-<p>Note how the filter expression looks like! Also note how the <code>ToList</code> is replaced with a <code>SingleOrDefault</code> call. This returns either the first (and single) element in the result set or <code>null</code> when there is none. This is a generic way for querying a single records from the database. You will need to write similar code in further exercises.</p>
-<p>The conversion/transformation code is already given, however, we should prepare to handle when <code>dbProduct</code> is <code>null</code>. Instead of conversion we should just return <code>null</code> then.</p>
+<p>Note how the filter expression looks like! Also, note how the <code>ToList</code> is replaced with a <code>SingleOrDefault</code> call. This returns either the first (and single) element in the result set or <code>null</code> when there is none. This is a generic way of querying a single record from the database. You will need to write a similar code in further exercises.</p>
+<p>The conversion/transformation code is already given; however, we should prepare to handle when <code>dbProduct</code> is <code>null</code>. Instead of conversion, we should just return <code>null</code> then.</p>
 </li>
 <li>
 <p>Test the behavior of these queries! Start the web application and go to <a href="http://localhost:5000">http://localhost:5000</a> in a browser. Click <code>Products</code> to list the data from the database. If you click on <code>Details</code> it will show the details of the selected product.</p>
@@ -1087,15 +1087,15 @@
 </ol>
 <div class="admonition error">
 <p class="admonition-title">If you do not see any product</p>
-<p>If you see no items on this page but there is no error it is most likely due to a misconfigured database access. MongoDB will not return an error if the specified database does not exist. See the instructions for changing the connection details above.</p>
+<p>If you see no items on this page, but there is no error, it is most likely due to a misconfigured database access. MongoDB will not return an error if the specified database does not exist. See the instructions for changing the connection details above.</p>
 </div>
 <h2 id="creation">Creation<a class="headerlink" href="#creation" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
-<p>Implement method <code>InsertProduct(Product product)</code>. The input is an instance of <code>Models.Product</code> that collects the information specified on the UI.</p>
+<p>Implement the method <code>InsertProduct(Product product)</code>. The input is an instance of <code>Models.Product</code> that collects the information specified on the UI.</p>
 </li>
 <li>
-<p>To create a new product we will first create a new database entity (in memory first). This is an instance of class <code>Entities.Product</code>. There is no need to set the <code>ID</code> - it will be generated by the database. <code>Name</code>, <code>Price</code> and <code>Stock</code> are provided by the user. What is left is <code>VAT</code> and <code>CategoryID</code>. We should just hard-code values here: create a new VAT entity and find a random category using <em>Robo3T</em> and copy the <code>_id</code> value.</p>
+<p>To create a new product, we will first create a new database entity (in memory first). This is an instance of class <code>Entities.Product</code>. There is no need to set the <code>ID</code> - the database will generate it. <code>Name</code>, <code>Price</code> and <code>Stock</code> are provided by the user. What is left is <code>VAT</code> and <code>CategoryID</code>. We should just hard-code values here: create a new VAT entity and find a random category using <em>Robo3T</em> and copy the <code>_id</code> value.</p>
 <div class="highlight"><pre><span></span><code><span class="kt">var</span> <span class="n">dbProduct</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Enites</span><span class="p">.</span><span class="n">Product</span>
 <span class="p">{</span>
     <span class="n">Name</span> <span class="p">=</span> <span class="n">product</span><span class="p">.</span><span class="n">Name</span><span class="p">,</span>
@@ -1110,13 +1110,13 @@
 <p>Once the database entity is ready use <code>InsertOne</code> to add it to the database.</p>
 </li>
 <li>
-<p>To test your code start the application and click the <code>Add new product</code> link on the products page. You will need to fill the necessary data and then the presentation layer will call your code.</p>
+<p>To test your code, start the application and click the <code>Add new product</code> link on the products page. You will need to fill the necessary data, and then the presentation layer will call your code.</p>
 </li>
 </ol>
 <h2 id="delete">Delete<a class="headerlink" href="#delete" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
-<p>Implement method <code>DeleteProduct(string id)</code>. Use <code>DeleteOne</code> on the collection to delete the record. You will need a filter expression here too to find the matching record similarly to how it was done in <code>FindProduct(string id)</code>.</p>
+<p>Implement method <code>DeleteProduct(string id)</code>. Use <code>DeleteOne</code> on the collection to delete the record. You will need a filter expression here to find the matching record similarly to how it was done in <code>FindProduct(string id)</code>.</p>
 </li>
 <li>
 <p>Test the functionality using the web application by clicking the <code>Delete</code> link next to a product.</p>
@@ -1125,19 +1125,19 @@
 <h2 id="modification">Modification<a class="headerlink" href="#modification" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
-<p>We will implement method <code>bool SellProduct(string id, int amount)</code> as a modification operation. The method shall return <code>true</code> if a record with a matching <code>id</code> is found and there is at least <code>amount</code> pieces in stock. If the product is not found or there is not enough in stock return <code>false</code>.</p>
+<p>We will implement the method <code>bool SellProduct(string id, int amount)</code> as a modification operation. The method shall return <code>true</code> if a record with a matching <code>id</code> is found, and there are at least <code>amount</code> pieces in stock. If the product is not found or there is not enough in stock return <code>false</code>.</p>
 </li>
 <li>
-<p>Using the atomicity guarantees of MongoDB we will perform the changes in a single step. A filter will be used to find both the <code>id</code> and to check if there are enough items in stock. A modification will decrease the stock only if the filter is matched.</p>
+<p>Using the atomicity guarantees of MongoDB, we will perform the changes in a single step. A filter will be used to find both the <code>id</code> and check if there are enough items in stock. A modification will decrease the stock only if the filter is matched.</p>
 <div class="highlight"><pre><span></span><code><span class="kt">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">productCollection</span><span class="p">.</span><span class="n">UpdateOne</span><span class="p">(</span>
     <span class="n">filter</span><span class="p">:</span> <span class="n">t</span> <span class="p">=&gt;</span> <span class="n">t</span><span class="p">.</span><span class="n">ID</span> <span class="p">==</span> <span class="n">ObjectId</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">id</span><span class="p">)</span> <span class="p">&amp;&amp;</span> <span class="n">t</span><span class="p">.</span><span class="n">Stock</span> <span class="p">&gt;=</span> <span class="n">amount</span><span class="p">,</span>
     <span class="n">update</span><span class="p">:</span> <span class="n">Builders</span><span class="p">&lt;</span><span class="n">Enites</span><span class="p">.</span><span class="n">Product</span><span class="p">&gt;.</span><span class="n">Update</span><span class="p">.</span><span class="n">Inc</span><span class="p">(</span><span class="n">t</span> <span class="p">=&gt;</span> <span class="n">t</span><span class="p">.</span><span class="n">Stock</span><span class="p">,</span> <span class="p">-</span><span class="n">amount</span><span class="p">),</span>
     <span class="n">options</span><span class="p">:</span> <span class="k">new</span> <span class="n">UpdateOptions</span> <span class="p">{</span> <span class="n">IsUpsert</span> <span class="p">=</span> <span class="k">false</span> <span class="p">});</span>
 </code></pre></div>
 
-<p>Note that the <code>UpdateOptions</code> is used to signal that we do <strong>NOT</strong> want as upsert operation; instead we want the operation to do nothing when the filter is not matched.</p>
+<p>Note that the <code>UpdateOptions</code> is used to signal that we do <strong>NOT</strong> want as upsert operation; instead, we want the operation to do nothing when the filter is not matched.</p>
 <p>The modification is assembled using <code>Update</code> in <code>Builders</code>. Here we want to decrease the stock value with <code>amount</code> (which is effectively and increase with <code>-amount</code>).</p>
-<p>We can determine what happened based on the <code>result</code> returned by the update operation. If the result indicates that the filter matched a record and the modification was performed return <code>true</code>. Otherwise return <code>false</code>.</p>
+<p>We can determine what happened based on the <code>result</code> returned by the update operation. If the result indicates that the filter matched a record and the modification was performed, return <code>true</code>. Otherwise, return <code>false</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="k">return</span> <span class="n">result</span><span class="p">.</span><span class="n">MatchedCount</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">;</span>
 </code></pre></div>
 

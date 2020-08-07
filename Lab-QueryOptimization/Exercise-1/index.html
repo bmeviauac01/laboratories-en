@@ -966,7 +966,7 @@
 </ul>
 </div>
 <div class="admonition tip">
-<p>If the query plan and/or the explanation of subsequent exercises is the same, or at least very similar, it is enough to document everything once (one screenshot and one explanation); and list which (sub)exercises it the solution for.</p>
+<p>If the query plan or the explanation of subsequent exercises is the same, or at least very similar, it is enough to document everything once (one screenshot and one explanation); and list which (sub)exercises it the solution for.</p>
 </div>
 <h2 id="exercise-1-2p">Exercise 1 (2p)<a class="headerlink" href="#exercise-1-2p" title="Permanent link">&para;</a></h2>
 <p>Drop the <code>CustomerSite</code> =&gt; <code>Customer</code> foreign key and the <code>Customer</code> table primary key constraint. Find these in the <em>Object Explorer</em> and delete them (the <em>PK...</em> is the primary key while the <em>FK...</em> is the foreign key - the ones you need to delete are in two different tables!):</p>
@@ -983,7 +983,7 @@
 <h2 id="exercise-2-2p">Exercise 2 (2p)<a class="headerlink" href="#exercise-2-2p" title="Permanent link">&para;</a></h2>
 <p>Re-create the primary key of the <code>Customer</code> table:</p>
 <ul>
-<li>Right click the table &gt; Design &gt; then right click the ID column "Set Primary Key " then Save,</li>
+<li>Right-click the table &gt; Design &gt; then right-click the ID column "Set Primary Key " then Save,</li>
 <li>or execute <code>ALTER TABLE [dbo].[Customer] ADD PRIMARY KEY CLUSTERED ([ID] ASC)</code></li>
 </ul>
 <p>Re-run the same queries as in the previous exercise. What do you experience?</p>
@@ -999,9 +999,9 @@
 <p>Document the SQL commands you used and explain the actual query execution plan!</p>
 <h2 id="exercise-4-2p">Exercise 4 (2p)<a class="headerlink" href="#exercise-4-2p" title="Permanent link">&para;</a></h2>
 <p>Add a new non-clustered index on column <code>Price</code>. How do the execution plans change?</p>
-<p>To add the index use <em>Object Explorer</em>, find the table, expand it and right click <em>Indexes</em> -&gt; <em>New index</em> &gt; <em>Non-Clustered Index...</em></p>
+<p>To add the index use <em>Object Explorer</em>, find the table, expand it and right-click <em>Indexes</em> -&gt; <em>New index</em> &gt; <em>Non-Clustered Index...</em></p>
 <p><img alt="Create index" src="../../images/queryopt/queryopt-add-index.png" /></p>
-<p>Indices should have meaningful names, e.g. <code>IX_Tablename_Fieldname</code>. Add <em>Price</em> column to the <em>Index key columns</em> list.</p>
+<p>Indices should have meaningful names, e.g., <code>IX_Tablename_Fieldname</code>. Add <em>Price</em> column to the <em>Index key columns</em> list.</p>
 <p><img alt="Index properties" src="../../images/queryopt/queryopt-index-properties.png" /></p>
 <p>Repeat the queries from the previous exercise and explain the plans!</p>
 <h2 id="exercise-5-2p">Exercise 5 (2p)<a class="headerlink" href="#exercise-5-2p" title="Permanent link">&para;</a></h2>

@@ -938,13 +938,13 @@
                 
                 
                 <h1 id="submitting-your-work-github">Submitting your work (GitHub)<a class="headerlink" href="#submitting-your-work-github" title="Permanent link">&para;</a></h1>
-<p>We are using GitHub for submitting the solutions. Each laboratory is submitted in a GitHub repository that you will create through a provided link. The solution of the laboratory exercises are created within these repositories, then committed and pushed to GitHub. The submission is finished with a <em>pull request</em> assigned to the laboratory instructor.</p>
+<p>We are using GitHub to submit the solutions. Each laboratory is submitted in a GitHub repository that you will create through a provided link. The solution of the laboratory exercises are created within these repositories, then committed and pushed to GitHub. The submission is finished with a <em>pull request</em> assigned to the laboratory instructor.</p>
 <div class="admonition important">
 <p class="admonition-title">IMPORTANT</p>
 <p>The submission requirements detailed below and mandatory. Submissions not following these guidelines are not graded.</p>
 </div>
 <h2 id="short-version-aka-tldr">Short version, aka. TL;DR<a class="headerlink" href="#short-version-aka-tldr" title="Permanent link">&para;</a></h2>
-<p>The detailed description below shows the entire procedure. This short summary is an overview of the whole process.</p>
+<p>The detailed description below shows the entire procedure. This summary is an overview of the whole process.</p>
 <ol>
 <li>
 <p>The lab exercises are solved in a dedicated GitHub repository created through a link in the exercise description.</p>
@@ -962,7 +962,7 @@
 <h2 id="starting-your-work-git-checkout">Starting your work: git checkout<a class="headerlink" href="#starting-your-work-git-checkout" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
-<p><a href="https://github.com/join">Register</a> a GitHub account, if you don't have one yet.</p>
+<p><a href="https://github.com/join">Register</a> a GitHub account if you don't have one yet.</p>
 </li>
 <li>
 <p>Open the link in the exercise description to create your repository.</p>
@@ -989,26 +989,26 @@
 </li>
 <li>
 <p>Clone your repository. You will need the repository git URL, which you can get from the repository webpage following the <em>Clone or download</em> button.</p>
-<p>You may use any git client. If you do not have a favorit yet, the simplest one is <a href="https://desktop.github.com/">GitHub Desktop</a>. You can list your repositories in this application directly from GitHub.</p>
+<p>You may use any git client. If you do not have a favorite yet, the simplest one is <a href="https://desktop.github.com/">GitHub Desktop</a>. You can list your repositories in this application directly from GitHub.</p>
 <p><img alt="GitHub Desktop repository clone" src="../images/github/github-desktop-clone.png" /></p>
-<p>If you are using console, the following command performs the clone (if the <code>git</code> command is available): <code>git clone &lt;repository link&gt;</code></p>
+<p>If you are using the console or shell, the following command performs the clone (if the <code>git</code> command is available): <code>git clone &lt;repository link&gt;</code></p>
 </li>
 <li>
 <p>If the cloning is successful, <strong>DO NOT START WORKING YET!</strong> The solution should <em>not</em> be committed to the repository <code>master</code> branch. Instead, create a new branch with the name <code>solution</code>.</p>
 <p>In GitHub Desktop, use the <em>Branch</em> menu for creating a new one.</p>
 <p><img alt="GitHub Desktop create branch" src="../images/github/github-desktop-new-branch.png" /></p>
-<p>If using console, use the following command: <code>git checkout -b solution</code></p>
+<p>If using the console, use the following command: <code>git checkout -b solution</code></p>
 </li>
 <li>
 <p>Complete the exercises on this branch. You may have any number of commits and pushes.</p>
 <div class="admonition note">
 <p class="admonition-title">In university laboratories</p>
-<p>Before you make your first commit check whether your name and email address is properly configured. You can check this using the following commands.</p>
+<p>Before you make your first commit, check whether your name and email address are properly configured. You can check this using the following commands.</p>
 <div class="highlight"><pre><span></span><code>git config user.name
 git config user.email
 </code></pre></div>
 
-<p>If the values are not correct, set your name and email address with the following commands executed in the repository directory.This will set the values for the repository. (It is recommended to set the email address to the one you use with GitHub.)</p>
+<p>If the values are not correct, set your name and email address with the following commands executed in the repository directory. This will set the values for the repository. (It is recommended to set the email address to the one you use with GitHub.)</p>
 <div class="highlight"><pre><span></span><code>git config user.name <span class="s2">&quot;John Doe&quot;</span>
 git config user.email <span class="s2">&quot;john@doe.org&quot;</span>
 </code></pre></div>
@@ -1016,13 +1016,13 @@ git config user.email <span class="s2">&quot;john@doe.org&quot;</span>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">At home</p>
-<p>When working from at home you may want to set the name and email address globally using the <code>--global</code> switch in the commands above.</p>
+<p>When working from at home, you may want to set the name and email address globally using the <code>--global</code> switch in the commands above.</p>
 </div>
 <p>To commit using GitHub Desktop, first check if you are on the right branch. During the first push, the <em>solution</em> branch needs to be published.</p>
 <p><img alt="GitHub Desktop push branch" src="../images/github/github-desktop-commit-to-branch.png" /></p>
-<p>When adding further commits, verify the branch. You can publish the commit using the <em>Push origin</em> button. The little number of this buttons shows you how many commits need pushing.</p>
+<p>When adding further commits, verify the branch. You can publish the commit using the <em>Push origin</em> button. The little number on this button shows you how many commits need pushing.</p>
 <p><img alt="GitHub Desktop commit and push" src="../images/github/github-desktop-push-commit.png" /></p>
-<p>If you are using console, use the following commands:</p>
+<p>If you are using the console, use the following commands:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Check the current branch and the files modified</span>
 git status
 
@@ -1048,18 +1048,18 @@ git push
 <p><img alt="GitHub web switch branch" src="../images/github/github-switch-branch-webpage.png" /></p>
 <div class="admonition warning">
 <p class="admonition-title">GitHub web file upload</p>
-<p>We recommend that you do not use GitHub web file upload. If something is missing, add it to your local repository and commit and push again.</p>
+<p>We recommend that you do not use the GitHub web file upload. If something is missing, add it to your local repository and commit and push again.</p>
 </div>
 </li>
 <li>
 <p>When you are truly ready, open a <em>pull request</em>.</p>
 <div class="admonition important">
 <p class="admonition-title">Why the pull request?</p>
-<p>This <em>pull request</em> combines all changes you made, and shows us the final result. This helps the laboratory instructor to evaluate your submission more easily. This <em>pull request</em> means you submit your solution, hence this step <strong>cannot be omitted</strong>.</p>
+<p>This <em>pull request</em> combines all changes you made and shows us the final result. This helps the laboratory instructor to evaluate your submission more easily. This <em>pull request</em> means you submit your solution; hence this step <strong>cannot be omitted</strong>.</p>
 </div>
-<p>To open the <em>pull request</em> you need to go to the repository's GitHub web frontend. If you pushed recently, GitHub will offer you to create the pull request..</p>
+<p>To open the <em>pull request</em>, you need to go to the repository's GitHub web frontend. If you pushed recently, GitHub will offer you to create the pull request.</p>
 <p><img alt="GitHub create pull request" src="../images/github/github-create-pull-request-1.png" /></p>
-<p>You may also open the <em>pull request</em> from the menu at the top. It is important to specify the correct branches: <code>master</code> is the target into witch <code>solution</code> is merged.</p>
+<p>You may also open the <em>pull request</em> from the menu at the top. It is important to specify the correct branches: <code>master</code> is the target into which <code>solution</code> is merged.</p>
 <p><img alt="GitHub create pull request" src="../images/github/github-create-pull-request-2.png" /></p>
 <p>When the <em>pull request</em> is created, you will see a little number "1" on the <em>Pull request</em> menu showing you that there is one open item there. <strong>YOU ARE NOT FINISHED YET!</strong></p>
 <p><img alt="GitHub create pull request" src="../images/github/github-create-pull-request-4.png" /></p>
@@ -1071,14 +1071,14 @@ git push
 <p>If you need more information about the evaluation and the results, <em>GitHub Actions</em> can provide you more. A short introduction is provided <a href="../GitHub-Actions/">here</a>.</p>
 </li>
 <li>
-<p>If you are not satisfied with your work, you can make further changes. You only need to commit and push your changes continuing to work on the correct branch. Any changes pushed will re-trigger the evaluation of the <em>pull request</em>. We ask that you trigger <strong>NO MORE THAN 5 evaluations</strong>!</p>
+<p>If you are not satisfied with your work, you can make further changes. You only need to commit and push your changes. Any changes pushed will re-trigger the evaluation of the <em>pull request</em>. We ask that you trigger <strong>NO MORE THAN 5 evaluations</strong>!</p>
 <div class="admonition tip">
 <p class="admonition-title">Making further changes</p>
 <p>If you want to make changes to your submission and not have the re-evaluation run, you should <strong>close the pull request</strong>. When you are finished, you can open a new one instead.</p>
 </div>
 <div class="admonition info">
 <p class="admonition-title">Maximum 5</p>
-<p>Evaluations that fail due to transient errors, such as network problems, are not counted into the 5 evaluations. But if you trigger more evaluation by mistake, or on purpose, it will be sancioned. You are required to <strong>test your solution locally</strong> before submitting it.</p>
+<p>Evaluations that fail due to transient errors, such as network problems, are not counted into the 5 evaluations. But if you trigger more evaluation by mistake, or on purpose, it will be sanctioned. You are required to <strong>test your solution locally</strong> before submitting it.</p>
 </div>
 </li>
 <li>
@@ -1099,7 +1099,7 @@ git push
 <p><img alt="GitHub PR asking questions" src="../images/github/github-question-in-pr.png" /></p>
 <div class="admonition warning">
 <p class="admonition-title">Please provide proof</p>
-<p>Please note, that if you think the evaluation made a mistake, you are required to support your question/complaint with proof (e.g. show how you tested your solution and prove that it worked).</p>
+<p>Please note that if you think the evaluation made a mistake, you must support your question/complaint with proof (e.g., show how you tested your solution and prove that it worked).</p>
 </div>
                 
               

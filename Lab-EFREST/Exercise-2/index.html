@@ -928,10 +928,10 @@
                 
                 
                 <h1 id="exercise-2-task-operations">Exercise 2: Task operations<a class="headerlink" href="#exercise-2-task-operations" title="Permanent link">&para;</a></h1>
-<p>In this exercise we will implement the basic services for <em>tasks</em>.</p>
+<p>In this exercise, we will implement the basic services for <em>tasks</em>.</p>
 <p><strong>You can earn 6 points with the completion of this exercise.</strong></p>
 <h2 id="preparation-with-entity-framework">Preparation with Entity Framework<a class="headerlink" href="#preparation-with-entity-framework" title="Permanent link">&para;</a></h2>
-<p>The task entity is represented by class <code>Model.Task</code>. It has a unique <code>ID</code>, a text <code>Title</code>, a <code>Done</code> flag to signal completion and a <code>Status</code> field referencing the status of this task (with 1-* multiplicity).</p>
+<p>The task entity is represented by class <code>Model.Task</code>. It has a unique <code>ID</code>, a text <code>Title</code>, a <code>Done</code> flag to signal completion, and a <code>Status</code> field referencing the status of this task (with 1-* multiplicity).</p>
 <p>Define the Entity Framework model first:</p>
 <ol>
 <li>
@@ -944,7 +944,7 @@
 <p>Specify the configuration of the mapping of this entity in <code>OnModelCreating</code>. Make sure to configure the <em>navigation property</em> here correctly!</p>
 </li>
 <li>
-<p>Add some initial ("seed") data too as seen previously.</p>
+<p>Add some initial ("seed") data, as seen previously.</p>
 </li>
 </ol>
 <h2 id="operations-in-the-repository">Operations in the repository<a class="headerlink" href="#operations-in-the-repository" title="Permanent link">&para;</a></h2>
@@ -952,17 +952,17 @@
 <ul>
 <li><code>IReadOnlyCollection&lt;Task&gt; List()</code>: lists all available tasks</li>
 <li><code>Task FindById(int taskId)</code>: returns the single task with the specified ID if it exists; returns null otherwise</li>
-<li><code>Task Insert(CreateTask value)</code>: adds a new task to the database with the specified title and associtates it with the specified status; if no status with the provided name exists, create a new status record; the return value is the new task entity as created in the database with its assigned ID</li>
+<li><code>Task Insert(CreateTask value)</code>: adds a new task to the database with the specified title and associates it with the specified status; if no status with the provided name exists, create a new status record; the return value is the new task entity as created in the database with its assigned ID</li>
 <li><code>Task Delete(int taskId)</code>: deletes the specified task; return value is the task (state before deletion), or null if the task is not found</li>
 </ul>
-<p>You don't need to implement the other operations yet; however an implementation needs to be provided so that the code compiles. You may use <code>throw new NotImplementedException();</code> as a placeholder for now.</p>
+<p>You don't need to implement the other operations yet; however, an implementation needs to be provided so that the code compiles. You may use <code>throw new NotImplementedException();</code> as a placeholder for now.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>You will need to map the database entity to the model class in the repository. It is recommended to create a <code>ToModel</code> helper method as seen previously. When querying the tasks you will need the associated status record too (to get the name). You will need to use an <code>.Include()</code>.</p>
+<p>You will need to map the database entity to the model class in the repository. It is recommended to create a <code>ToModel</code> helper method, as seen previously. When querying the tasks, you will need the associated status record too (to get the name). You will need to use an <code>.Include()</code>.</p>
 </div>
 <h2 id="operations-on-the-rest-api">Operations on the REST Api<a class="headerlink" href="#operations-on-the-rest-api" title="Permanent link">&para;</a></h2>
 <p>Create a new <code>TasksController</code> in the <code>Controllers</code> folder. The controller shall handle REST queries on URL <code>/api/tasks/neptun</code> where the last part is your <strong>own Neptun code</strong> lowercase.</p>
-<p>The controller shall take an <code>ITasksRepository</code> as parameter. In order for the dependency injection framework to resolve this in runtime, further configuration is needed. In the <code>Startup</code> class register this interface and its corresponding implementation in method <code>ConfigureServices</code> similarly to how the other repository is registered. (The controller does <em>not</em> need registration.)</p>
+<p>The controller shall take an <code>ITasksRepository</code> as a parameter. For the dependency injection framework to resolve this in runtime, further configuration is needed. In the <code>Startup</code> class, register this interface and its corresponding implementation in the method <code>ConfigureServices</code> similarly to how the other repository is registered. (The controller does <em>not</em> need registration.)</p>
 <p>Implement the following operations using the previously implemented repository methods:</p>
 <ul>
 <li><code>GET /api/tasks/neptun</code>: returns all tasks; response code is always <code>200 OK</code></li>

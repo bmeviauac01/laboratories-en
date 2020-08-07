@@ -850,8 +850,8 @@
                 
                 
                 <h1 id="exercise-4-optional-exercise">Exercise 4: Optional exercise<a class="headerlink" href="#exercise-4-optional-exercise" title="Permanent link">&para;</a></h1>
-<p><strong>You can earn an additional +3 points with the completion of this exercise.</strong> (In the evaluation you will see the text "imsc" in the exercise title; this is meant for the Hungarian students. Please ignore that.)</p>
-<p>If we have lots of tasks listing them should not return all of them at once. Implement a new endpoint to return a subset of the tasks (i.e. "paging"):</p>
+<p><strong>You can earn an additional +3 points with the completion of this exercise.</strong> (In the evaluation, you will see the text "imsc" in the exercise title; this is meant for the Hungarian students. Please ignore that.)</p>
+<p>If we have lots of tasks listing them should not return all of them at once. Implement a new endpoint to return a subset of the tasks (i.e., "paging"):</p>
 <ul>
 <li>It returns the tasks in a deterministic fashion sorted by ID.</li>
 <li>The query accepts a <code>count</code> parameter that specifies how many tasks to return.</li>
@@ -868,13 +868,13 @@
 <p><code>nextUrl</code>: a helper URL that fetches the next page, or <code>null</code> if there are no further pages.</p>
 <div class="admonition tip">
 <p>Use the <code>Url.Action</code> helper method to assemble this URL. Do not hardcode "localhost:5000" or "/api/tasks/paged" in the source code! You will <em>not</em> need string operations to achieve this.</p>
-<p><code>Url.Action</code> will give you an absolute URL when all parameters (<code>action</code>, <code>controller</code>, <code>values</code>, <code>protocol</code> and <code>host</code>) are specified; for the latter ones <code>this.HttpContext.Request</code> can provide you the required values.</p>
+<p><code>Url.Action</code> will give you an absolute URL when all parameters (<code>action</code>, <code>controller</code>, <code>values</code>, <code>protocol</code>, and <code>host</code>) are specified; for the latter ones <code>this.HttpContext.Request</code> can provide you the required values.</p>
 </div>
 </li>
 </ul>
 </li>
 <li>
-<p>The request always returns 200 OK; if there are no items the result set shall be empty.</p>
+<p>The request always returns 200 OK; if there are no items, the result set shall be empty.</p>
 </li>
 </ul>
 <p>The requests-responses shows you the expected behavior:</p>

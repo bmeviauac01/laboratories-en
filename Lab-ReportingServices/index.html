@@ -954,7 +954,7 @@
                 
                 
                 <h1 id="reporting-services">Reporting Services<a class="headerlink" href="#reporting-services" title="Permanent link">&para;</a></h1>
-<p>In this lab we will work with <em>Microsoft SQL Server Reporting Services</em>, a tool we have not seen before. We will start working together, then some of the exercises will be individual work. You shall submit the solution of all exercises.</p>
+<p>In this lab, we will work with <em>Microsoft SQL Server Reporting Services</em>, a tool we have not seen before. We will start working together, then some of the exercises will be individual work. You shall submit the solution to all exercises.</p>
 <h2 id="pre-requisites-and-preparation">Pre-requisites and preparation<a class="headerlink" href="#pre-requisites-and-preparation" title="Permanent link">&para;</a></h2>
 <p>Required tools to complete the tasks:</p>
 <ul>
@@ -976,7 +976,7 @@
 <h3 id="create-and-check-out-your-git-repository">Create and check out your Git repository<a class="headerlink" href="#create-and-check-out-your-git-repository" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
-<p>Create your personal git repository at: <TBD></p>
+<p>Create your git repository at: <TBD></p>
 </li>
 <li>
 <p>Wait for the repository creation to complete, then check out the repository.</p>
@@ -997,7 +997,7 @@
 <li>
 <p>Download  <a href="adventure-works-2014-oltp-script.zip">adventure-works-2014-oltp-script.zip</a> and extract it to folder <code>C:\work\Adventure Works 2014 OLTP Script</code> (create the folder if it does not exist yet).</p>
 <div class="admonition important">
-<p>The folder name should be as above, otherwise you need change the path in the sql script:</p>
+<p>The folder name should be as above; otherwise, you need to change the path in the sql script:</p>
 <div class="highlight"><pre><span></span><code><span class="c1">-- NOTE: Change this path if you copied the script source to another path</span>
 <span class="p">:</span><span class="n">setvar</span> <span class="n">SqlSamplesSourceDataPath</span> <span class="ss">&quot;C:\work\Adventure Works 2014 OLTP Script\&quot;</span>
 </code></pre></div>
@@ -1013,7 +1013,7 @@
 </ul>
 </li>
 <li>
-<p>Use <em>File / Open / File...</em> to open <code>instawdb.sql</code> from the folder created above. <strong>Do not execute it yet!</strong> First you should turn on SQLCMD mode: in the <em>Query</em> menu click <em>SQLCMD Mode</em>; then click <em>Execute</em>.</p>
+<p>Use <em>File / Open / File...</em> to open <code>instawdb.sql</code> from the folder created above. <strong>Do not execute it yet!</strong> First, you should turn on SQLCMD mode: in the <em>Query</em> menu click <em>SQLCMD Mode</em>; then click <em>Execute</em>.</p>
 <p><img alt="SQLCMD mode" src="../images/sql-management-sqlcmd-mode.png" /></p>
 </li>
 <li>
@@ -1021,14 +1021,14 @@
 <p><img alt="AdventureWorks database tables" src="../images/reportingservices/rs-adventureworks-tablak.png" />.</p>
 </li>
 <li>
-<p>Open a new SQL Query window on this database (right click the database and chose <em>New query</em>), and execute the following script <strong>with your own Neptun code</strong> substituted:</p>
+<p>Open a new SQL Query window on this database (right-click the database and chose <em>New query</em>), and execute the following script <strong>with your own Neptun code</strong> substituted:</p>
 <div class="highlight"><pre><span></span><code><span class="k">update</span> <span class="n">Production</span><span class="p">.</span><span class="n">Product</span> <span class="k">set</span> <span class="n">Name</span><span class="o">=</span><span class="s1">&#39;NEPTUN&#39;</span><span class="o">+</span><span class="n">Name</span>
 </code></pre></div>
 
-<p>Check the contents of table <code>Production.Product</code> and verify if it has your Neptun code in the product names: right click the table and chose <em>Select top 1000 rows</em>.</p>
+<p>Check the contents of the table <code>Production.Product</code> and verify if it has your Neptun code in the product names: right-click the table and choose <em>Select top 1000 rows</em>.</p>
 <div class="admonition warning">
 <p class="admonition-title">IMPORTANT</p>
-<p>It is important that your Neptun code is listed in the names. You will need to create screenshots in the following exercises, and your Neptun code <strong>must</strong> appear on these images.</p>
+<p>Your Neptun code must be listed in the names. You will need to create screenshots in the following exercises, and your Neptun code <strong>must</strong> appear on these images.</p>
 </div>
 </li>
 </ol>

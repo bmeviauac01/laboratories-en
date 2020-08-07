@@ -982,15 +982,15 @@
                 
                 
                 <h1 id="query-optimization">Query optimization<a class="headerlink" href="#query-optimization" title="Permanent link">&para;</a></h1>
-<p>We will examine the query optimization behavior of Microsoft SQL Server. In order to properly understand the behavior of the optimizer and be able to document it, the <strong>first 5 exercises are solved together</strong> and the instructor will explain the queries and the behavior. The <strong>rest of the exercises is individual work</strong> where it is your task to infer the reason for a specific plan. You shall submit the documentation of all exercises.</p>
+<p>We will examine the query optimization behavior of Microsoft SQL Server. To properly understand the optimizer's behavior and be able to document it, the <strong>first 5 exercises are solved together</strong>, and the instructor will explain the queries and the behavior. The <strong>rest of the exercises is individual work</strong> where it is your task to infer the reason for a specific plan. You shall submit the documentation of all exercises.</p>
 <h2 id="pre-requisites-and-preparation">Pre-requisites and preparation<a class="headerlink" href="#pre-requisites-and-preparation" title="Permanent link">&para;</a></h2>
 <p>Required tools to complete the tasks:</p>
 <ul>
-<li>Windows, Linux or MacOS: All tools are platform-independent, or a platform-independent alternative is available.</li>
+<li>Windows, Linux, or macOS: All tools are platform-independent, or a platform-independent alternative is available.</li>
 <li>Microsoft SQL Server<ul>
 <li>The free Express version is sufficient, or you may also use <em>localdb</em> installed with Visual Studio</li>
 <li>A <a href="https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-setup">Linux version</a> is also available.</li>
-<li>On MacOS you can use Docker.</li>
+<li>On macOS, you can use Docker.</li>
 </ul>
 </li>
 <li><a href="https://code.visualstudio.com/">Visual Studio Code</a> or any other tool for writing markdown</li>
@@ -1013,7 +1013,7 @@
 <h3 id="create-and-check-out-your-git-repository">Create and check out your Git repository<a class="headerlink" href="#create-and-check-out-your-git-repository" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
-<p>Create your personal git repository at: <TBD></p>
+<p>Create your git repository at: <TBD></p>
 </li>
 <li>
 <p>Wait for the repository creation to complete, then check out the repository.</p>
@@ -1052,7 +1052,7 @@
 <p>For convenient editing open the <a href="https://code.visualstudio.com/docs/languages/markdown#_markdown-preview">preview</a> (<em>Ctrl-K + V</em>).</p>
 <div class="admonition note">
 <p class="admonition-title">Alternative editor</p>
-<p>If you do not like VS code, you can also use the <a href="https://help.github.com/en/github/managing-files-in-a-repository/editing-files-in-your-repository">GitHub web interface</a> a to edit the markdown; you also have a preview here. <a href="https://help.github.com/en/github/managing-files-in-a-repository/adding-a-file-to-a-repository">File upload</a> will be trickier though.</p>
+<p>If you do not like VS code, you can also use the <a href="https://help.github.com/en/github/managing-files-in-a-repository/editing-files-in-your-repository">GitHub web interface</a> a to edit the markdown; you also have a preview here. <a href="https://help.github.com/en/github/managing-files-in-a-repository/adding-a-file-to-a-repository">File upload</a> will be trickier.</p>
 </div>
 </li>
 </ol>
@@ -1066,7 +1066,7 @@
 </ul>
 </li>
 <li>
-<p>Create a new databse (if it does not exist yet). The name should be your Neptun code: in <em>Object Explorer</em> right click <em>Databases</em> and choose <em>Create Database</em>.</p>
+<p>Create a new database (if it does not exist yet). The name should be your Neptun code: in <em>Object Explorer</em> right-click <em>Databases</em> and choose <em>Create Database</em>.</p>
 </li>
 <li>
 <p>Create the sample database by executing the <a href="https://bmeviauac01.github.io/adatvezerelt/db/mssql.sql">initializer script</a> Open a new <em>Query</em> window, paste the script into the window, then execute it. Make sure to select the right database in the toolbar dropdown.</p>
@@ -1082,11 +1082,11 @@
 <p class="admonition-title">If you are not using Windows</p>
 <p>We are primarily using SQL Server Management Studio to get the execution plans. If you are not using Windows, you can also use Azure Data Studio-t to <a href="https://richbenner.com/2019/02/azure-data-studio-execution-plans/">obtain the query plan</a>.</p>
 </div>
-<p>In the following exercises we will check the best query plan the optimizer chose and the server executed. In SQL Server Management Studio open the <em>Query</em> menu and check <a href="https://docs.microsoft.com/en-us/sql/relational-databases/performance/display-an-actual-execution-plan"><em>Include Actual Execution Plan</em></a>.</p>
+<p>In the following exercises, we will check the best query plan the optimizer chose and the server executed. In SQL Server Management Studio, open the <em>Query</em> menu and check <a href="https://docs.microsoft.com/en-us/sql/relational-databases/performance/display-an-actual-execution-plan"><em>Include Actual Execution Plan</em></a>.</p>
 <p><img alt="Enable query plan" src="../images/queryopt/queryopt-include-plan.png" /></p>
 <p>The plan will be displayed after the query is completed at the bottom of the window on the <em>Execution plan</em> pane.</p>
 <p><img alt="View query plan" src="../images/queryopt/queryopt-plan-result.png" /></p>
-<p>The plan is a data flow diagram where the query execution is the flow of the data. The items are the individual steps and the percentages are the relative cost of each step with regards to the whole query.</p>
+<p>The plan is a data flow diagram where the query execution is the flow of the data. The items are the individual steps, and the percentages are the relative cost of each step with regards to the whole query.</p>
                 
               
               

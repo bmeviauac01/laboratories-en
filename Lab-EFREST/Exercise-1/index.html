@@ -942,13 +942,13 @@
                 
                 
                 <h1 id="exercise-1-managing-statuses">Exercise 1: Managing statuses<a class="headerlink" href="#exercise-1-managing-statuses" title="Permanent link">&para;</a></h1>
-<p>In this exercise we will implement basic management of status entities.</p>
+<p>In this exercise, we will implement the basic management of status entities.</p>
 <p><strong>You can earn 8 points with the completion of this exercise.</strong></p>
 <h2 id="open-the-visual-studio-solution">Open the Visual Studio solution<a class="headerlink" href="#open-the-visual-studio-solution" title="Permanent link">&para;</a></h2>
-<p>Open the Visual Studio solution (the <code>.sln</code>) file in the checked out repository. If Visual Studio tells you that the project is not supported you need install a missing component (see <a href="../../VisualStudio/">here</a>).</p>
+<p>Open the Visual Studio solution (the <code>.sln</code>) file in the checked out repository. If Visual Studio tells you that the project is not supported, you need to install a missing component (see <a href="../../VisualStudio/">here</a>).</p>
 <div class="admonition warning">
 <p class="admonition-title">Do NOT upgrade any version</p>
-<p>Do not upgrade the project, the .NET Core version or any Nuget package! If you see such a question, always choose no!</p>
+<p>Do not upgrade the project, the .NET Core version, or any Nuget package! If you see such a question, always choose no!</p>
 </div>
 <p>The solution is structured according to a multi-tier architecture:</p>
 <ul>
@@ -956,7 +956,7 @@
 <li>The <code>DAL</code> folder implements the data access; it contains a repository layer and an Entity Framework Code First data model.</li>
 <li>The <code>Model</code> folder contains the shared entities.</li>
 </ul>
-<p>In this exercise you will need to work in classes <code>DAL.StatusesRepository</code> and <code>Controllers.StatusesController</code>. You can make changes to these classes as long and the source code complies (and as long as the repository implements interface <code>IStatusesRepository</code>).</p>
+<p>In this exercise, you will need to work in classes <code>DAL.StatusesRepository</code> and <code>Controllers.StatusesController</code>. You can make changes to these classes as long as the source code complies (and the repository implements interface <code>IStatusesRepository</code>).</p>
 <h2 id="start-the-web-app">Start the web app<a class="headerlink" href="#start-the-web-app" title="Permanent link">&para;</a></h2>
 <p>Check if the web application starts.</p>
 <ol>
@@ -968,7 +968,7 @@
 </li>
 </ol>
 <div class="admonition success">
-<p>If everything goes well you see the "pong" response in the browser and the incoming request is logged in the console.</p>
+<p>If everything goes well, you see the response "pong" in the browser, and the incoming request is logged in the console.</p>
 </div>
 <h2 id="list-all-statuses-4p">List all statuses (4p)<a class="headerlink" href="#list-all-statuses-4p" title="Permanent link">&para;</a></h2>
 <p>Implement the first operation to list all available status entities.</p>
@@ -988,7 +988,7 @@
 <span class="p">}</span>
 </code></pre></div>
 
-<p>The <code>Id</code> is the primary key in the database and <code>Name</code> is the name of the status.</p>
+<p>The <code>Id</code> is the primary key in the database, and <code>Name</code> is the name of the status.</p>
 </li>
 <li>
 <p>Open class <code>DAL.EfDbContext.TasksDbContext</code>. We need to add a new DbSet property here and configure the C# - database mapping in method <code>OnModelCreating</code>:</p>
@@ -1012,7 +1012,7 @@
 <p>This configuration sets the name of the table in the database, the key (which will generate values automatically), and the constraints related to the name field.</p>
 </li>
 <li>
-<p>Go to method <code>DAL.StatusesRepository.List()</code>. This is the repository layer that interacts with the database using Entity Framework. Let us list all statuses from the database:</p>
+<p>Go to the method <code>DAL.StatusesRepository.List()</code>. This is the repository layer that interacts with the database using Entity Framework. Let us list all statuses from the database:</p>
 <div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="n">IReadOnlyCollection</span><span class="p">&lt;</span><span class="n">Model</span><span class="p">.</span><span class="n">Status</span><span class="p">&gt;</span> <span class="n">List</span><span class="p">()</span>
 <span class="p">{</span>
     <span class="k">return</span> <span class="n">db</span><span class="p">.</span><span class="n">Statuses</span><span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">ToModel</span><span class="p">).</span><span class="n">ToList</span><span class="p">();</span>
@@ -1031,7 +1031,7 @@
 
 </li>
 <li>
-<p>Once the repository is ready let us move to the controller. Open class <code>Controllers.StatusesController</code>. <strong>Add your Neptun code into the controller's URL</strong>: this controller shall respond to queries that arrive to URL  <code>/api/statuses/neptun</code> where the last 6 characters are your Neptun code all lowercase.</p>
+<p>Once the repository is ready, let us move to the controller. Open class <code>Controllers.StatusesController</code>. <strong>Add your Neptun code into the controller's URL</strong>: this controller shall respond to queries that arrive at URL  <code>/api/statuses/neptun</code> where the last 6 characters are your Neptun code all lowercase.</p>
 <div class="highlight"><pre><span></span><code><span class="hll"><span class="na">[Route(&quot;api/statuses/neptun&quot;)]</span>
 </span><span class="na">[ApiController]</span>
 <span class="k">public</span> <span class="k">class</span> <span class="nc">StatusesController</span> <span class="p">:</span> <span class="n">ControllerBase</span>
@@ -1039,11 +1039,11 @@
 
 <div class="admonition warning">
 <p class="admonition-title">Neptun code is important</p>
-<p>The Neptun code shall appear in screenshots later. It is important that you add it as above!</p>
+<p>The Neptun code shall appear in screenshots later. You must add it as specified above!</p>
 </div>
 </li>
 <li>
-<p>Let us implement an endpoint for handling the <code>GET /api/statuses/neptun</code> request: The dependency injection is configured already, thus the constructor accepts the repository interface (<em>not</em> the implementation but its interface).</p>
+<p>Let us implement an endpoint for handling the <code>GET /api/statuses/neptun</code> request: The dependency injection is configured already; thus the constructor accepts the repository interface (<em>not</em> the implementation but its interface).</p>
 <div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">class</span> <span class="nc">StatusesController</span> <span class="p">:</span> <span class="n">ControllerBase</span>
 <span class="p">{</span>
     <span class="c1">// ...</span>
@@ -1064,7 +1064,7 @@
 <p>Open Postman and send a GET request to URL <a href="http://localhost:5000/api/statuses/neptun">http://localhost:5000/api/statuses/neptun</a> (with your Neptun code in the URL).</p>
 <p><img alt="Query statuses with Postman" src="../../images/efrest/rest-postman-get-statuses.png" /></p>
 <div class="admonition success">
-<p>The query is successful if Postman reports status code 200 and the result is empty. If there is an error check the Output window in Visual Studio and the running application console window.</p>
+<p>The query is successful if Postman reports status code 200, and the result is empty. If there is an error, check the Output window in Visual Studio and the running application console window.</p>
 </div>
 </li>
 <li>
@@ -1105,7 +1105,7 @@
 <p>Let us implement these.</p>
 <ol>
 <li>
-<p>Let us start with the implementation of the first two in the repository. When looking for an item based on a name, we will do case-insensitive comparison.</p>
+<p>Let us start with the implementation of the first two in the repository. When looking for an item based on a name, we will do a case-insensitive comparison.</p>
 <div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="kt">bool</span> <span class="nf">ExistsWithName</span><span class="p">(</span><span class="kt">string</span> <span class="n">statusName</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="k">return</span> <span class="n">db</span><span class="p">.</span><span class="n">Statuses</span><span class="p">.</span><span class="n">Any</span><span class="p">(</span><span class="n">s</span> <span class="p">=&gt;</span> <span class="n">EF</span><span class="p">.</span><span class="n">Functions</span><span class="p">.</span><span class="n">Like</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">Name</span><span class="p">,</span> <span class="n">statusName</span><span class="p">));</span>
@@ -1150,13 +1150,13 @@
 <span class="p">}</span>
 </code></pre></div>
 
-<p>Note the controller method attributes and return values! If the response contains data (in the http body) the return type is <code>ActionResult&lt;T&gt;</code>; if there is no body and only a status code is returned the return type is <code>ActionResult</code>. Methods <code>Ok</code> and <code>NotFound</code> help us create the correct responses.</p>
+<p>Note the controller method attributes and return values! If the response contains data (in the http body) the return type is <code>ActionResult&lt;T&gt;</code>; if there is no body and only a status code is returned, the return type is <code>ActionResult</code>. Methods <code>Ok</code> and <code>NotFound</code> help us create the correct responses.</p>
 <div class="admonition note">
-<p>The URL is defined on two "levels". We defined <code>/api/statuses/neptun</code> on the controller; it applies to all endpoints. It is the "last part" of the URL that is defined on each endpoint separately.</p>
+<p>The URL is defined on two "levels." We defined <code>/api/statuses/neptun</code> on the controller; it applies to all endpoints. It is the "last part" of the URL that is defined on each endpoint separately.</p>
 </div>
 </li>
 <li>
-<p>To implement the insertion let us start with the repository again. Insert is triggered by receiving a <code>CreateStatus</code> model class with a name. We would like to ensure unique names. Thus, we need to verify it before insertion.</p>
+<p>To implement the insertion, let us start with the repository again. Insert is triggered by receiving a <code>CreateStatus</code> model class with a name. We would like to ensure unique names. Thus, we need to verify it before insertion.</p>
 <div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="n">Model</span><span class="p">.</span><span class="n">Status</span> <span class="n">Insert</span><span class="p">(</span><span class="n">CreateStatus</span> <span class="k">value</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="k">using</span> <span class="p">(</span><span class="kt">var</span> <span class="n">tran</span> <span class="p">=</span> <span class="n">db</span><span class="p">.</span><span class="n">Database</span><span class="p">.</span><span class="n">BeginTransaction</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="n">Data</span><span class="p">.</span><span class="n">IsolationLevel</span><span class="p">.</span><span class="n">RepeatableRead</span><span class="p">))</span>
@@ -1176,7 +1176,7 @@
 </code></pre></div>
 
 <div class="admonition important">
-<p>Mind the transaction! First, we check if an identical name exists. If so, an error is raised. After inserting the record the transaction also has to be committed. Since the ID is assigned by the database the repository needs to return the created entity with this assigned ID.</p>
+<p>Mind the transaction! First, we check if an identical name exists. If so, an error is raised. After inserting the record, the transaction also has to be committed. Since the database assigns the ID, the repository needs to return the created entity with this assigned ID.</p>
 </div>
 </li>
 <li>
@@ -1198,7 +1198,7 @@
 <span class="p">}</span>
 </code></pre></div>
 
-<p>Note both the successful and the failed responses. If insertion succeeded the <code>CreatedAtAction</code> helper method prepares a response that contains the entity in the body and adds a <em>Location</em> header with the URL to fetch the record (thus the reference to <code>nameof(Get)</code>). In case of failure the exception is handled by reporting the error the caller. The status code will be 400 and the body will indicate an explanation as text (as REST does not have other means to report errors beside status code).</p>
+<p>Note both the successful and the failed responses. If insertion succeeded, the <code>CreatedAtAction</code> helper method prepares a response that contains the entity in the body and adds a <em>Location</em> header with the URL to fetch the record (thus the reference to <code>nameof(Get)</code>). In case of failure, the exception is handled by reporting the error to the caller. The status code will be 400, and the body will indicate an explanation as text (as REST does not have other means to report errors besides status code).</p>
 </li>
 <li>
 <p>Compile and start the app. Test the queries! Produce both successful and erroneous responses too.</p>

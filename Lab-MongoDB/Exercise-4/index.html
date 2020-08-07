@@ -851,12 +851,12 @@
                 
                 <h1 id="exercise-4-listing-customers">Exercise 4: Listing customers<a class="headerlink" href="#exercise-4-listing-customers" title="Permanent link">&para;</a></h1>
 <p><strong>You can earn 4 points with the completion of this exercise.</strong></p>
-<p>We will list the customers in this exercise along with the total amount of their orders. This will be similar to exercise 2: we will use an aggregation and merging in C# code.</p>
+<p>We will list the customers in this exercise, along with the total amount of their orders. This will be similar to exercise 2: we will use aggregation and merging in C# code.</p>
 <p>The method to implement is <code>IList&lt;Customer&gt; ListCustomers()</code>. The method shall return every customer. The properties of <code>Model.Customer</code> are:</p>
 <ul>
 <li><code>Name</code>: the name of the customer</li>
 <li><code>ZipCode</code>, <code>City</code>, <code>Street</code>: the address fields of the main site of the customer</li>
-<li><code>TotalOrders</code>: the cummulative total of all orders of the customer. If a particular customer has no orders this value shall be <code>null</code>.</li>
+<li><code>TotalOrders</code>: the cumulative total of all orders of the customer. If a particular customer has no orders, this value shall be <code>null</code>.</li>
 </ul>
 <p>Follow these steps to solve this exercise:</p>
 <ol>
@@ -867,13 +867,13 @@
 <p>List all customers. The customer entity has the list of <code>Sites</code>; the main site is the item <code>MainSiteID</code> points to. Use this value to find the main in among the list.</p>
 </li>
 <li>
-<p>In the collection of the orders use an aggregation pipeline to calculate the total of all orders for each <code>CustomerID</code>.</p>
+<p>In the collection of the orders, use an aggregation pipeline to calculate the total of all orders for each <code>CustomerID</code>.</p>
 </li>
 <li>
 <p>Finally, you need the "merge" the two result sets. Every customer has a main site; however not all of them has orders (in which case <code>TotalOrders</code> shall be <code>null</code>).</p>
 </li>
 <li>
-<p>Use the <code>Customers</code> link of the website to test your solution. This will list the data provided by your code in a tabular format. You can use the <code>Add new order</code> functionality from before to create new orders. This must result in an increase of the total for one of the customers.</p>
+<p>Use the <code>Customers</code> link of the website to test your solution. This will list the data provided by your code in a tabular format. You can use the <code>Add new order</code> functionality from before to create new orders. This must result in an increase in the total for one of the customers.</p>
 </li>
 </ol>
 <div class="admonition example">
