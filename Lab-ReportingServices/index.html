@@ -968,7 +968,7 @@
 </ul>
 <p>Materials for preparing for this laboratory:</p>
 <ul>
-<li>Using Microsoft SQL Server: <a href="https://bmeviauac01.github.io/datadriven-en/db/mssql/">description</a> and <a href="https://www.youtube.com/watch?v=kK1i_HUujAc">video</a></li>
+<li>Using Microsoft SQL Server: <a href="https://bmeviauac01.github.io/datadriven-en/db/mssql/">description</a> and <a href="https://web.microsoftstream.com/video/98a6697d-daec-4a5f-82b6-8e96f06302e8">video</a></li>
 <li>SQL Reporting Services <a href="https://docs.microsoft.com/en-us/sql/reporting-services/create-a-basic-table-report-ssrs-tutorial">official tutorial</a></li>
 </ul>
 <h2 id="initial-steps">Initial steps<a class="headerlink" href="#initial-steps" title="Permanent link">&para;</a></h2>
@@ -980,10 +980,11 @@
 </li>
 <li>
 <p>Wait for the repository creation to complete, then check out the repository.</p>
-<div class="admonition tip">
-<p>If in university computer laboratories you are not asked for credentials to log in to GitHub when checking out the repository, the operation may fail. This is likely due to the machine using someone else's GitHub credentials. Delete these credentials first (see <a href="../GitHub-credentials/">here</a>), then retry the checkout.</p>
-</div>
 </li>
+</ol>
+<p>!!! tip ""
+   If in university computer laboratories you are not asked for credentials to log in to GitHub when checking out the repository, the operation may fail. This is likely due to the machine using someone else's GitHub credentials. Delete these credentials first (see <a href="../GitHub-credentials/">here</a>), then retry the checkout.</p>
+<ol>
 <li>
 <p>Create a new branch with the name <code>solution</code> and work on this branch.</p>
 </li>
@@ -995,15 +996,18 @@
 <p>We will work with the <em>Adventure Works</em> sample database. This database contains the operational information of a fictional retail company. Instead of understanding the database contents, we will use a few predefined queries that list product purchases.</p>
 <ol>
 <li>
-<p>Download  <a href="adventure-works-2014-oltp-script.zip">adventure-works-2014-oltp-script.zip</a> and extract it to folder <code>C:\work\Adventure Works 2014 OLTP Script</code> (create the folder if it does not exist yet).</p>
-<div class="admonition important">
+<p>Download <a href="adventure-works-2014-oltp-script.zip">adventure-works-2014-oltp-script.zip</a> and extract it to folder <code>C:\work\Adventure Works 2014 OLTP Script</code> (create the folder if it does not exist yet).</p>
+<div class="admonition important"></div>
 <p>The folder name should be as above; otherwise, you need to change the path in the sql script:</p>
-<div class="highlight"><pre><span></span><code><span class="c1">-- NOTE: Change this path if you copied the script source to another path</span>
+<div class="codehilite"><pre><span></span><code><span class="o">```</span><span class="k">sql</span>
+<span class="c1">-- NOTE: Change this path if you copied the script source to another path</span>
 <span class="p">:</span><span class="n">setvar</span> <span class="n">SqlSamplesSourceDataPath</span> <span class="ss">&quot;C:\work\Adventure Works 2014 OLTP Script\&quot;</span>
+<span class="o">```</span>
+
+<span class="k">If</span> <span class="n">you</span> <span class="n">need</span> <span class="k">to</span> <span class="n">edit</span> <span class="n">the</span> <span class="n">path</span><span class="p">,</span> <span class="n">make</span> <span class="n">sure</span> <span class="k">to</span> <span class="n">keep</span> <span class="n">the</span> <span class="k">trailing</span> <span class="n">slash</span><span class="o">!</span>
 </code></pre></div>
 
-<p>If you need to edit the path, make sure to keep the trailing slash!</p>
-</div>
+
 </li>
 <li>
 <p>Connect to Microsoft SQL Server using SQL Server Management Studio. Use the following connection details.</p>
@@ -1028,8 +1032,8 @@
 <p>Check the contents of the table <code>Production.Product</code> and verify if it has your Neptun code in the product names: right-click the table and choose <em>Select top 1000 rows</em>.</p>
 <div class="admonition warning">
 <p class="admonition-title">IMPORTANT</p>
-<p>Your Neptun code must be listed in the names. You will need to create screenshots in the following exercises, and your Neptun code <strong>must</strong> appear on these images.</p>
 </div>
+<p>Your Neptun code must be listed in the names. You will need to create screenshots in the following exercises, and your Neptun code <strong>must</strong> appear on these images.</p>
 </li>
 </ol>
                 
