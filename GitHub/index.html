@@ -1,6 +1,4 @@
 
-
-
 <!doctype html>
 <html lang="en" class="no-js">
   <head>
@@ -12,8 +10,9 @@
       
         <meta name="author" content="Dudás Ákos">
       
-      <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
+      
+      <link rel="shortcut icon" href="../images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.2">
     
     
       
@@ -21,20 +20,22 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.fe0cca5b.min.css">
-      
-        <link rel="stylesheet" href="../assets/stylesheets/palette.a46bcfb3.min.css">
-      
+      <link rel="stylesheet" href="../assets/stylesheets/main.73f7c429.min.css">
       
         
+        <link rel="stylesheet" href="../assets/stylesheets/palette.39b8e14a.min.css">
         
-        <meta name="theme-color" content="#ef5350">
+          
+          
+          <meta name="theme-color" content="#ef5552">
+        
       
     
     
     
       
-        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
         <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
       
@@ -53,7 +54,10 @@
     
     
     
+    
+    
     <body dir="ltr" data-md-color-scheme="" data-md-color-primary="red" data-md-color-accent="red">
+      
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -71,30 +75,33 @@
       
     </div>
     
-      <header class="md-header" data-md-component="header">
+      
+
+<header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid" aria-label="Header">
     <a href=".." title="BMEVIAUAC09 Software development laboratory 1" class="md-header-nav__button md-logo" aria-label="BMEVIAUAC09 Software development laboratory 1">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+  <img src="../images/logo-bme-aut.png" alt="logo">
 
     </a>
     <label class="md-header-nav__button md-icon" for="__drawer">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
     </label>
     <div class="md-header-nav__title" data-md-component="header-title">
-      
-        <div class="md-header-nav__ellipsis">
-          <span class="md-header-nav__topic md-ellipsis">
+      <div class="md-header-nav__ellipsis">
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
             BMEVIAUAC09 Software development laboratory 1
           </span>
-          <span class="md-header-nav__topic md-ellipsis">
+        </div>
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
             
               Submitting your work (GitHub)
             
           </span>
         </div>
-      
+      </div>
     </div>
     
       <label class="md-header-nav__button md-icon" for="__search">
@@ -105,7 +112,7 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
       <label class="md-search__icon md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
@@ -146,45 +153,27 @@
     
     <div class="md-container" data-md-component="container">
       
-        
-      
       
         
           
-
 <nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
   <div class="md-tabs__inner md-grid">
     <ul class="md-tabs__list">
       
         
-  <li class="md-tabs__item">
+  
+  
     
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
       <a href=".." class="md-tabs__link md-tabs__link--active">
-        Course overview
+        Software development laboratory 1
       </a>
-    
-  </li>
-
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-  
-  
-    <li class="md-tabs__item">
-      
-        <a href="../Lab-ReportingServices/" class="md-tabs__link">
-          Reporting Services
-        </a>
-      
     </li>
   
 
@@ -192,12 +181,15 @@
         
   
   
+
+
+  
+  
+  
     <li class="md-tabs__item">
-      
-        <a href="../Lab-QueryOptimization/" class="md-tabs__link">
-          Query optimization
-        </a>
-      
+      <a href="../Lab-ReportingServices/" class="md-tabs__link">
+        Reporting Services
+      </a>
     </li>
   
 
@@ -205,12 +197,15 @@
         
   
   
+
+
+  
+  
+  
     <li class="md-tabs__item">
-      
-        <a href="../Lab-MSSQL/" class="md-tabs__link">
-          MSSQL
-        </a>
-      
+      <a href="../Lab-QueryOptimization/" class="md-tabs__link">
+        Query optimization
+      </a>
     </li>
   
 
@@ -218,12 +213,15 @@
         
   
   
+
+
+  
+  
+  
     <li class="md-tabs__item">
-      
-        <a href="../Lab-MongoDB/" class="md-tabs__link">
-          MongoDB
-        </a>
-      
+      <a href="../Lab-MSSQL/" class="md-tabs__link">
+        MSSQL
+      </a>
     </li>
   
 
@@ -231,12 +229,31 @@
         
   
   
+
+
+  
+  
+  
     <li class="md-tabs__item">
+      <a href="../Lab-MongoDB/" class="md-tabs__link">
+        MongoDB
+      </a>
+    </li>
+  
+
       
-        <a href="../Lab-EFREST/" class="md-tabs__link">
-          Entity Framework & REST
-        </a>
-      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Lab-EFREST/" class="md-tabs__link">
+        Entity Framework & REST
+      </a>
     </li>
   
 
@@ -250,15 +267,22 @@
         <div class="md-main__inner md-grid">
           
             
-              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+                    
+
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href=".." title="BMEVIAUAC09 Software development laboratory 1" class="md-nav__button md-logo" aria-label="BMEVIAUAC09 Software development laboratory 1">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+  <img src="../images/logo-bme-aut.png" alt="logo">
 
     </a>
     BMEVIAUAC09 Software development laboratory 1
@@ -284,16 +308,44 @@
       
 
 
+  
+
+
+  
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1" checked>
+    
+    <label class="md-nav__link" for="nav-1">
+      Software development laboratory 1
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Software development laboratory 1" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        <span class="md-nav__icon md-icon"></span>
+        Software development laboratory 1
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
   <li class="md-nav__item">
-    <a href=".." title="Course overview" class="md-nav__link">
+    <a href=".." class="md-nav__link">
       Course overview
     </a>
   </li>
 
-    
-      
-      
-      
+        
+          
+          
+          
+
 
   
 
@@ -307,12 +359,10 @@
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
         Submitting your work (GitHub)
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
-        </span>
+        <span class="md-nav__icon md-icon"></span>
       </label>
     
-    <a href="./" title="Submitting your work (GitHub)" class="md-nav__link md-nav__link--active">
+    <a href="./" class="md-nav__link md-nav__link--active">
       Submitting your work (GitHub)
     </a>
     
@@ -324,9 +374,7 @@
   
   
     <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-      </span>
+      <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-scrollfix>
@@ -365,52 +413,74 @@
     
   </li>
 
-    
-      
-      
-      
+        
+          
+          
+          
+
 
 
   <li class="md-nav__item">
-    <a href="../GitHub-Actions/" title="Using GitHub Actions" class="md-nav__link">
+    <a href="../GitHub-Actions/" class="md-nav__link">
       Using GitHub Actions
     </a>
   </li>
 
-    
-      
-      
-      
+        
+          
+          
+          
+
 
 
   <li class="md-nav__item">
-    <a href="../FAQ/" title="Typical issues" class="md-nav__link">
+    <a href="../FAQ/" class="md-nav__link">
       Typical issues
     </a>
   </li>
 
-    
-      
-      
-      
+        
+          
+          
+          
+
 
 
   <li class="md-nav__item">
-    <a href="../VisualStudio/" title="Install Visual Studio" class="md-nav__link">
+    <a href="../VisualStudio/" class="md-nav__link">
       Install Visual Studio
     </a>
   </li>
 
-    
-      
-      
-      
+        
+          
+          
+          
+
 
 
   <li class="md-nav__item">
-    <a href="../GitHub-credentials/" title="In university laboratories: GitHub access" class="md-nav__link">
+    <a href="../bme-cloud-vm/" class="md-nav__link">
+      Using BME Cloud
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../GitHub-credentials/" class="md-nav__link">
       In university laboratories: GitHub access
     </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
     
@@ -419,21 +489,20 @@
       
 
 
+
+  
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
     
-    <label class="md-nav__link" for="nav-7">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" >
+    
+    <label class="md-nav__link" for="nav-2">
       Reporting Services
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
+      <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="Reporting Services" data-md-level="1">
-      <label class="md-nav__title" for="nav-7">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
         Reporting Services
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -444,8 +513,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../Lab-ReportingServices/" title="Reporting Services" class="md-nav__link">
+    <a href="../Lab-ReportingServices/" class="md-nav__link">
       Reporting Services
     </a>
   </li>
@@ -456,8 +526,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../Lab-ReportingServices/Exercise-1/" title="Exercise 1: Table report" class="md-nav__link">
+    <a href="../Lab-ReportingServices/Exercise-1/" class="md-nav__link">
       Exercise 1: Table report
     </a>
   </li>
@@ -468,8 +539,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../Lab-ReportingServices/Exercise-2/" title="Exercise 2: Visualization" class="md-nav__link">
+    <a href="../Lab-ReportingServices/Exercise-2/" class="md-nav__link">
       Exercise 2: Visualization
     </a>
   </li>
@@ -480,8 +552,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../Lab-ReportingServices/Exercise-3/" title="Exercise 3: Sales personnel report" class="md-nav__link">
+    <a href="../Lab-ReportingServices/Exercise-3/" class="md-nav__link">
       Exercise 3: Sales personnel report
     </a>
   </li>
@@ -492,8 +565,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../Lab-ReportingServices/Exercise-4/" title="Exercise 4: Optional exercise" class="md-nav__link">
+    <a href="../Lab-ReportingServices/Exercise-4/" class="md-nav__link">
       Exercise 4: Optional exercise
     </a>
   </li>
@@ -509,21 +583,20 @@
       
 
 
+
+  
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
     
-    <label class="md-nav__link" for="nav-8">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" >
+    
+    <label class="md-nav__link" for="nav-3">
       Query optimization
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
+      <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="Query optimization" data-md-level="1">
-      <label class="md-nav__title" for="nav-8">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
         Query optimization
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -534,8 +607,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../Lab-QueryOptimization/" title="Query optimization" class="md-nav__link">
+    <a href="../Lab-QueryOptimization/" class="md-nav__link">
       Query optimization
     </a>
   </li>
@@ -546,8 +620,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../Lab-QueryOptimization/Exercise-1/" title="Exercises solved together" class="md-nav__link">
+    <a href="../Lab-QueryOptimization/Exercise-1/" class="md-nav__link">
       Exercises solved together
     </a>
   </li>
@@ -558,8 +633,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../Lab-QueryOptimization/Exercise-2/" title="Individual exercises" class="md-nav__link">
+    <a href="../Lab-QueryOptimization/Exercise-2/" class="md-nav__link">
       Individual exercises
     </a>
   </li>
@@ -570,8 +646,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../Lab-QueryOptimization/Exercise-3/" title="Optional exercises" class="md-nav__link">
+    <a href="../Lab-QueryOptimization/Exercise-3/" class="md-nav__link">
       Optional exercises
     </a>
   </li>
@@ -587,21 +664,20 @@
       
 
 
+
+  
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
     
-    <label class="md-nav__link" for="nav-9">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" >
+    
+    <label class="md-nav__link" for="nav-4">
       MSSQL
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
+      <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="MSSQL" data-md-level="1">
-      <label class="md-nav__title" for="nav-9">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon"></span>
         MSSQL
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -612,8 +688,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../Lab-MSSQL/" title="MSSQL" class="md-nav__link">
+    <a href="../Lab-MSSQL/" class="md-nav__link">
       MSSQL
     </a>
   </li>
@@ -624,8 +701,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../Lab-MSSQL/Exercise-1/" title="Exercise 1: Category view and data insertion" class="md-nav__link">
+    <a href="../Lab-MSSQL/Exercise-1/" class="md-nav__link">
       Exercise 1: Category view and data insertion
     </a>
   </li>
@@ -636,8 +714,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../Lab-MSSQL/Exercise-2/" title="Exercise 2: Validating invoices" class="md-nav__link">
+    <a href="../Lab-MSSQL/Exercise-2/" class="md-nav__link">
       Exercise 2: Validating invoices
     </a>
   </li>
@@ -648,8 +727,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../Lab-MSSQL/Exercise-3/" title="Exercise 3: Denormalize invoices" class="md-nav__link">
+    <a href="../Lab-MSSQL/Exercise-3/" class="md-nav__link">
       Exercise 3: Denormalize invoices
     </a>
   </li>
@@ -660,8 +740,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../Lab-MSSQL/Exercise-4/" title="Exercise 4: Optional exercise" class="md-nav__link">
+    <a href="../Lab-MSSQL/Exercise-4/" class="md-nav__link">
       Exercise 4: Optional exercise
     </a>
   </li>
@@ -677,21 +758,20 @@
       
 
 
+
+  
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
     
-    <label class="md-nav__link" for="nav-10">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" >
+    
+    <label class="md-nav__link" for="nav-5">
       MongoDB
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
+      <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="MongoDB" data-md-level="1">
-      <label class="md-nav__title" for="nav-10">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon"></span>
         MongoDB
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -702,8 +782,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../Lab-MongoDB/" title="MongoDB" class="md-nav__link">
+    <a href="../Lab-MongoDB/" class="md-nav__link">
       MongoDB
     </a>
   </li>
@@ -714,8 +795,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../Lab-MongoDB/Exercise-1/" title="Exercise 1: Listing and modifying products" class="md-nav__link">
+    <a href="../Lab-MongoDB/Exercise-1/" class="md-nav__link">
       Exercise 1: Listing and modifying products
     </a>
   </li>
@@ -726,8 +808,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../Lab-MongoDB/Exercise-2/" title="Exercise 2: Listing categories" class="md-nav__link">
+    <a href="../Lab-MongoDB/Exercise-2/" class="md-nav__link">
       Exercise 2: Listing categories
     </a>
   </li>
@@ -738,8 +821,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../Lab-MongoDB/Exercise-3/" title="Exercise 3: Querying and modifying orders" class="md-nav__link">
+    <a href="../Lab-MongoDB/Exercise-3/" class="md-nav__link">
       Exercise 3: Querying and modifying orders
     </a>
   </li>
@@ -750,8 +834,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../Lab-MongoDB/Exercise-4/" title="Exercise 4: Listing customers" class="md-nav__link">
+    <a href="../Lab-MongoDB/Exercise-4/" class="md-nav__link">
       Exercise 4: Listing customers
     </a>
   </li>
@@ -762,8 +847,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../Lab-MongoDB/Exercise-5/" title="Exercise 5: Optional exercise" class="md-nav__link">
+    <a href="../Lab-MongoDB/Exercise-5/" class="md-nav__link">
       Exercise 5: Optional exercise
     </a>
   </li>
@@ -779,21 +865,20 @@
       
 
 
+
+  
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11">
     
-    <label class="md-nav__link" for="nav-11">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" >
+    
+    <label class="md-nav__link" for="nav-6">
       Entity Framework & REST
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
+      <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="Entity Framework & REST" data-md-level="1">
-      <label class="md-nav__title" for="nav-11">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
+      <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon"></span>
         Entity Framework & REST
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -804,8 +889,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../Lab-EFREST/" title="Entity Framework and REST" class="md-nav__link">
+    <a href="../Lab-EFREST/" class="md-nav__link">
       Entity Framework and REST
     </a>
   </li>
@@ -816,8 +902,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../Lab-EFREST/Exercise-1/" title="Exercise 1: Managing statuses" class="md-nav__link">
+    <a href="../Lab-EFREST/Exercise-1/" class="md-nav__link">
       Exercise 1: Managing statuses
     </a>
   </li>
@@ -828,8 +915,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../Lab-EFREST/Exercise-2/" title="Exercise 2: Task operations" class="md-nav__link">
+    <a href="../Lab-EFREST/Exercise-2/" class="md-nav__link">
       Exercise 2: Task operations
     </a>
   </li>
@@ -840,8 +928,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../Lab-EFREST/Exercise-3/" title="Exercise 3: Task operations" class="md-nav__link">
+    <a href="../Lab-EFREST/Exercise-3/" class="md-nav__link">
       Exercise 3: Task operations
     </a>
   </li>
@@ -852,8 +941,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../Lab-EFREST/Exercise-4/" title="Exercise 4: Optional exercise" class="md-nav__link">
+    <a href="../Lab-EFREST/Exercise-4/" class="md-nav__link">
       Exercise 4: Optional exercise
     </a>
   </li>
@@ -871,7 +961,8 @@
               </div>
             
             
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -882,9 +973,7 @@
   
   
     <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-      </span>
+      <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-scrollfix>
@@ -932,9 +1021,6 @@
                   <a href="https://github.com/bmeviauac01/laboratories-en/edit/master/docs/GitHub.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
-                
-                
-                  
                 
                 
                 <h1 id="submitting-your-work-github">Submitting your work (GitHub)<a class="headerlink" href="#submitting-your-work-github" title="Permanent link">&para;</a></h1>
@@ -1007,12 +1093,10 @@
 <div class="highlight"><pre><span></span><code>git config user.name
 git config user.email
 </code></pre></div>
-
 <p>If the values are not correct, set your name and email address with the following commands executed in the repository directory. This will set the values for the repository. (It is recommended to set the email address to the one you use with GitHub.)</p>
 <div class="highlight"><pre><span></span><code>git config user.name <span class="s2">&quot;John Doe&quot;</span>
 git config user.email <span class="s2">&quot;john@doe.org&quot;</span>
 </code></pre></div>
-
 </div>
 <div class="admonition tip">
 <p class="admonition-title">At home</p>
@@ -1038,7 +1122,6 @@ git push --set-upstream origin solution
 <span class="c1"># Push futher commits</span>
 git push
 </code></pre></div>
-
 </li>
 </ol>
 <h2 id="submitting-the-solution">Submitting the solution<a class="headerlink" href="#submitting-the-solution" title="Permanent link">&para;</a></h2>
@@ -1116,7 +1199,29 @@ git push
         </div>
       </main>
       
-        
+        <!--
+  Copyright (c) 2016-2020 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+
 
 <!-- Application footer -->
 <footer class="md-footer">
@@ -1128,8 +1233,7 @@ git push
 
       <!-- Link to previous page -->
       
-      <a href=".." title="Course overview"
-        class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+      <a href=".." class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
         <div class="md-footer-nav__button md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
         </div>
@@ -1146,8 +1250,7 @@ git push
 
       <!-- Link to next page -->
       
-      <a href="../GitHub-Actions/" title="Using GitHub Actions"
-        class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+      <a href="../GitHub-Actions/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
         <div class="md-footer-nav__title">
           <div class="md-ellipsis">
             <span class="md-footer-nav__direction">
@@ -1178,21 +1281,23 @@ git push
         
       </div>
 
+      <!-- Social links -->
+      
     </div>
   </div>
 </footer>
       
     </div>
     
-      <script src="../assets/javascripts/vendor.d710d30a.min.js"></script>
-      <script src="../assets/javascripts/bundle.b39636ac.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      <script src="../assets/javascripts/vendor.08c56446.min.js"></script>
+      <script src="../assets/javascripts/bundle.6ced434e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
       
       <script>
         app = initialize({
           base: "..",
-          features: ["tabs"],
+          features: ['navigation.tabs'],
           search: Object.assign({
-            worker: "../assets/javascripts/worker/search.a68abb33.min.js"
+            worker: "../assets/javascripts/worker/search.8c7e0a7e.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>
