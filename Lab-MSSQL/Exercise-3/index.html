@@ -1012,14 +1012,14 @@
 <p>Submit the code in file <code>f3-fill.sql</code>. The file shall contain a single T-SQL code block. Do not use stored procedures or triggers here, and the code should not have any <code>[use]</code> or <code>go</code> statements either. You can earn 1 point with the completion of this task.</p>
 </div>
 <h2 id="maintaining-the-correct-value">Maintaining the correct value<a class="headerlink" href="#maintaining-the-correct-value" title="Permanent link">&para;</a></h2>
-<p>Create a trigger with the name <code>InvoiceItemCountMaintenance</code> that ensures the value in this new column is updated when an invoice or related items are updated. The trigger must be efficient! Re-calculating the number of items is not an acceptable solution.</p>
+<p>Create a trigger with the name <code>InvoiceItemCountMaintenance</code> that ensures the value in this new column is updated when an invoice or related items are updated. The trigger must be efficient! Re-calculating the number of items is not an acceptable solution. The trigger must also work correctly when multiple items are updated at the same time.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>The trigger shall be on the <code>InvoiceItem</code> table despite the new column being in the <code>Invoice</code> table.</p>
 </div>
 <div class="admonition warning">
-<p class="admonition-title">IMPORTANT</p>
-<p>Do not forget that triggers are executed <strong>per statement</strong> and not for each row, that is, your trigger will need to handle multiple changes in the implicit tables! The <code>inserted</code> and <code>deleted</code> <strong>tables</strong> must be treated as such.</p>
+<p class="admonition-title">Important</p>
+<p>Do not forget that triggers are executed <strong>per statement</strong> and not for each row, that is, your trigger will need to handle multiple changes in the implicit tables! The <code>inserted</code> and <code>deleted</code> implicit variables are <strong>tables</strong> must be treated as such.</p>
 </div>
 <div class="admonition example">
 <p class="admonition-title">SUBMISSION</p>
@@ -1028,7 +1028,7 @@
 <p>Verify the correct behavior of the trigger! The test code need not be submitted, but make sure to verify the behavior. Make sure to check the behavior when multiple records are modified with a single statement, e.g., execute an <code>update</code> without a <code>where</code> condition).</p>
 <div class="admonition example">
 <p class="admonition-title">SUBMISSION</p>
-<p>Create a screenshot displaying the contents of the table <code>Invoice</code> with the <code>ItemCount</code> column and its correctly filled values. Save the screenshot as <code>f3.png</code> and submit with the other files of the solution. The screenshot shall display the database name in the <em>Object Explorer</em> windows (which should be your <strong>Neptun code</strong>) and the <strong>contents of the <code>Invoice</code> table</strong>. The screenshot is required to earn the points.</p>
+<p>Create a screenshot displaying the contents of the table <code>Invoice</code> with the <code>ItemCount</code> column and its correctly filled values. Save the screenshot as <code>f3.png</code> and submit with the other files of the solution. The screenshot shall display the database name (which should be your <strong>Neptun code</strong>) in the <em>Object Explorer</em> window and the <strong>contents of the <code>Invoice</code> table</strong>. The screenshot is required to earn the points of this part of the exercise.</p>
 </div>
                 
               

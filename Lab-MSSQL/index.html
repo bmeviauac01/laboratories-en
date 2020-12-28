@@ -1041,20 +1041,24 @@
 <p>Required tools to complete the tasks:</p>
 <ul>
 <li>Windows, Linux, or macOS: All tools are platform-independent, or a platform-independent alternative is available.</li>
-<li>Microsoft SQL Server</li>
+<li>Microsoft SQL Server<ul>
 <li>The free Express version is sufficient, or you may also use <em>localdb</em> installed with Visual Studio</li>
 <li>A <a href="https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-setup">Linux version</a> is also available.</li>
 <li>On macOS, you can use Docker.</li>
+</ul>
+</li>
 <li><a href="https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms">SQL Server Management Studio</a>, or you may also use the platform-independent <a href="https://docs.microsoft.com/en-us/sql/azure-data-studio/download">Azure Data Studio</a> is</li>
-<li>Database initialization script: <a href="https://bmeviauac01.github.io/adatvezerelt/db/mssql.sql">mssql.sql</a></li>
+<li>Database initialization script: <a href="https://raw.githubusercontent.com/bmeviauac01/adatvezerelt/master/docs/db/mssql.sql">mssql.sql</a></li>
 <li>GitHub account and a git client</li>
 </ul>
 <p>Materials for preparing for this laboratory:</p>
 <ul>
 <li>Using Microsoft SQL Server: <a href="https://bmeviauac01.github.io/datadriven-en/db/mssql/">description</a> and <a href="https://web.microsoftstream.com/video/98a6697d-daec-4a5f-82b6-8e96f06302e8">video</a></li>
 <li>The <a href="https://bmeviauac01.github.io/datadriven-en/db/">schema</a> of the database</li>
-<li>Microsoft SQL Server server-side programming and the SQL language</li>
+<li>Microsoft SQL Server server-side programming and the SQL language<ul>
 <li>Check the materials of <a href="https://www.aut.bme.hu/Course/enviauac01">Data-driven systems</a> including the <a href="https://bmeviauac01.github.io/datadriven-en/">seminars</a></li>
+</ul>
+</li>
 </ul>
 <h2 id="initial-steps">Initial steps<a class="headerlink" href="#initial-steps" title="Permanent link">&para;</a></h2>
 <p>Keep in mind that you are expected to follow the <a href="../GitHub/">submission process</a>.</p>
@@ -1065,11 +1069,10 @@
 </li>
 <li>
 <p>Wait for the repository creation to complete, then check out the repository.</p>
+<div class="admonition tip">
+<p>If in university computer laboratories you are not asked for credentials to log in to GitHub when checking out the repository, the operation may fail. This is likely due to the machine using someone else's GitHub credentials. Delete these credentials first (see <a href="../GitHub-credentials/">here</a>), then retry the checkout.</p>
+</div>
 </li>
-</ol>
-<p>!!! tip ""
-   If in university computer laboratories you are not asked for credentials to log in to GitHub when checking out the repository, the operation may fail. This is likely due to the machine using someone else's GitHub credentials. Delete these credentials first (see <a href="../GitHub-credentials/">here</a>), then retry the checkout.</p>
-<ol>
 <li>
 <p>Create a new branch with the name <code>solution</code> and work on this branch.</p>
 </li>
@@ -1081,27 +1084,27 @@
 <ol>
 <li>
 <p>Connect to Microsoft SQL Server using SQL Server Management Studio. Start Management Studio and use the following connection details:</p>
-</li>
-<li>
-<p>Server name: <code>(localdb)\mssqllocaldb</code> or <code>.\sqlexpress</code> (which is short for: <code>localhost\sqlexpress</code>)</p>
-</li>
-<li>
-<p>Authentication: <code>Windows authentication</code></p>
+<ul>
+<li>Server name: <code>(localdb)\mssqllocaldb</code> or <code>.\sqlexpress</code> (which is short for: <code>localhost\sqlexpress</code>)</li>
+<li>Authentication: <code>Windows authentication</code></li>
+</ul>
 </li>
 <li>
 <p>Create a new database (if it does not exist yet). The name should be your <strong>Neptun code</strong>: in <em>Object Explorer</em> right-click <em>Databases</em> and choose <em>Create Database</em>.</p>
+<div class="admonition warning">
+<p class="admonition-title">IMPORTANT</p>
+<p>The name of the database must be your <strong>Neptun code</strong>. You will need to submit screenshots that display the database name this way!</p>
+</div>
+</li>
+<li>
+<p>Create the sample database by executing the <a href="https://raw.githubusercontent.com/bmeviauac01/adatvezerelt/master/docs/db/mssql.sql">initializer script</a> Open a new <em>Query</em> window, paste the script into the window, then execute it. Make sure to select the right database in the toolbar dropdown.</p>
+<p><img alt="Selecting the database" src="../images/sql-management-database-dropdown.png" /></p>
+</li>
+<li>
+<p>Verify that the tables are created. If the <em>Tables</em> folder was open before, you need to refresh it.</p>
+<p><img alt="Listing tables" src="../images/sql-managment-tablak.png" />.</p>
 </li>
 </ol>
-<p>!!! warning "IMPORTANT"
-   The name of the database must be your <strong>Neptun code</strong>. You will need to submit screenshots that display the database name this way!</p>
-<ol>
-<li>Create the sample database by executing the <a href="https://bmeviauac01.github.io/adatvezerelt/db/mssql.sql">initializer script</a> Open a new <em>Query</em> window, paste the script into the window, then execute it. Make sure to select the right database in the toolbar dropdown.</li>
-</ol>
-<p><img alt="Selecting the database" src="../images/sql-management-database-dropdown.png" /></p>
-<ol>
-<li>Verify that the tables are created. If the <em>Tables</em> folder was open before, you need to refresh it.</li>
-</ol>
-<p><img alt="Listing tables" src="../images/sql-managment-tablak.png" />.</p>
                 
               
               
