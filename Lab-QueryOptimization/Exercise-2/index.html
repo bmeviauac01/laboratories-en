@@ -1113,21 +1113,21 @@
 <p>Continue documenting the results the same way.</p>
 </div>
 <h2 id="exercise-6-1p">Exercise 6 (1p)<a class="headerlink" href="#exercise-6-1p" title="Permanent link">&para;</a></h2>
-<p>Repeat the queries on the <code>Product</code> table, but instead of fetching the entire record, only get the ID and the <code>Price</code> columns. How do the execution plans change? Explain the differences!</p>
+<p>Repeat the queries on the <code>Product</code> table, but instead of fetching the entire record, only get the <code>ID</code> and the <code>Price</code> columns. How do the execution plans change? Explain the differences!</p>
 <h2 id="exercise-7-1p">Exercise 7 (1p)<a class="headerlink" href="#exercise-7-1p" title="Permanent link">&para;</a></h2>
 <p>Analyze the following queries executed on the <code>Product</code> table:</p>
 <ul>
 <li>k) query records where the primary key is between two values (use the <code>BETWEEN</code> operator)</li>
-<li>k) query records where the primary key is between two values (use the <code>BETWEEN</code> operator) <strong>or</strong> it is equal to a value that falls outside of this range</li>
+<li>k) query records where the primary key is between two values (use the <code>BETWEEN</code> operator), <strong>or</strong> it is equal to a value that falls outside of this range</li>
 </ul>
 <p>Document the SQL commands you used and explain the actual query execution plan!</p>
 <h2 id="exercise-8-1p">Exercise 8 (1p)<a class="headerlink" href="#exercise-8-1p" title="Permanent link">&para;</a></h2>
-<p>In Exercises 6 <code>WHERE Price=</code> compared an integer and a floating-point number. Let us experiment with this:</p>
+<p>In Exercises 6 <code>WHERE Price=</code> compared an integer and a floating-point number. Let us experiment with other comparisons: query records from the <code>Product</code> table with the following filter criteria.</p>
 <ul>
 <li>m) <code>where cast(Price as int) = integer number</code></li>
 <li>n) <code>where Price BETWEEN integer number-0.0001 AND integer number+0.0001</code></li>
 </ul>
-<p>Chose a random integer number in these queries and fetch <strong>only the primary key</strong>. Analyze the execution plans.</p>
+<p>Choose a random integer number in these queries and fetch <strong>only the primary key</strong>. Analyze the execution plans.</p>
 <h2 id="exercise-9-1p">Exercise 9 (1p)<a class="headerlink" href="#exercise-9-1p" title="Permanent link">&para;</a></h2>
 <p>Analyze the following queries execute on the <code>Product</code> table:</p>
 <ul>
@@ -1140,9 +1140,9 @@
 <h2 id="exercise-10-1p">Exercise 10 (1p)<a class="headerlink" href="#exercise-10-1p" title="Permanent link">&para;</a></h2>
 <p>Create a new index for the <code>Name</code> column and analyze the following queries executed on the <code>Product</code> table:</p>
 <ul>
-<li>s) query names and Ids where the name begins with Z - use <a href="https://docs.microsoft.com/en-us/sql/t-sql/functions/substring-transact-sql"><code>SUBSTRING</code></a></li>
+<li>s) query names and IDs where the name begins with Z - use function <a href="https://docs.microsoft.com/en-us/sql/t-sql/functions/substring-transact-sql"><code>SUBSTRING</code></a></li>
 <li>t) the same, but now using <a href="https://docs.microsoft.com/en-us/sql/t-sql/language-elements/like-transact-sql"><code>LIKE</code></a></li>
-<li>u) query names and Ids where the name contains a Z (LIKE)</li>
+<li>u) query names and IDs where the name contains a Z (LIKE)</li>
 <li>v) query the ID of a product where the name equals (=) a string</li>
 <li>w) the same, but now compare case-insensitively using <a href="https://docs.microsoft.com/en-us/sql/t-sql/functions/upper-transact-sql?view=sql-server-ver15"><code>UPPER</code></a></li>
 </ul>
@@ -1161,12 +1161,13 @@
 <p>How could we improve on the performance of the previous query? Explain and implement the solution and repeat the previous query.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>You need to add a new index. The question is: to which field?</p>
+<p>You need to add a new index. The question is: to which column?</p>
 </div>
 <h2 id="exercise-14-1p">Exercise 14 (1p)<a class="headerlink" href="#exercise-14-1p" title="Permanent link">&para;</a></h2>
-<p>List the <code>Name</code> of each <code>Product</code> where <code>CategoryId</code> equals 2. Document the SQL commands you used and explain the actual query execution plan! Explain whether the index added in the previous exercises helps the performance.</p>
+<p>List the <code>Name</code> of each <code>Product</code> where <code>CategoryId</code> equals 2.</p>
+<p>Document the SQL commands you used and explain the actual query execution plan! Explain whether the index added in the previous exercises helps the performance.</p>
 <h2 id="exercise-15-1p">Exercise 15 (1p)<a class="headerlink" href="#exercise-15-1p" title="Permanent link">&para;</a></h2>
-<p>Improve the performance of the previous query. Extend the index added before by adding the name: right-click the index -&gt; <em>Properties</em> -&gt; and add <code>Name</code> to <em>Included columns</em>.</p>
+<p>Improve the performance of the previous query. Extend the index added before by including the name: right-click the index -&gt; <em>Properties</em> -&gt; and add <code>Name</code> to <em>Included columns</em>.</p>
 <p>Repeat the previous query and analyze the plan.</p>
                 
               
