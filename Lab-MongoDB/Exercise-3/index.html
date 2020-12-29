@@ -387,7 +387,7 @@
 
   <li class="md-nav__item">
     <a href="../../VisualStudio/" class="md-nav__link">
-      Install Visual Studio
+      Install Visual Studio & .NET Core SDK
     </a>
   </li>
 
@@ -1047,7 +1047,7 @@
 <li><code>PaymentMethod</code>: taken from the <code>Method</code> field of the <code>PaymentMethod</code> complex entity</li>
 <li><code>Total</code>: the cumulative sum of the product of <code>Amount</code> and <code>Price</code> for all items associated with this order (<code>OrderItems</code>)</li>
 </ul>
-<p>You will need to implement the management methods related to orders: <code>List</code>, <code>Find</code>, <code>Insert</code>, <code>Delete</code> and <code>Update</code>.</p>
+<p>You will need to implement the management methods related to orders: <code>ListOrders</code>, <code>FindOrder</code>, <code>InsertOrder</code>, <code>DeleteOrder</code> and <code>UpdateOrder</code>.</p>
 <p>Before starting the tasks below, do not forget to add and initialize an <code>orderCollection</code> in the repository class similar to the other one.</p>
 <h2 id="listing">Listing<a class="headerlink" href="#listing" title="Permanent link">&para;</a></h2>
 <ol>
@@ -1068,7 +1068,7 @@
 <ul>
 <li><code>CustomerID</code>, <code>SiteID</code>: find a chosen <code>Customer</code> in the database and copy the values from this record from fields <code>_id</code> and <code>mainSiteId</code>. Hard-wire these values in code.</li>
 <li><code>Date</code>, <code>Deadline</code>, <code>Status</code>: take these values from the value received as <code>order</code> parameter</li>
-<li><code>PaymentMethod</code>: create a new instance of <code>PaymentMethod</code>. The <code>Method</code> should be <code>PaymentMethod</code> from the object received through the <code>order</code> parameter. <code>Deadline</code>: leave as <code>null</code>.</li>
+<li><code>PaymentMethod</code>: create a new instance of <code>PaymentMethod</code>. The <code>Method</code> should be <code>PaymentMethod</code> from the object received through the <code>order</code> parameter. Leave <code>Deadline</code> as <code>null</code>.</li>
 <li><code>OrderItems</code>: create a single item here with the following data:<ul>
 <li><code>ProductID</code> and <code>Price</code>: take the values from the parameter <code>product</code></li>
 <li><code>Amount</code>: copy value from the method parameter <code>amount</code></li>
@@ -1080,7 +1080,7 @@
 </li>
 </ol>
 <h2 id="delete">Delete<a class="headerlink" href="#delete" title="Permanent link">&para;</a></h2>
-<p><code>DeleteOrder</code> should delete the specified record.</p>
+<p><code>DeleteOrder</code> should delete the record specified by the <code>ID</code>.</p>
 <h2 id="modification">Modification<a class="headerlink" href="#modification" title="Permanent link">&para;</a></h2>
 <p>When updating the record in <code>UpdateOrder</code>, only update the information that is present in <code>Models.Order</code>: <code>Date</code>, <code>Deadline</code>, <code>Status</code> and <code>PaymentMethod</code>. Ignore the value <code>Total</code>; it does not need to be considered in this context.</p>
 <div class="admonition tip">
@@ -1092,7 +1092,7 @@
 <p>You can test the functionalities using the <code>Orders</code> link in the test web app. Verify the behavior of <code>Filter</code>, <code>Add new order</code>, <code>Edit</code>, <code>Details</code>, and <code>Delete</code> too!</p>
 <div class="admonition example">
 <p class="admonition-title">SUBMISSION</p>
-<p>Create a <strong>screenshot</strong> of the web page listing the orders. Save the screenshot as <code>f3.png</code> and submit with the other files of the solution. The screenshot shall display the <strong>list of orders</strong>. Verify that your <strong>Neptun code</strong> is visible on the image at the bottom of the page! The screenshot is required to earn the points.</p>
+<p>Create a <strong>screenshot</strong> of the web page listing the orders <strong>after successfully adding at least one new order</strong>. Save the screenshot as <code>f3.png</code> and submit with the other files of the solution. The screenshot shall display the <strong>list of orders</strong>. Verify that your <strong>Neptun code</strong> is visible on the image at the bottom of the page! The screenshot is required to earn the points.</p>
 </div>
                 
               

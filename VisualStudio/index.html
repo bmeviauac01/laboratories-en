@@ -16,7 +16,7 @@
     
     
       
-        <title>Install Visual Studio - BMEVIAUAC09 Software development laboratory 1</title>
+        <title>Install Visual Studio & .NET Core SDK - BMEVIAUAC09 Software development laboratory 1</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#install-visual-studio" class="md-skip">
+        <a href="#install-visual-studio-net-core-sdk" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Install Visual Studio
+              Install Visual Studio & .NET Core SDK
             
           </span>
         </div>
@@ -397,12 +397,12 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Install Visual Studio
+        Install Visual Studio & .NET Core SDK
         <span class="md-nav__icon md-icon"></span>
       </label>
     
     <a href="./" class="md-nav__link md-nav__link--active">
-      Install Visual Studio
+      Install Visual Studio & .NET Core SDK
     </a>
     
       
@@ -421,6 +421,13 @@
         <li class="md-nav__item">
   <a href="#visual-studio-workloads" class="md-nav__link">
     Visual Studio workloads
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-and-install-net-core-sdk" class="md-nav__link">
+    Check and install .NET Core SDK
   </a>
   
 </li>
@@ -964,6 +971,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#check-and-install-net-core-sdk" class="md-nav__link">
+    Check and install .NET Core SDK
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -981,12 +995,13 @@
                   </a>
                 
                 
-                <h1 id="install-visual-studio">Install Visual Studio<a class="headerlink" href="#install-visual-studio" title="Permanent link">&para;</a></h1>
+                <h1 id="install-visual-studio-net-core-sdk">Install Visual Studio &amp; .NET Core SDK<a class="headerlink" href="#install-visual-studio-net-core-sdk" title="Permanent link">&para;</a></h1>
 <p>In some of the exercises require Microsoft Visual Studio <strong>version 2019 16.6 or newer</strong>. The free <a href="https://visualstudio.microsoft.com/vs/community/">Community edition</a> is sufficient for solving these exercises.</p>
+<p>You can check the version by starting the <em>Visual Studio Installer</em>:</p>
 <p><img alt="Visual Studio version" src="../images/visual-studio/vs-verzio.png" /></p>
 <div class="admonition info">
 <p class="admonition-title">VS Code</p>
-<p>The exercises can also be solved using the platform-independent <strong>Visual Studio Code</strong>. However, the skeletons of the exercises are prepared for Visual Studio. If you are working with VS Code, you need to configure your environment.</p>
+<p>The exercises can also be solved using the platform-independent <strong>Visual Studio Code</strong>. The skeletons of the exercises are prepared for Visual Studio. If you are working with VS Code, you need to configure your environment.</p>
 </div>
 <h2 id="visual-studio-workloads">Visual Studio workloads<a class="headerlink" href="#visual-studio-workloads" title="Permanent link">&para;</a></h2>
 <p>When installing Visual Studio, the following <a href="https://docs.microsoft.com/en-us/visualstudio/install/install-visual-studio?view=vs-2019#step-4---choose-workloads">workloads</a> have to be selected:</p>
@@ -997,6 +1012,13 @@
 <p><img alt="Visual Studio workloads" src="../images/visual-studio/vs-workload.png" /></p>
 <p>An existing installation can be <a href="https://docs.microsoft.com/en-us/visualstudio/install/modify-visual-studio?view=vs-2019"><em>modified</em></a> using the <em>Visual Studio Installer</em>.</p>
 <p><img alt="Visual Studio install components" src="../images/visual-studio/vs-installer-modify.png" /></p>
+<h2 id="check-and-install-net-core-sdk">Check and install .NET Core SDK<a class="headerlink" href="#check-and-install-net-core-sdk" title="Permanent link">&para;</a></h2>
+<p>Visual Studio might install certain versions of the .NET Core SDK. To check if you have the right version, use the <code>dotnet</code> CLI: in a console execute the <code>dotnet --list-sdks</code> command. This works on Linux and Mac too. It will print something similar:</p>
+<div class="highlight"><pre><span></span><code>C:\&gt;dotnet --list-sdks
+<span class="hll">3.1.404 [C:\Program Files\dotnet\sdk]
+</span>5.0.101 [C:\Program Files\dotnet\sdk]
+</code></pre></div>
+<p>If you see version <strong>3.1</strong> in this list, then you are good to go. Otherwise install the SDK <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1">from here</a>.</p>
                 
               
               
