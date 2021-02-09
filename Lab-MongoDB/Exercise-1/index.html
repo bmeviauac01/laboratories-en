@@ -1120,11 +1120,11 @@
 <ol>
 <li>
 <p>First, you will need a way to access the <code>products</code> collection from C#. Create and initialize a new variable that represents the collection in class <code>Repository</code>. Use the injected <code>IMongoDatabase</code> variable to get the collection:</p>
-<div class="highlight"><pre><span></span><code><span class="k">private</span> <span class="k">readonly</span> <span class="n">IMongoCollection</span><span class="p">&lt;</span><span class="n">Enites</span><span class="p">.</span><span class="n">Product</span><span class="p">&gt;</span> <span class="n">productCollection</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">private</span> <span class="k">readonly</span> <span class="n">IMongoCollection</span><span class="p">&lt;</span><span class="n">Entities</span><span class="p">.</span><span class="n">Product</span><span class="p">&gt;</span> <span class="n">productCollection</span><span class="p">;</span>
 
 <span class="k">public</span> <span class="nf">Repository</span><span class="p">(</span><span class="n">IMongoDatabase</span> <span class="n">database</span><span class="p">)</span>
 <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="n">productCollection</span> <span class="p">=</span> <span class="n">database</span><span class="p">.</span><span class="n">GetCollection</span><span class="p">&lt;</span><span class="n">Enites</span><span class="p">.</span><span class="n">Product</span><span class="p">&gt;(</span><span class="s">&quot;products&quot;</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">productCollection</span> <span class="p">=</span> <span class="n">database</span><span class="p">.</span><span class="n">GetCollection</span><span class="p">&lt;</span><span class="n">Entities</span><span class="p">.</span><span class="n">Product</span><span class="p">&gt;(</span><span class="s">&quot;products&quot;</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </li>
@@ -1174,7 +1174,7 @@
 </li>
 <li>
 <p>To create a new product, we will first create a new database entity (in memory first). This is an instance of class <code>Entities.Product</code>. There is no need to set the <code>ID</code> - the database will generate it. <code>Name</code>, <code>Price</code> and <code>Stock</code> are provided by the user. What is left is <code>VAT</code> and <code>CategoryID</code>. We should just hard-code values here: create a new VAT entity and find a random category using <em>Robo3T</em> and copy the <code>_id</code> value.</p>
-<div class="highlight"><pre><span></span><code><span class="kt">var</span> <span class="n">dbProduct</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Enites</span><span class="p">.</span><span class="n">Product</span>
+<div class="highlight"><pre><span></span><code><span class="kt">var</span> <span class="n">dbProduct</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Entities</span><span class="p">.</span><span class="n">Product</span>
 <span class="p">{</span>
     <span class="n">Name</span> <span class="p">=</span> <span class="n">product</span><span class="p">.</span><span class="n">Name</span><span class="p">,</span>
     <span class="n">Price</span> <span class="p">=</span> <span class="n">product</span><span class="p">.</span><span class="n">Price</span><span class="p">,</span>
@@ -1208,7 +1208,7 @@
 <p>Using the atomicity guarantees of MongoDB, we will perform the changes in a single step. A filter will be used to find both the <code>id</code> and check if there are enough items in stock. A modification will decrease the stock only if the filter is matched.</p>
 <div class="highlight"><pre><span></span><code><span class="kt">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">productCollection</span><span class="p">.</span><span class="n">UpdateOne</span><span class="p">(</span>
     <span class="n">filter</span><span class="p">:</span> <span class="n">t</span> <span class="p">=&gt;</span> <span class="n">t</span><span class="p">.</span><span class="n">ID</span> <span class="p">==</span> <span class="n">ObjectId</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">id</span><span class="p">)</span> <span class="p">&amp;&amp;</span> <span class="n">t</span><span class="p">.</span><span class="n">Stock</span> <span class="p">&gt;=</span> <span class="n">amount</span><span class="p">,</span>
-    <span class="n">update</span><span class="p">:</span> <span class="n">Builders</span><span class="p">&lt;</span><span class="n">Enites</span><span class="p">.</span><span class="n">Product</span><span class="p">&gt;.</span><span class="n">Update</span><span class="p">.</span><span class="n">Inc</span><span class="p">(</span><span class="n">t</span> <span class="p">=&gt;</span> <span class="n">t</span><span class="p">.</span><span class="n">Stock</span><span class="p">,</span> <span class="p">-</span><span class="n">amount</span><span class="p">),</span>
+    <span class="n">update</span><span class="p">:</span> <span class="n">Builders</span><span class="p">&lt;</span><span class="n">Entities</span><span class="p">.</span><span class="n">Product</span><span class="p">&gt;.</span><span class="n">Update</span><span class="p">.</span><span class="n">Inc</span><span class="p">(</span><span class="n">t</span> <span class="p">=&gt;</span> <span class="n">t</span><span class="p">.</span><span class="n">Stock</span><span class="p">,</span> <span class="p">-</span><span class="n">amount</span><span class="p">),</span>
     <span class="n">options</span><span class="p">:</span> <span class="k">new</span> <span class="n">UpdateOptions</span> <span class="p">{</span> <span class="n">IsUpsert</span> <span class="p">=</span> <span class="k">false</span> <span class="p">});</span>
 </code></pre></div>
 <p>Note that the <code>UpdateOptions</code> is used to signal that we do <strong>NOT</strong> want as upsert operation; instead, we want the operation to do nothing when the filter is not matched.</p>
