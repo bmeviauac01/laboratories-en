@@ -11,8 +11,8 @@
         <meta name="author" content="Dudás Ákos">
       
       
-      <link rel="shortcut icon" href="../../images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.3">
+      <link rel="icon" href="../../images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.6">
     
     
       
@@ -20,7 +20,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.1655a90d.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.2c0c5eaf.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.7fa14f5b.min.css">
@@ -75,11 +75,9 @@
       
     </div>
     
-      
-
-<header class="md-header" data-md-component="header">
+      <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="BMEVIAUAC09 Software development laboratory 1" class="md-header__button md-logo" aria-label="BMEVIAUAC09 Software development laboratory 1">
+    <a href="../.." title="BMEVIAUAC09 Software development laboratory 1" class="md-header__button md-logo" aria-label="BMEVIAUAC09 Software development laboratory 1" data-md-component="logo">
       
   <img src="../../images/logo-bme-aut.png" alt="logo">
 
@@ -276,14 +274,12 @@
                   <div class="md-sidebar__inner">
                     
 
-
-
   
 
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="BMEVIAUAC09 Software development laboratory 1" class="md-nav__button md-logo" aria-label="BMEVIAUAC09 Software development laboratory 1">
+    <a href="../.." title="BMEVIAUAC09 Software development laboratory 1" class="md-nav__button md-logo" aria-label="BMEVIAUAC09 Software development laboratory 1" data-md-component="logo">
       
   <img src="../../images/logo-bme-aut.png" alt="logo">
 
@@ -885,8 +881,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#move-to-new-status" class="md-nav__link">
-    Move to new status
+  <a href="#move-to-a-new-status" class="md-nav__link">
+    Move to a new status
   </a>
   
 </li>
@@ -949,8 +945,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#move-to-new-status" class="md-nav__link">
-    Move to new status
+  <a href="#move-to-a-new-status" class="md-nav__link">
+    Move to a new status
   </a>
   
 </li>
@@ -983,11 +979,11 @@
 <li><code>404 Not found</code> if no such task exists.</li>
 <li><code>200 OK</code> if the operation was successful - returns the task in the body after the modification is done.</li>
 </ul>
-<h3 id="move-to-new-status">Move to new status<a class="headerlink" href="#move-to-new-status" title="Permanent link">&para;</a></h3>
-<p>A task is associated with a status through <code>Task.StatusId</code> (or similar). Create a new http endpoint that uses the <code>ITasksRepository.MoveToStatus</code> method to change the status of the specified tasks to a new one. If the new status with the provided name does not exist, create one.</p>
+<h3 id="move-to-a-new-status">Move to a new status<a class="headerlink" href="#move-to-a-new-status" title="Permanent link">&para;</a></h3>
+<p>A task is associated with status through <code>Task.StatusId</code> (or similar). Create a new http endpoint that uses the <code>ITasksRepository.MoveToStatus</code> method to change the status of the specified tasks to a new one. If the new status with the provided name does not exist, create one.</p>
 <p>Request: <code>PATCH /api/tasks/neptun/{id}/move?newStatusName=newname</code> with</p>
 <ul>
-<li><code>{id}</code> is the tasks ID,</li>
+<li><code>{id}</code> is the task's ID,</li>
 <li>and the <strong>name</strong> of the new status is received in the <code>newStatusName</code> query parameter.</li>
 </ul>
 <p>Response:</p>
@@ -997,7 +993,7 @@
 </ul>
 <div class="admonition example">
 <p class="admonition-title">SUBMISSION</p>
-<p>Create a <strong>screenshot</strong> in Postman (or an alternative tool you used) that shows an <strong>arbitrary</strong> request and response from among the two above. Save the screenshot as <code>f3.png</code> and submit with the other files of the solution. The screenshot shall include both the <strong>request and the response with all details</strong> (URL, body, response code, response body). Verify that your <strong>Neptun code</strong> is visible in the URL! The screenshot is required to earn the points.</p>
+<p>Create a <strong>screenshot</strong> in Postman (or an alternative tool you used) that shows an <strong>arbitrary</strong> request and response from the two above. Save the screenshot as <code>f3.png</code> and submit it with the other files of the solution. The screenshot shall include both the <strong>request and the response with all details</strong> (URL, body, response code, response body). Verify that your <strong>Neptun code</strong> is visible in the URL! The screenshot is required to earn the points.</p>
 </div>
                 
               
@@ -1115,7 +1111,7 @@
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.ca5457b8.min.js"></script>
+      <script src="../../assets/javascripts/bundle.a1c7c35e.min.js"></script>
       
     
   </body>

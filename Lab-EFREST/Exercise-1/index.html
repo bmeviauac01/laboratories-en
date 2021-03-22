@@ -11,8 +11,8 @@
         <meta name="author" content="Dudás Ákos">
       
       
-      <link rel="shortcut icon" href="../../images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.3">
+      <link rel="icon" href="../../images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.6">
     
     
       
@@ -20,7 +20,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.1655a90d.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.2c0c5eaf.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.7fa14f5b.min.css">
@@ -75,11 +75,9 @@
       
     </div>
     
-      
-
-<header class="md-header" data-md-component="header">
+      <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="BMEVIAUAC09 Software development laboratory 1" class="md-header__button md-logo" aria-label="BMEVIAUAC09 Software development laboratory 1">
+    <a href="../.." title="BMEVIAUAC09 Software development laboratory 1" class="md-header__button md-logo" aria-label="BMEVIAUAC09 Software development laboratory 1" data-md-component="logo">
       
   <img src="../../images/logo-bme-aut.png" alt="logo">
 
@@ -276,14 +274,12 @@
                   <div class="md-sidebar__inner">
                     
 
-
-
   
 
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="BMEVIAUAC09 Software development laboratory 1" class="md-nav__button md-logo" aria-label="BMEVIAUAC09 Software development laboratory 1">
+    <a href="../.." title="BMEVIAUAC09 Software development laboratory 1" class="md-nav__button md-logo" aria-label="BMEVIAUAC09 Software development laboratory 1" data-md-component="logo">
       
   <img src="../../images/logo-bme-aut.png" alt="logo">
 
@@ -1004,7 +1000,7 @@
 <p>In this exercise, we will implement the basic management of status entities.</p>
 <p><strong>You can earn 8 points with the completion of this exercise.</strong></p>
 <h2 id="open-the-visual-studio-solution">Open the Visual Studio solution<a class="headerlink" href="#open-the-visual-studio-solution" title="Permanent link">&para;</a></h2>
-<p>Open the Visual Studio solution (the <code>.sln</code>) file in the checked out repository. If Visual Studio tells you that the project is not supported, you need to install a missing component (see <a href="../../VisualStudio/">here</a>).</p>
+<p>Open the Visual Studio solution (the <code>.sln</code>) file in the checked-out repository. If Visual Studio tells you that the project is not supported, you need to install a missing component (see <a href="../../VisualStudio/">here</a>).</p>
 <div class="admonition warning">
 <p class="admonition-title">Do NOT upgrade any version</p>
 <p>Do not upgrade the project, the .NET Core version, or any Nuget package! If you see such a question, always choose no!</p>
@@ -1075,7 +1071,7 @@
     <span class="k">return</span> <span class="n">db</span><span class="p">.</span><span class="n">Statuses</span><span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">ToModel</span><span class="p">).</span><span class="n">ToList</span><span class="p">();</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>The <code>db</code> variable represents our database, the DbContext, injected via the framework.</p>
+<p>The variable <code>db</code> represents our database, the DbContext, injected via the framework.</p>
 </li>
 <li>
 <p>We will use the helper method <code>ToModel</code> to translate the EF representation to the business layer representation. Let us implement this method (in the repository class).</p>
@@ -1086,7 +1082,7 @@
 </code></pre></div>
 </li>
 <li>
-<p>Once the repository is ready, let us move to the controller. Open class <code>Controllers.StatusesController</code>. <strong>Add your Neptun code into the controller's URL</strong>: this controller shall respond to queries that arrive at URL  <code>/api/statuses/neptun</code> where the last 6 characters are your Neptun code all lowercase.</p>
+<p>Once the repository is ready, let us move to the controller. Open class <code>Controllers.StatusesController</code>. <strong>Add your Neptun code into the controller's URL</strong>: this controller shall respond to queries that arrive at URL  <code>/api/statuses/neptun</code> where the last 6 characters are your Neptun code, all lowercase.</p>
 <div class="highlight"><pre><span></span><code><span class="hll"><span class="na">[Route(&quot;api/statuses/neptun&quot;)]</span>
 </span><span class="na">[ApiController]</span>
 <span class="k">public</span> <span class="k">class</span> <span class="nc">StatusesController</span> <span class="p">:</span> <span class="n">ControllerBase</span>
@@ -1097,7 +1093,7 @@
 </div>
 </li>
 <li>
-<p>Let us implement an endpoint for handling the <code>GET /api/statuses/neptun</code> request: The dependency injection is configured already; thus the constructor accepts the repository interface (<em>not</em> the implementation but its interface).</p>
+<p>Let us implement an endpoint for handling the <code>GET /api/statuses/neptun</code> request: The dependency injection is configured already; thus, the constructor accepts the repository interface (<em>not</em> the implementation but its interface).</p>
 <div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">class</span> <span class="nc">StatusesController</span> <span class="p">:</span> <span class="n">ControllerBase</span>
 <span class="p">{</span>
     <span class="c1">// ...</span>
@@ -1142,8 +1138,8 @@
 <p>Compile the code again, then start the application and repeat the same GET query. The response shall include the two statuses.</p>
 <div class="admonition important">
 <p class="admonition-title">If you do not see the status records</p>
-<p>If the <em>seed</em> records do not appear in the response, it is possible that the database was not updated with the <code>HasData</code> method. Delete the <code>tasks.db</code> SQLite database file; this will re-create the database when the application starts again.</p>
-<p>Generally, schema and data modification in live environments are handled using <a href="https://docs.microsoft.com/en-us/ef/core/managing-schemas/migrations/?tabs=dotnet-core-cli">migrations</a>. To simplify things, we will not use migrations. If the database schema is changed, just delete <code>tasks.db</code>.</p>
+<p>If the <em>seed</em> records do not appear in the response, it is possible that the database was not updated with the <code>HasData</code> method. Delete the SQLite database file <code>tasks.db</code>; this will re-create the database when the application starts again.</p>
+<p>Generally, schema and data modification in live environments are handled using <a href="https://docs.microsoft.com/en-us/ef/core/managing-schemas/migrations/?tabs=dotnet-core-cli">migrations</a>. To simplify things, we will not use migrations. If the database schema is changed, delete <code>tasks.db</code>.</p>
 </div>
 </li>
 </ol>
@@ -1157,7 +1153,7 @@
 <p>Let us implement these.</p>
 <ol>
 <li>
-<p>Let us start with the implementation of the first two in the repository. When looking for an item based on a name, we will do a case-insensitive comparison.</p>
+<p>Let us start with the implementation of the first two in the repository. When looking for an item based on a name, we will perform a case-insensitive comparison.</p>
 <div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="kt">bool</span> <span class="nf">ExistsWithName</span><span class="p">(</span><span class="kt">string</span> <span class="n">statusName</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="k">return</span> <span class="n">db</span><span class="p">.</span><span class="n">Statuses</span><span class="p">.</span><span class="n">Any</span><span class="p">(</span><span class="n">s</span> <span class="p">=&gt;</span> <span class="n">EF</span><span class="p">.</span><span class="n">Functions</span><span class="p">.</span><span class="n">Like</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">Name</span><span class="p">,</span> <span class="n">statusName</span><span class="p">));</span>
@@ -1172,7 +1168,7 @@
         <span class="k">return</span> <span class="nf">ToModel</span><span class="p">(</span><span class="n">dbRecord</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
-<p><code>EF.Functions.Like</code> helps us to write a SQL "like" query in Entity Framework. This will translate into the proper <code>LIKE</code> operator when executed. This helps us to perform case insensitive comparison.</p>
+<p><code>EF.Functions.Like</code> helps us to write a SQL <code>like</code> query in Entity Framework. The command will translate into the proper <code>LIKE</code> operator when executed, allowing us to perform a case insensitive comparison.</p>
 </li>
 <li>
 <p>The controller endpoints for these operations are:</p>
@@ -1200,13 +1196,13 @@
         <span class="k">return</span> <span class="nf">Ok</span><span class="p">(</span><span class="k">value</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Note the controller method attributes and return values! If the response contains data (in the http body) the return type is <code>ActionResult&lt;T&gt;</code>; if there is no body and only a status code is returned, the return type is <code>ActionResult</code>. Methods <code>Ok</code> and <code>NotFound</code> help us create the correct responses.</p>
+<p>Note the controller method attributes and return values! If the response contains data (in the http body, the return type is <code>ActionResult&lt;T&gt;</code>; if there is no body and only a status code is returned, the return type is <code>ActionResult</code>. Methods <code>Ok</code> and <code>NotFound</code> help us create the correct responses.</p>
 <div class="admonition note">
 <p>The URL is defined on two "levels." We defined <code>/api/statuses/neptun</code> on the controller; it applies to all endpoints. It is the "last part" of the URL that is defined on each endpoint separately.</p>
 </div>
 </li>
 <li>
-<p>To implement the insertion, let us start with the repository again. Insert is triggered by receiving a <code>CreateStatus</code> model class with a name. We would like to ensure unique names. Thus, we need to verify it before insertion.</p>
+<p>To implement the insertion, let us start with the repository again. Insert is triggered by receiving a <code>CreateStatus</code> model class with a name. We want to ensure unique names. Thus, we need to verify it before insertion.</p>
 <div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="n">Model</span><span class="p">.</span><span class="n">Status</span> <span class="n">Insert</span><span class="p">(</span><span class="n">CreateStatus</span> <span class="k">value</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="k">using</span> <span class="p">(</span><span class="kt">var</span> <span class="n">tran</span> <span class="p">=</span> <span class="n">db</span><span class="p">.</span><span class="n">Database</span><span class="p">.</span><span class="n">BeginTransaction</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="n">Data</span><span class="p">.</span><span class="n">IsolationLevel</span><span class="p">.</span><span class="n">RepeatableRead</span><span class="p">))</span>
@@ -1254,7 +1250,7 @@
 </ol>
 <div class="admonition example">
 <p class="admonition-title">SUBMISSION</p>
-<p>Create a <strong>screenshot</strong> in Postman (or an alternative tool you used) that shows a <strong>failed insert</strong> request and response. The cause of failure should be that an item with the same name already exists. Save the screenshot as <code>f1.png</code> and submit with the other files of the solution. The screenshot shall include both the <strong>request and the response with all details</strong> (URL, body, response code, response body). Verify that your <strong>Neptun code</strong> is visible in the URL! The screenshot is required to earn the points.</p>
+<p>Create a <strong>screenshot</strong> in Postman (or an alternative tool you used) that shows a <strong>failed insert</strong> request and response. The cause of failure should be that an item with the same name already exists. Save the screenshot as <code>f1.png</code> and submit it with the other files of the solution. The screenshot shall include both the <strong>request and the response with all details</strong> (URL, body, response code, response body). Verify that your <strong>Neptun code</strong> is visible in the URL! The screenshot is required to earn the points.</p>
 </div>
                 
               
@@ -1372,7 +1368,7 @@
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.ca5457b8.min.js"></script>
+      <script src="../../assets/javascripts/bundle.a1c7c35e.min.js"></script>
       
     
   </body>

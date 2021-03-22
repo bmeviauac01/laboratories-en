@@ -11,8 +11,8 @@
         <meta name="author" content="Dudás Ákos">
       
       
-      <link rel="shortcut icon" href="../../images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.3">
+      <link rel="icon" href="../../images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.6">
     
     
       
@@ -20,7 +20,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.1655a90d.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.2c0c5eaf.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.7fa14f5b.min.css">
@@ -75,11 +75,9 @@
       
     </div>
     
-      
-
-<header class="md-header" data-md-component="header">
+      <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="BMEVIAUAC09 Software development laboratory 1" class="md-header__button md-logo" aria-label="BMEVIAUAC09 Software development laboratory 1">
+    <a href="../.." title="BMEVIAUAC09 Software development laboratory 1" class="md-header__button md-logo" aria-label="BMEVIAUAC09 Software development laboratory 1" data-md-component="logo">
       
   <img src="../../images/logo-bme-aut.png" alt="logo">
 
@@ -276,14 +274,12 @@
                   <div class="md-sidebar__inner">
                     
 
-
-
   
 
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="BMEVIAUAC09 Software development laboratory 1" class="md-nav__button md-logo" aria-label="BMEVIAUAC09 Software development laboratory 1">
+    <a href="../.." title="BMEVIAUAC09 Software development laboratory 1" class="md-nav__button md-logo" aria-label="BMEVIAUAC09 Software development laboratory 1" data-md-component="logo">
       
   <img src="../../images/logo-bme-aut.png" alt="logo">
 
@@ -990,7 +986,7 @@
 <p>In this exercise, we will implement the basic services for <em>tasks</em>.</p>
 <p><strong>You can earn 6 points with the completion of this exercise.</strong></p>
 <h2 id="preparation-with-entity-framework">Preparation with Entity Framework<a class="headerlink" href="#preparation-with-entity-framework" title="Permanent link">&para;</a></h2>
-<p>The task entity is represented by class <code>Model.Task</code>. It has a unique <code>ID</code>, a text <code>Title</code>, a <code>Done</code> flag to signal completion, and a <code>Status</code> field referencing the status of this task (with 1-* multiplicity).</p>
+<p>The task entity is represented by the class <code>Model.Task</code>. It has a unique <code>ID</code>, a text <code>Title</code>, a <code>Done</code> flag to signal completion, and a <code>Status</code> field referencing the status of this task (with 1-* multiplicity).</p>
 <p>Define the Entity Framework model first:</p>
 <ol>
 <li>
@@ -1007,12 +1003,12 @@
 </li>
 </ol>
 <h2 id="operations-in-the-repository">Operations in the repository<a class="headerlink" href="#operations-in-the-repository" title="Permanent link">&para;</a></h2>
-<p>Create a new class <code>TasksRepository</code> in the <code>DAL</code> folder that implements the existing <code>ITasksRepository</code> interface. Implement the following operations:</p>
+<p>Create a new class, <code>TasksRepository</code>, in the <code>DAL</code> folder that implements the existing <code>ITasksRepository</code> interface. Implement the following operations:</p>
 <ul>
 <li><code>IReadOnlyCollection&lt;Task&gt; List()</code>: lists all available tasks</li>
 <li><code>Task FindById(int taskId)</code>: returns the single task with the specified ID if it exists; returns null otherwise</li>
 <li><code>Task Insert(CreateTask value)</code>: adds a new task to the database with the specified title and associates it with the specified status; if no status with the provided name exists, create a new status record; the return value is the new task entity as created in the database with its assigned ID</li>
-<li><code>Task Delete(int taskId)</code>: deletes the specified task; return value is the task (state before deletion), or null if the task is not found</li>
+<li><code>Task Delete(int taskId)</code>: deletes the specified task; return value is the task (state before deletion), or null if the task does not exist</li>
 </ul>
 <p>You don't need to implement the other operations yet; however, an implementation needs to be provided so that the code compiles. You may use <code>throw new NotImplementedException();</code> as a placeholder for now.</p>
 <div class="admonition tip">
@@ -1031,7 +1027,7 @@
 </ul>
 <div class="admonition example">
 <p class="admonition-title">SUBMISSION</p>
-<p>Create a <strong>screenshot</strong> in Postman (or an alternative tool you used) that shows an <strong>arbitrary</strong> request and response from the list above. Save the screenshot as <code>f2.png</code> and submit with the other files of the solution. The screenshot shall include both the <strong>request and the response with all details</strong> (URL, body, response code, response body). Verify that your <strong>Neptun code</strong> is visible in the URL! The screenshot is required to earn the points.</p>
+<p>Create a <strong>screenshot</strong> in Postman (or an alternative tool you used) that shows an <strong>arbitrary</strong> request and response from the list above. Save the screenshot as <code>f2.png</code> and submit it with the other files of the solution. The screenshot shall include both the <strong>request and the response with all details</strong> (URL, body, response code, response body). Verify that your <strong>Neptun code</strong> is visible in the URL! The screenshot is required to earn the points.</p>
 </div>
                 
               
@@ -1149,7 +1145,7 @@
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.ca5457b8.min.js"></script>
+      <script src="../../assets/javascripts/bundle.a1c7c35e.min.js"></script>
       
     
   </body>

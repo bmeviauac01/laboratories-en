@@ -11,8 +11,8 @@
         <meta name="author" content="Dudás Ákos">
       
       
-      <link rel="shortcut icon" href="../../images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.3">
+      <link rel="icon" href="../../images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.6">
     
     
       
@@ -20,7 +20,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.1655a90d.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.2c0c5eaf.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.7fa14f5b.min.css">
@@ -75,11 +75,9 @@
       
     </div>
     
-      
-
-<header class="md-header" data-md-component="header">
+      <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="BMEVIAUAC09 Software development laboratory 1" class="md-header__button md-logo" aria-label="BMEVIAUAC09 Software development laboratory 1">
+    <a href="../.." title="BMEVIAUAC09 Software development laboratory 1" class="md-header__button md-logo" aria-label="BMEVIAUAC09 Software development laboratory 1" data-md-component="logo">
       
   <img src="../../images/logo-bme-aut.png" alt="logo">
 
@@ -276,14 +274,12 @@
                   <div class="md-sidebar__inner">
                     
 
-
-
   
 
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="BMEVIAUAC09 Software development laboratory 1" class="md-nav__button md-logo" aria-label="BMEVIAUAC09 Software development laboratory 1">
+    <a href="../.." title="BMEVIAUAC09 Software development laboratory 1" class="md-nav__button md-logo" aria-label="BMEVIAUAC09 Software development laboratory 1" data-md-component="logo">
       
   <img src="../../images/logo-bme-aut.png" alt="logo">
 
@@ -921,12 +917,12 @@
 <ul>
 <li><code>Name</code>: the name of the customer</li>
 <li><code>ZipCode</code>, <code>City</code>, <code>Street</code>: the address fields of the main site of the customer</li>
-<li><code>TotalOrders</code>: the cumulative total of all orders of the customer. You have to aggregate the price*amount for all items of each order of a customer to get this total. If a particular customer has no orders, this value shall be <code>null</code>.</li>
+<li><code>TotalOrders</code>: the cumulative total of all orders of the customer. You have to aggregate the price*amount for each order of a customer to get this total. If a particular customer has no orders, this value shall be <code>null</code>.</li>
 </ul>
 <p>Follow these steps to solve this exercise:</p>
 <ol>
 <li>
-<p>Create an initialize the <code>customerCollection</code>.</p>
+<p>Create and initialize the <code>customerCollection</code>.</p>
 </li>
 <li>
 <p>List all customers. The customer entity has the list of <code>Sites</code>; the main site is the item <code>MainSiteID</code> points to. Use this value to find the main in among the list.</p>
@@ -935,7 +931,7 @@
 <p>In the collection of the orders, use an aggregation pipeline to calculate the total of all orders for each <code>CustomerID</code>.</p>
 </li>
 <li>
-<p>Finally, you need the "merge" the two result sets. Every customer has a main site; however not all of them has orders (in which case <code>TotalOrders</code> shall be <code>null</code>).</p>
+<p>Finally, you need the "merge" the two result sets. Every customer has a main site; however, not all of them have orders (in which case <code>TotalOrders</code> shall be <code>null</code>).</p>
 </li>
 <li>
 <p>Use the <code>Customers</code> link of the website to test your solution. This will list the data provided by your code in a tabular format. You can use the <code>Add new order</code> functionality from before to create new orders. This must result in an increase in the total for one of the customers.</p>
@@ -943,7 +939,7 @@
 </ol>
 <div class="admonition example">
 <p class="admonition-title">SUBMISSION</p>
-<p>Create a <strong>screenshot</strong> of the web page listing the customers. Save the screenshot as <code>f4.png</code> and submit with the other files of the solution. The screenshot shall display the <strong>list of customers</strong>. Verify that your <strong>Neptun code</strong> is visible on the image at the bottom of the page! The screenshot is required to earn the points.</p>
+<p>Create a <strong>screenshot</strong> of the web page listing the customers. Save the screenshot as <code>f4.png</code> and submit it with the other files of the solution. The screenshot shall display the <strong>list of customers</strong>. Verify that your <strong>Neptun code</strong> is visible on the image at the bottom of the page! The screenshot is required to earn the points.</p>
 </div>
                 
               
@@ -1061,7 +1057,7 @@
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.ca5457b8.min.js"></script>
+      <script src="../../assets/javascripts/bundle.a1c7c35e.min.js"></script>
       
     
   </body>

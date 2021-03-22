@@ -11,8 +11,8 @@
         <meta name="author" content="Dudás Ákos">
       
       
-      <link rel="shortcut icon" href="../../images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.3">
+      <link rel="icon" href="../../images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.6">
     
     
       
@@ -20,7 +20,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.1655a90d.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.2c0c5eaf.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.7fa14f5b.min.css">
@@ -75,11 +75,9 @@
       
     </div>
     
-      
-
-<header class="md-header" data-md-component="header">
+      <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="BMEVIAUAC09 Software development laboratory 1" class="md-header__button md-logo" aria-label="BMEVIAUAC09 Software development laboratory 1">
+    <a href="../.." title="BMEVIAUAC09 Software development laboratory 1" class="md-header__button md-logo" aria-label="BMEVIAUAC09 Software development laboratory 1" data-md-component="logo">
       
   <img src="../../images/logo-bme-aut.png" alt="logo">
 
@@ -276,14 +274,12 @@
                   <div class="md-sidebar__inner">
                     
 
-
-
   
 
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="BMEVIAUAC09 Software development laboratory 1" class="md-nav__button md-logo" aria-label="BMEVIAUAC09 Software development laboratory 1">
+    <a href="../.." title="BMEVIAUAC09 Software development laboratory 1" class="md-nav__button md-logo" aria-label="BMEVIAUAC09 Software development laboratory 1" data-md-component="logo">
       
   <img src="../../images/logo-bme-aut.png" alt="logo">
 
@@ -1016,8 +1012,8 @@
                 
                 <h1 id="exercise-1-table-report">Exercise 1: Table report<a class="headerlink" href="#exercise-1-table-report" title="Permanent link">&para;</a></h1>
 <p>This exercise is <strong>solved together</strong> with the lab instructor.</p>
-<p>In the checked-out repository locate file <code>reportserver.sln</code> and open it with Visual Studio. This is an empty <em>Report Server</em> project.</p>
-<p>The Report Server project consists mainly of <em>Report Definition</em> (.rdl) files, that define the data sources (queries) and a template, which, when rendered, produces the final result: a report.  These reports can be installed to a <em>Report Server</em> and executed there, providing the users with up-to-date data.</p>
+<p>In the checked-out repository, locate file <code>reportserver.sln</code> and open it with Visual Studio. This is an empty <em>Report Server</em> project.</p>
+<p>The Report Server project consists mainly of <em>Report Definition</em> (.rdl) files, that define the data sources (queries) and a template, which, when rendered, produces the final result: a report. These reports can be installed to a <em>Report Server</em> and executed there, providing the users with up-to-date data.</p>
 <div class="admonition note">
 <p>In this lab, we will not use the Report Server. This is mainly because the configuration would require administrative privileges that we do not have in the labs. Therefore, we will preview the reports in Visual Studio.</p>
 </div>
@@ -1031,9 +1027,9 @@
 <p>Choose the <em>Report</em> type from among the listed templates. Call it <em>Sales Orders.rdl</em>, then click Add.</p>
 <details class="fail"><summary>If adding the new report file fails</summary><p>In certain Visual Studio and Report Server project versions adding this new report file might fail. If this happens, follow these steps instead.</p>
 <ol>
-<li>Download <a href="../empty.rdl">this empty rdl file</a>.
-1.Save the ile with the right name to the <code>reportserver</code> folder of your repository (this folder already exist).</li>
-<li>In Visual Studio right click <em>Reports</em> then choose <em>Add</em> &gt; <em>Existing Item</em>, and browse for this file.</li>
+<li>Download <a href="../empty.rdl">this empty rdl file</a>.</li>
+<li>Save the file with the correct name to the <code>reportserver</code> folder of your repository (this folder already exist).</li>
+<li>In Visual Studio right-click <em>Reports</em> then choose <em>Add</em> &gt; <em>Existing Item</em>, and browse for this file.</li>
 </ol>
 </details>
 </li>
@@ -1114,7 +1110,7 @@
 <p>Switch back to the <em>Report Data</em> pane and expand the AdventureWorksDataset:</p>
 <p><img alt="Dataset fields" src="../../images/reportingservices/rs-dataset-fields.png" /></p>
 <div class="admonition info">
-<p>If the node is empty or cannot be opened, you need to re-open the data set properties using right click, then clicking the <em>Refresh Fields</em> button.</p>
+<p>If the node is empty or cannot be opened, you need to re-open the data set properties using right-click, then clicking the <em>Refresh Fields</em> button.</p>
 </div>
 </li>
 <li>
@@ -1125,7 +1121,7 @@
 </div>
 </li>
 <li>
-<p>Similarly, add <em>Order</em> and <em>Product</em> to the second and third columns. Add <em>Qty</em> as well: drag it to the right side of the last column; the cursor icon will change to + sign, and a blue line at the end of the table will appear. This will add a new, fourth column. Add <em>LineTotal</em> similarly into the fifth column.</p>
+<p>Similarly, add <em>Order</em> and <em>Product</em> to the second and third columns. Add <em>Qty</em> as well: drag it to the right side of the last column; the cursor icon will change to + sign, and a blue line at the end of the table will appear. This will add a new fourth column. Add <em>LineTotal</em> similarly into the fifth column.</p>
 <p><img alt="Additional columns" src="../../images/reportingservices/rs-table-add-order-product-qty-col.png" /></p>
 </li>
 <li>
@@ -1134,7 +1130,7 @@
 <p>We can print or export the report into various formats (e.g., Word, Excel, PDF). However, this report is not very pretty, e.g., the currency is not displayed, and the Qty and date columns are not formatted, etc. </p>
 </li>
 <li>
-<p>Go back to <em>Design</em> tab, right-click the <code>[Date]</code> expression and select Text Box Properties. Navigate to the <em>Number</em> page, select the <em>Date category</em>, and choose a date format you like.</p>
+<p>Go back to <em>Design</em> tab, right-click the <code>[Date]</code> expression, and select Text Box Properties. Navigate to the <em>Number</em> page, select the <em>Date category</em>, and choose a date format you like.</p>
 <p><img alt="Date formatting" src="../../images/reportingservices/rs-table-date-col-properties.png" /></p>
 </li>
 <li>
@@ -1145,14 +1141,14 @@
 <p>By moving the mouse over the gray boxes at the top of the table header, the cursor changes to resize mode. (Just like you would resize a table in Word.) Use this to resize the entire table, and the columns (<em>Qty</em> and <em>Line Total</em> can be narrower, while the others might need more space).</p>
 <p>Finally, emphasize the header row. Select the whole row (by clicking the gray rectangle on the left end of the row) and click <em>Bold</em> on the ribbon.</p>
 <p><img alt="Format the header row" src="../../images/reportingservices/rs-table-bolt-header-row.png" /></p>
-<p>If you check preview, it should look like this:</p>
+<p>If you check the preview, it should look like this:</p>
 <p><img alt="Riport preview" src="../../images/reportingservices/rs-table-preview-2.png" /></p>
 </li>
 </ol>
 <div class="admonition example">
 <p class="admonition-title">SUBMISSION</p>
 <p><em>If you are continuing with the next exercise, you may omit to create the screenshot here.</em></p>
-<p>Create a screenshot of the <strong>report preview</strong> page. Save the screenshot as <code>f1.png</code> and submit with the other files of the solution. The screenshot shall include Visual Studio and the report preview. Verify that your <strong>Neptun code</strong> is visible!</p>
+<p>Create a screenshot of the <strong>report preview</strong> page. Save the screenshot as <code>f1.png</code> and submit it with the other files of the solution. The screenshot shall include Visual Studio and the report preview. Verify that your <strong>Neptun code</strong> is visible!</p>
 </div>
 <h2 id="grouping-and-total-value-5p">Grouping and total value (5p)<a class="headerlink" href="#grouping-and-total-value-5p" title="Permanent link">&para;</a></h2>
 <p>The report we created is very long, and it contains everything without structure. These are retail sales information: the amount of products sold each day. Let us group the data.</p>
@@ -1194,7 +1190,7 @@
 <ul>
 <li>Go back to the <em>Design</em> view.</li>
 <li>Right-click on the <code>[Order]</code> cell and click <em>Add Total</em> &gt; <em>After</em>.</li>
-<li>A new cell (Total) appears below <code>[Order]</code>. Click in it and change the label to "Daily Total”.</li>
+<li>A new cell (Total) appears below <code>[Order]</code>. Click in it and change the label to "Daily Total".</li>
 <li>Select the cell and the three right next to it (e.g., by using CTRL and clicking them) and change their background color (<em>Format</em> &gt; <em>Background color</em>).</li>
 </ul>
 </li>
@@ -1205,7 +1201,7 @@
 <p><img alt="Daily total" src="../../images/reportingservices/rs-table-preview-5.png" /></p>
 <div class="admonition example">
 <p class="admonition-title">SUBMISSION</p>
-<p>Create a screenshot of the <strong>report preview</strong> page. Save the screenshot as <code>f1.png</code> and submit with the other files of the solution. The screenshot shall include Visual Studio and the report preview, including the <strong>lines showing the totals</strong> (a turn a few pages if needed to see one). Verify that your <strong>Neptun code</strong> is visible!</p>
+<p>Create a screenshot of the <strong>report preview</strong> page. Save the screenshot as <code>f1.png</code> and submit it with the other files of the solution. The screenshot shall include Visual Studio and the report preview, including the <strong>lines showing the totals</strong> (a turn a few pages if needed to see one). Verify that your <strong>Neptun code</strong> is visible!</p>
 </div>
                 
               
@@ -1323,7 +1319,7 @@
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.ca5457b8.min.js"></script>
+      <script src="../../assets/javascripts/bundle.a1c7c35e.min.js"></script>
       
     
   </body>

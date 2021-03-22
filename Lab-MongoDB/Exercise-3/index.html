@@ -11,8 +11,8 @@
         <meta name="author" content="Dudás Ákos">
       
       
-      <link rel="shortcut icon" href="../../images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.3">
+      <link rel="icon" href="../../images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.6">
     
     
       
@@ -20,7 +20,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.1655a90d.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.2c0c5eaf.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.7fa14f5b.min.css">
@@ -75,11 +75,9 @@
       
     </div>
     
-      
-
-<header class="md-header" data-md-component="header">
+      <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="BMEVIAUAC09 Software development laboratory 1" class="md-header__button md-logo" aria-label="BMEVIAUAC09 Software development laboratory 1">
+    <a href="../.." title="BMEVIAUAC09 Software development laboratory 1" class="md-header__button md-logo" aria-label="BMEVIAUAC09 Software development laboratory 1" data-md-component="logo">
       
   <img src="../../images/logo-bme-aut.png" alt="logo">
 
@@ -276,14 +274,12 @@
                   <div class="md-sidebar__inner">
                     
 
-
-
   
 
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="BMEVIAUAC09 Software development laboratory 1" class="md-nav__button md-logo" aria-label="BMEVIAUAC09 Software development laboratory 1">
+    <a href="../.." title="BMEVIAUAC09 Software development laboratory 1" class="md-nav__button md-logo" aria-label="BMEVIAUAC09 Software development laboratory 1" data-md-component="logo">
       
   <img src="../../images/logo-bme-aut.png" alt="logo">
 
@@ -1024,12 +1020,12 @@
 <li><code>PaymentMethod</code>: taken from the <code>Method</code> field of the <code>PaymentMethod</code> complex entity</li>
 <li><code>Total</code>: the cumulative sum of the product of <code>Amount</code> and <code>Price</code> for all items associated with this order (<code>OrderItems</code>)</li>
 </ul>
-<p>You will need to implement the management methods related to orders: <code>ListOrders</code>, <code>FindOrder</code>, <code>InsertOrder</code>, <code>DeleteOrder</code> and <code>UpdateOrder</code>.</p>
+<p>You will need to implement the management methods related to orders: <code>ListOrders</code>, <code>FindOrder</code>, <code>InsertOrder</code>, <code>DeleteOrder</code>, and <code>UpdateOrder</code>.</p>
 <p>Before starting the tasks below, do not forget to add and initialize an <code>orderCollection</code> in the repository class similar to the other one.</p>
 <h2 id="listing">Listing<a class="headerlink" href="#listing" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
-<p>Method <code>ListOrders</code> receives a <code>string status</code> parameter. If this value is empty or <code>null</code> (see: <code>string.IsNullOrEmpty</code>) list all orders. Otherwise, list orders where the <code>Status</code> field is identical to the <code>status</code> received as parameter.</p>
+<p>Method <code>ListOrders</code> receives a <code>string status</code> parameter. If this value is empty or <code>null</code> (see: <code>string.IsNullOrEmpty</code>) list all orders. Otherwise, list orders where the <code>Status</code> field is identical to the <code>status</code> received as a parameter.</p>
 </li>
 <li>
 <p>Method <code>FindOrder</code> returns the data of a single order identified by <code>string id</code>. If no record with the same <code>ID</code> exists, this method shall return <code>null</code>.</p>
@@ -1059,17 +1055,17 @@
 <h2 id="delete">Delete<a class="headerlink" href="#delete" title="Permanent link">&para;</a></h2>
 <p><code>DeleteOrder</code> should delete the record specified by the <code>ID</code>.</p>
 <h2 id="modification">Modification<a class="headerlink" href="#modification" title="Permanent link">&para;</a></h2>
-<p>When updating the record in <code>UpdateOrder</code>, only update the information that is present in <code>Models.Order</code>: <code>Date</code>, <code>Deadline</code>, <code>Status</code> and <code>PaymentMethod</code>. Ignore the value <code>Total</code>; it does not need to be considered in this context.</p>
+<p>When updating the record in <code>UpdateOrder</code>, only update the information present in <code>Models.Order</code>: <code>Date</code>, <code>Deadline</code>, <code>Status</code>, and <code>PaymentMethod</code>. Ignore the value <code>Total</code>; it does not need to be considered in this context.</p>
 <div class="admonition tip">
 <p>You can combine multiple updates using <code>Builders&lt;Entities.Order&gt;.Update.Combine</code>.</p>
 </div>
 <p>Keep in mind that the <code>IsUpsert</code> property should be set to <code>false</code> in the update!</p>
-<p>The method should return <code>true</code> if there was a record with a matching <code>ID</code>.</p>
+<p>The method should return <code>true</code> if there were a record with a matching <code>ID</code>.</p>
 <h2 id="testing">Testing<a class="headerlink" href="#testing" title="Permanent link">&para;</a></h2>
 <p>You can test the functionalities using the <code>Orders</code> link in the test web app. Verify the behavior of <code>Filter</code>, <code>Add new order</code>, <code>Edit</code>, <code>Details</code>, and <code>Delete</code> too!</p>
 <div class="admonition example">
 <p class="admonition-title">SUBMISSION</p>
-<p>Create a <strong>screenshot</strong> of the web page listing the orders <strong>after successfully adding at least one new order</strong>. Save the screenshot as <code>f3.png</code> and submit with the other files of the solution. The screenshot shall display the <strong>list of orders</strong>. Verify that your <strong>Neptun code</strong> is visible on the image at the bottom of the page! The screenshot is required to earn the points.</p>
+<p>Create a <strong>screenshot</strong> of the web page listing the orders <strong>after successfully adding at least one new order</strong>. Save the screenshot as <code>f3.png</code> and submit it with the other files of the solution. The screenshot shall display the <strong>list of orders</strong>. Verify that your <strong>Neptun code</strong> is visible on the image at the bottom of the page! The screenshot is required to earn the points.</p>
 </div>
                 
               
@@ -1187,7 +1183,7 @@
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.ca5457b8.min.js"></script>
+      <script src="../../assets/javascripts/bundle.a1c7c35e.min.js"></script>
       
     
   </body>

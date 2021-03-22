@@ -11,8 +11,8 @@
         <meta name="author" content="Dudás Ákos">
       
       
-      <link rel="shortcut icon" href="../../images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.3">
+      <link rel="icon" href="../../images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.6">
     
     
       
@@ -20,7 +20,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.1655a90d.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.2c0c5eaf.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.7fa14f5b.min.css">
@@ -75,11 +75,9 @@
       
     </div>
     
-      
-
-<header class="md-header" data-md-component="header">
+      <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="BMEVIAUAC09 Software development laboratory 1" class="md-header__button md-logo" aria-label="BMEVIAUAC09 Software development laboratory 1">
+    <a href="../.." title="BMEVIAUAC09 Software development laboratory 1" class="md-header__button md-logo" aria-label="BMEVIAUAC09 Software development laboratory 1" data-md-component="logo">
       
   <img src="../../images/logo-bme-aut.png" alt="logo">
 
@@ -276,14 +274,12 @@
                   <div class="md-sidebar__inner">
                     
 
-
-
   
 
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="BMEVIAUAC09 Software development laboratory 1" class="md-nav__button md-logo" aria-label="BMEVIAUAC09 Software development laboratory 1">
+    <a href="../.." title="BMEVIAUAC09 Software development laboratory 1" class="md-nav__button md-logo" aria-label="BMEVIAUAC09 Software development laboratory 1" data-md-component="logo">
       
   <img src="../../images/logo-bme-aut.png" alt="logo">
 
@@ -1046,7 +1042,7 @@
 <p><strong>You can earn 7 points with the completion of this exercise.</strong></p>
 <p>This exercise will implement CRUD (create, retrieve, update, delete) operations for <code>Product</code> entities.</p>
 <h2 id="open-the-visual-studio-solution">Open the Visual Studio solution<a class="headerlink" href="#open-the-visual-studio-solution" title="Permanent link">&para;</a></h2>
-<p>Open the Visual Studio solution (the <code>.sln</code>) file in the checked out repository. If Visual Studio tells you that the project is not supported, you need to install a missing component (see <a href="../../VisualStudio/">here</a>).</p>
+<p>Open the Visual Studio solution (the <code>.sln</code>) file in the checked-out repository. If Visual Studio tells you that the project is not supported, you need to install a missing component (see <a href="../../VisualStudio/">here</a>).</p>
 <div class="admonition warning">
 <p class="admonition-title">Do NOT upgrade any version</p>
 <p>Do not upgrade the project, the .NET Core version, or any Nuget package! If you see such a question, always choose no!</p>
@@ -1055,7 +1051,7 @@
 <p>The database access is configured in class  <code>mongolab.DAL.MongoConnectionConfig</code>. If needed, you can change the database name in this file.</p>
 <p>Other parts of the application should <strong>NOT</strong> be modified!</p>
 <div class="admonition info">
-<p>The web application is a so-called <a href="https://docs.microsoft.com/en-us/aspnet/core/razor-pages/"><em>Razor Pages</em></a> ASP.NET Core project. This includes a presentation layer that is rendered on the server using C# code and the Razor engine. (You do not need to concern yourself with the UI.)</p>
+<p>The web application is a so-called <a href="https://docs.microsoft.com/en-us/aspnet/core/razor-pages/"><em>Razor Pages</em></a> ASP.NET Core project. It includes a presentation layer rendered on the server using C# code and the Razor engine. (You do not need to concern yourself with the UI.)</p>
 </div>
 <h2 id="start-the-web-app">Start the web app<a class="headerlink" href="#start-the-web-app" title="Permanent link">&para;</a></h2>
 <p>Check if the web application starts.</p>
@@ -1106,7 +1102,7 @@
 </code></pre></div>
 </li>
 <li>
-<p>You can use <code>productCollection</code> to access the product records of the database from now on. Let us start by implementing <code>ListProducts</code>. This will require two steps: first, to query the data from the database, then transform each record to an instance of <code>Models.Product</code>.</p>
+<p>You can use <code>productCollection</code> to access the database's product records from now on. Let us start by implementing <code>ListProducts</code>. This will require two steps: first, to query the data from the database, then transform each record to an instance of <code>Models.Product</code>.</p>
 <p>The query is as follows:</p>
 <div class="highlight"><pre><span></span><code><span class="kt">var</span> <span class="n">dbProducts</span> <span class="p">=</span> <span class="n">productCollection</span>
     <span class="p">.</span><span class="n">Find</span><span class="p">(</span><span class="n">_</span> <span class="p">=&gt;</span> <span class="k">true</span><span class="p">)</span> <span class="c1">// listing all products hence an empty filter</span>
@@ -1125,7 +1121,7 @@
 </code></pre></div>
 </li>
 <li>
-<p>The implementation of <code>FindProduct(string id)</code> is similar, except for querying a single record by matching the <code>ID</code>. Pay attention to that fact that the <code>ID</code> is received as string, but it needs converting to <code>ObjectId</code>.</p>
+<p>The implementation of <code>FindProduct(string id)</code> is similar, except for querying a single record by matching the <code>ID</code>. Pay attention to the fact that the <code>ID</code> is received as a string, but it needs converting to <code>ObjectId</code>.</p>
 <p>The transformation to the model remains identical. However, we should also handle when there is no matching record found and return a <code>null</code> value in this case (without converting anything to a model).</p>
 <p>The query is as follows:</p>
 <div class="highlight"><pre><span></span><code><span class="kt">var</span> <span class="n">dbProduct</span> <span class="p">=</span> <span class="n">productCollection</span>
@@ -1134,7 +1130,7 @@
 <span class="c1">// ... model conversion</span>
 </code></pre></div>
 <p>Note how the filter expression looks like! Also, note how the <code>ToList</code> is replaced with a <code>SingleOrDefault</code> call. This returns either the first (and single) element in the result set or <code>null</code> when there is none. This is a generic way of querying a single record from the database. You will need to write a similar code in further exercises.</p>
-<p>The conversion/transformation code is already given; however, we should prepare to handle when <code>dbProduct</code> is <code>null</code>. Instead of conversion, we should just return <code>null</code> then.</p>
+<p>The conversion/transformation code is already given; however, we should prepare to handle when <code>dbProduct</code> is <code>null</code>. Instead of conversion, we should return <code>null</code> then.</p>
 </li>
 <li>
 <p>Test the behavior of these queries! Start the web application and go to <a href="http://localhost:5000">http://localhost:5000</a> in a browser. Click <code>Products</code> to list the data from the database. If you click on <code>Details</code> it will show the details of the selected product.</p>
@@ -1150,7 +1146,7 @@
 <p>Implement the method <code>InsertProduct(Product product)</code>. The input is an instance of <code>Models.Product</code> that collects the information specified on the UI.</p>
 </li>
 <li>
-<p>To create a new product, we will first create a new database entity (in memory first). This is an instance of class <code>Entities.Product</code>. There is no need to set the <code>ID</code> - the database will generate it. <code>Name</code>, <code>Price</code> and <code>Stock</code> are provided by the user. What is left is <code>VAT</code> and <code>CategoryID</code>. We should just hard-code values here: create a new VAT entity and find a random category using <em>Robo3T</em> and copy the <code>_id</code> value.</p>
+<p>To create a new product, we will first create a new database entity (in memory first). This is an instance of class <code>Entities.Product</code>. There is no need to set the <code>ID</code> - the database will generate it. <code>Name</code>, <code>Price</code> and <code>Stock</code> are provided by the user. What is left is <code>VAT</code> and <code>CategoryID</code>. We should hard-code values here: create a new VAT entity and find a random category using <em>Robo3T</em> and copy the <code>_id</code> value.</p>
 <div class="highlight"><pre><span></span><code><span class="kt">var</span> <span class="n">dbProduct</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Entities</span><span class="p">.</span><span class="n">Product</span>
 <span class="p">{</span>
     <span class="n">Name</span> <span class="p">=</span> <span class="n">product</span><span class="p">.</span><span class="n">Name</span><span class="p">,</span>
@@ -1161,10 +1157,10 @@
 <span class="p">};</span>
 <span class="c1">// ... insertion</span>
 </code></pre></div>
-<p>Once the database entity is ready use <code>InsertOne</code> to add it to the database.</p>
+<p>Once the database entity is ready, use <code>InsertOne</code> to add it to the database.</p>
 </li>
 <li>
-<p>To test your code, start the application and click the <code>Add new product</code> link on the products page. You will need to fill the necessary data, and then the presentation layer will call your code.</p>
+<p>To test your code, start the application and click the <code>Add new product</code> link on the products page. You will need to fill in the necessary data, and then the presentation layer will call your code.</p>
 </li>
 </ol>
 <h2 id="delete">Delete<a class="headerlink" href="#delete" title="Permanent link">&para;</a></h2>
@@ -1189,7 +1185,7 @@
     <span class="n">options</span><span class="p">:</span> <span class="k">new</span> <span class="n">UpdateOptions</span> <span class="p">{</span> <span class="n">IsUpsert</span> <span class="p">=</span> <span class="k">false</span> <span class="p">});</span>
 </code></pre></div>
 <p>Note that the <code>UpdateOptions</code> is used to signal that we do <strong>NOT</strong> want as upsert operation; instead, we want the operation to do nothing when the filter is not matched.</p>
-<p>The modification is assembled using <code>Update</code> in <code>Builders</code>. Here we want to decrease the stock value with <code>amount</code> (which is effectively and increase with <code>-amount</code>).</p>
+<p>The modification is assembled using <code>Update</code> in <code>Builders</code>. Here we want to decrease the stock value with <code>amount</code> (which is, effectively, an increase with <code>-amount</code>).</p>
 <p>We can determine what happened based on the <code>result</code> returned by the update operation. If the result indicates that the filter matched a record and the modification was performed, return <code>true</code>. Otherwise, return <code>false</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="k">return</span> <span class="n">result</span><span class="p">.</span><span class="n">MatchedCount</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">;</span>
 </code></pre></div>
@@ -1200,7 +1196,7 @@
 </ol>
 <div class="admonition example">
 <p class="admonition-title">SUBMISSION</p>
-<p>Create a <strong>screenshot</strong> of the web page listing the products <strong>after successfully adding at least one new product</strong>. Save the screenshot as <code>f1.png</code> and submit with the other files of the solution. The screenshot shall display the <strong>list of products</strong>. Verify that your <strong>Neptun code</strong> is visible on the image at the bottom of the page! The screenshot is required to earn the points.</p>
+<p>Create a <strong>screenshot</strong> of the web page listing the products <strong>after successfully adding at least one new product</strong>. Save the screenshot as <code>f1.png</code> and submit it with the other files of the solution. The screenshot shall display the <strong>list of products</strong>. Verify that your <strong>Neptun code</strong> is visible on the image at the bottom of the page! The screenshot is required to earn the points.</p>
 </div>
                 
               
@@ -1318,7 +1314,7 @@
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.ca5457b8.min.js"></script>
+      <script src="../../assets/javascripts/bundle.a1c7c35e.min.js"></script>
       
     
   </body>

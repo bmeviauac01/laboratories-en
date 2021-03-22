@@ -11,8 +11,8 @@
         <meta name="author" content="Dudás Ákos">
       
       
-      <link rel="shortcut icon" href="../../images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.3">
+      <link rel="icon" href="../../images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.6">
     
     
       
@@ -20,7 +20,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.1655a90d.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.2c0c5eaf.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.7fa14f5b.min.css">
@@ -75,11 +75,9 @@
       
     </div>
     
-      
-
-<header class="md-header" data-md-component="header">
+      <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="BMEVIAUAC09 Software development laboratory 1" class="md-header__button md-logo" aria-label="BMEVIAUAC09 Software development laboratory 1">
+    <a href="../.." title="BMEVIAUAC09 Software development laboratory 1" class="md-header__button md-logo" aria-label="BMEVIAUAC09 Software development laboratory 1" data-md-component="logo">
       
   <img src="../../images/logo-bme-aut.png" alt="logo">
 
@@ -276,14 +274,12 @@
                   <div class="md-sidebar__inner">
                     
 
-
-
   
 
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="BMEVIAUAC09 Software development laboratory 1" class="md-nav__button md-logo" aria-label="BMEVIAUAC09 Software development laboratory 1">
+    <a href="../.." title="BMEVIAUAC09 Software development laboratory 1" class="md-nav__button md-logo" aria-label="BMEVIAUAC09 Software development laboratory 1" data-md-component="logo">
       
   <img src="../../images/logo-bme-aut.png" alt="logo">
 
@@ -993,7 +989,7 @@
 <p>The dataset we created in the Report Data panel has to be extended with further information.</p>
 <ol>
 <li>
-<p>Open the data set properties by right clicking on <em>AdventureWorksDataSet</em> in the <em>Report Data</em> pane, click <em>Dataset properties</em> then change the SQL command to:</p>
+<p>Open the data set properties by right-clicking on <em>AdventureWorksDataSet</em> in the <em>Report Data</em> pane, click <em>Dataset properties</em> then change the SQL command to:</p>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span>
   <span class="n">soh</span><span class="p">.</span><span class="n">OrderDate</span> <span class="k">AS</span> <span class="p">[</span><span class="nb">Date</span><span class="p">],</span>
   <span class="n">soh</span><span class="p">.</span><span class="n">SalesOrderNumber</span> <span class="k">AS</span> <span class="p">[</span><span class="k">Order</span><span class="p">],</span>
@@ -1013,27 +1009,26 @@
 <span class="hll">        <span class="p">,</span> <span class="n">pepe</span><span class="p">.</span><span class="n">FirstName</span><span class="p">,</span> <span class="n">pepe</span><span class="p">.</span><span class="n">LastName</span>
 </span><span class="k">HAVING</span> <span class="n">ppc</span><span class="p">.</span><span class="n">Name</span> <span class="o">=</span> <span class="s1">&#39;Clothing&#39;</span>
 </code></pre></div>
-<p>Don’t forget to press <em>Refresh fields</em> before closing the dialog.  Close the dialog.</p>
+<p>Don't forget to press <em>Refresh fields</em> before closing the dialog.  Close the dialog.</p>
 </li>
 <li>
 <p>In the <em>Report data</em> expand <em>AdventureWorksDataset</em> (if already expanded, close then re-expand). A new field <em>SalesPersonName</em> will appear.</p>
 </li>
 <li>
-<p>Right click the data source <em>AdventureWorks2014</em> and choose <em>Convert to shared Data Source</em>, and then repeat this with the <em>AdventureWorksDataSet</em> too. These will enable us to use them in a new report.</p>
+<p>Right-click the data source <em>AdventureWorks2014</em> and choose <em>Convert to shared Data Source</em>, and then repeat this with the <em>AdventureWorksDataSet</em> too. These will enable us to use them in a new report.</p>
 </li>
 </ol>
 <h2 id="new-report-and-data-sources">New report and data sources<a class="headerlink" href="#new-report-and-data-sources" title="Permanent link">&para;</a></h2>
 <p>We will use the converted and shared data source and data set in a new report.</p>
 <ol>
 <li>
-<p>In the <em>Solution Explorer</em> right click <em>Reports</em> and choose <em>Add</em> &gt; <em>New Item</em> &gt; <em>Report</em>.
- The name of this new report should be "Sales People".</p>
+<p>In the <em>Solution Explorer</em> right-click <em>Reports</em> and choose <em>Add</em> &gt; <em>New Item</em> &gt; <em>Report</em>. The name of this new report should be "Sales People."</p>
 </li>
 <li>
 <p>Open the new report. There are no data sources associated with the report. Use the <em>Report Data</em> pane to add the existing one:</p>
 <ul>
 <li>
-<p>Right click <em>Data Source</em> and choose <em>Add Data Source</em></p>
+<p>Right-click <em>Data Source</em> and choose <em>Add Data Source</em></p>
 </li>
 <li>
 <p>Click the <em>Use shared data source reference</em> option and select "AdventureWorks2014".</p>
@@ -1061,7 +1056,7 @@
 </div>
 <div class="admonition example">
 <p class="admonition-title">SUBMISSION</p>
-<p>Create a screenshot of the <strong>report preview</strong> page. Save the screenshot as <code>f3.png</code> and submit with the other files of the solution. The screenshot shall include Visual Studio and the report preview. Verify that your <strong>Neptun code</strong> is visible in the table!</p>
+<p>Create a screenshot of the <strong>report preview</strong> page. Save the screenshot as <code>f3.png</code> and submit it with the other files of the solution. The screenshot shall include Visual Studio and the report preview. Verify that your <strong>Neptun code</strong> is visible in the table!</p>
 </div>
                 
               
@@ -1179,7 +1174,7 @@
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.ca5457b8.min.js"></script>
+      <script src="../../assets/javascripts/bundle.a1c7c35e.min.js"></script>
       
     
   </body>

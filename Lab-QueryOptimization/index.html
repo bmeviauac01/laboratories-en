@@ -11,8 +11,8 @@
         <meta name="author" content="Dudás Ákos">
       
       
-      <link rel="shortcut icon" href="../images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.3">
+      <link rel="icon" href="../images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.6">
     
     
       
@@ -20,7 +20,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.1655a90d.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.2c0c5eaf.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.7fa14f5b.min.css">
@@ -75,11 +75,9 @@
       
     </div>
     
-      
-
-<header class="md-header" data-md-component="header">
+      <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="BMEVIAUAC09 Software development laboratory 1" class="md-header__button md-logo" aria-label="BMEVIAUAC09 Software development laboratory 1">
+    <a href=".." title="BMEVIAUAC09 Software development laboratory 1" class="md-header__button md-logo" aria-label="BMEVIAUAC09 Software development laboratory 1" data-md-component="logo">
       
   <img src="../images/logo-bme-aut.png" alt="logo">
 
@@ -276,14 +274,12 @@
                   <div class="md-sidebar__inner">
                     
 
-
-
   
 
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="BMEVIAUAC09 Software development laboratory 1" class="md-nav__button md-logo" aria-label="BMEVIAUAC09 Software development laboratory 1">
+    <a href=".." title="BMEVIAUAC09 Software development laboratory 1" class="md-nav__button md-logo" aria-label="BMEVIAUAC09 Software development laboratory 1" data-md-component="logo">
       
   <img src="../images/logo-bme-aut.png" alt="logo">
 
@@ -1041,7 +1037,7 @@
                 
                 
                 <h1 id="query-optimization">Query optimization<a class="headerlink" href="#query-optimization" title="Permanent link">&para;</a></h1>
-<p>We will examine the query optimization behavior of Microsoft SQL Server. To properly understand the optimizer's behavior and be able to document it, in the <strong>first 5 exercises</strong>, we will explain the queries and the behavior too. The <strong>rest of the exercises is individual work</strong> where it is your task to infer the reason for a specific plan. Your task is to document the behavior and submit the documentation of all exercises.</p>
+<p>We will examine the query optimization behavior of Microsoft SQL Server. To properly understand the optimizer's behavior, in the <strong>first 5 exercises</strong>, we will explain the queries and the behavior too. The <strong>rest of the exercises is individual work</strong> where it is your task to infer the reason for a specific plan. Your task is to document the behavior and submit the documentation of all exercises.</p>
 <h2 id="pre-requisites-and-preparation">Pre-requisites and preparation<a class="headerlink" href="#pre-requisites-and-preparation" title="Permanent link">&para;</a></h2>
 <p>Required tools to complete the tasks:</p>
 <ul>
@@ -1072,23 +1068,23 @@
 <h3 id="create-and-check-out-your-git-repository">Create and check out your Git repository<a class="headerlink" href="#create-and-check-out-your-git-repository" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
-<p>Create your git repository at: <a href="https://classroom.github.com/a/gE7FwteL">https://classroom.github.com/a/gE7FwteL</a></p>
+<p>Create your git repository at <a href="https://classroom.github.com/a/gE7FwteL">https://classroom.github.com/a/gE7FwteL</a></p>
 </li>
 <li>
 <p>Wait for the repository creation to complete, then check out the repository.</p>
 <div class="admonition tip">
-<p>If in university computer laboratories you are not asked for credentials to log in to GitHub when checking out the repository, the operation may fail. This is likely due to the machine using someone else's GitHub credentials. Delete these credentials first (see <a href="../GitHub-credentials/">here</a>), then retry the checkout.</p>
+<p>If you are not asked for credentials to log in to GitHub in university computer laboratories when checking out the repository, the operation may fail. This is likely due to the machine using someone else's GitHub credentials. Delete these credentials first (see <a href="../GitHub-credentials/">here</a>), then retry the checkout.</p>
 </div>
 </li>
 <li>
 <p>Create a new branch with the name <code>solution</code> and work on this branch.</p>
 </li>
 <li>
-<p>Open the checked out folder and type your Neptun code into the <code>neptun.txt</code> file. There should be a single line with the 6 characters of your Neptun code and nothing else in this file.</p>
+<p>Open the checked-out folder and type your Neptun code into the <code>neptun.txt</code> file. There should be a single line with the 6 characters of your Neptun code and nothing else in this file.</p>
 </li>
 </ol>
 <h3 id="open-the-markdown-file">Open the markdown file<a class="headerlink" href="#open-the-markdown-file" title="Permanent link">&para;</a></h3>
-<p>Create the documentation in a markdown file. Open the checked out git repository with a markdown editor. We recommend using Visual Studio Code:</p>
+<p>Create the documentation in a markdown file. Open the checked-out git repository with a markdown editor. We recommend using Visual Studio Code:</p>
 <ol>
 <li>
 <p>Start VS Code.</p>
@@ -1097,7 +1093,7 @@
 <p>Use <em>File &gt; Open Folder...</em> to open the git repository folder.</p>
 </li>
 <li>
-<p>In the folder structure on the left find <code>README.md</code> and double click to open.</p>
+<p>In the folder structure on the left, find <code>README.md</code> and double click to open.</p>
 </li>
 <li>
 <p>Edit this file.</p>
@@ -1115,7 +1111,7 @@
 </ol>
 <div class="admonition note">
 <p class="admonition-title">Alternative editor</p>
-<p>If you do not like VS code, you can also use the <a href="https://help.github.com/en/github/managing-files-in-a-repository/editing-files-in-your-repository">GitHub web interface</a> a to edit the markdown; you also have a preview here. <a href="https://help.github.com/en/github/managing-files-in-a-repository/adding-a-file-to-a-repository">File upload</a> will be trickier.</p>
+<p>If you do not like VS code, you can also use the <a href="https://help.github.com/en/github/managing-files-in-a-repository/editing-files-in-your-repository">GitHub web interface</a> to edit the markdown; you also have a preview here. <a href="https://help.github.com/en/github/managing-files-in-a-repository/adding-a-file-to-a-repository">File upload</a> will be trickier.</p>
 </div>
 <h3 id="create-the-database">Create the database<a class="headerlink" href="#create-the-database" title="Permanent link">&para;</a></h3>
 <ol>
@@ -1130,7 +1126,7 @@
 <p>Create a new database (if it does not exist yet). The name should be your Neptun code: in <em>Object Explorer</em> right-click <em>Databases</em> and choose <em>Create Database</em>.</p>
 </li>
 <li>
-<p>Create the sample database by executing the <a href="https://raw.githubusercontent.com/bmeviauac01/adatvezerelt/master/docs/db/mssql.sql">initializer script</a> Open a new <em>Query</em> window, paste the script into the window, then execute it. Make sure to select the right database in the toolbar dropdown.</p>
+<p>Create the sample database by executing the <a href="https://raw.githubusercontent.com/bmeviauac01/adatvezerelt/master/docs/db/mssql.sql">initializer script</a> Open a new <em>Query</em> window, paste the script into the window, then execute it. Make sure to select the correct database in the toolbar dropdown.</p>
 <p><img alt="Selecting the database" src="../images/sql-management-database-dropdown.png" /></p>
 </li>
 <li>
@@ -1143,7 +1139,7 @@
 <p class="admonition-title">If you are not using Windows</p>
 <p>We are primarily using SQL Server Management Studio to get the execution plans. If you are not using Windows, you can also use Azure Data Studio-t to <a href="https://richbenner.com/2019/02/azure-data-studio-execution-plans/">obtain the query plan</a>.</p>
 </div>
-<p>In the following exercises, we will check the best query plan the optimizer chose and the server executed. In SQL Server Management Studio, open the <em>Query</em> menu and check <a href="https://docs.microsoft.com/en-us/sql/relational-databases/performance/display-an-actual-execution-plan"><em>Include Actual Execution Plan</em></a>.</p>
+<p>We will check the query plan the optimizer chose and the server executed in the following exercises. In SQL Server Management Studio, open the <em>Query</em> menu and check <a href="https://docs.microsoft.com/en-us/sql/relational-databases/performance/display-an-actual-execution-plan"><em>Include Actual Execution Plan</em></a>.</p>
 <p><img alt="Enable query plan" src="../images/queryopt/queryopt-include-plan.png" /></p>
 <p>The plan will be displayed after the query is completed at the bottom of the window on the <em>Execution plan</em> pane.</p>
 <p><img alt="View query plan" src="../images/queryopt/queryopt-plan-result.png" /></p>
@@ -1264,7 +1260,7 @@
     <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.ca5457b8.min.js"></script>
+      <script src="../assets/javascripts/bundle.a1c7c35e.min.js"></script>
       
     
   </body>
