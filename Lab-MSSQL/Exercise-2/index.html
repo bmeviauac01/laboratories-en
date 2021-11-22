@@ -413,20 +413,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../FAQ/" class="md-nav__link">
-        Typical issues
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../VisualStudio/" class="md-nav__link">
         Install Visual Studio & .NET Core SDK
       </a>
@@ -1104,14 +1090,14 @@
 <p>Create a store procedure with the name <code>CheckInvoice</code> that expects an <code>int</code> input parameter with the name <code>@invoiceid</code>.</p>
 <ul>
 <li>The procedure shall check the invoice corresponding to the provided id: check each <code>InvoiceItem</code> whether the <code>Amount</code> equals the amount on the corresponding <code>OrderItem</code>. (<code>InvoiceItem</code> directly references the corresponding <code>OrderItem</code>.)</li>
-<li>If there are any differences, print the amount values in both, and print the related product name as follows: <code>Difference: Ball (invoice 5 order 6)</code></li>
+<li>If there are any differences, print the amount values in both, and print the related product name as follows: <code>Error: Ball (invoice 5 order 6)</code></li>
 <li>The procedure should print any message only if an error was found. Do not leave test output in the submitted code!</li>
 <li>The procedure return value shall be an <code>int</code> equal to 0 when no discrepancies were found and 1 in case one was identified. This value should be <code>return</code>-ed at the end of the procedure (do not use an <code>output</code> parameter).</li>
 </ul>
 <p>Use the <code>print</code> command for output as follows: <code>PRINT 'Text' + @variable + 'Text'</code> Any variable you print must be of character type. To convert a number to characters use: <code>convert(varchar(5), @variable)</code>, e.g. <code>PRINT 'Text' + convert(varchar(5), @variable)</code></p>
 <div class="admonition example">
 <p class="admonition-title">SUBMISSION</p>
-<p>Write the stored procedure code in file <code>f2-proc.sql</code>. The file should contain a single <code>create proc</code> statement! The correct behavior earns you 4 points. Partially incorrect behavior earns you partial points.</p>
+<p>Write the stored procedure code in file <code>f2-procedure.sql</code>. The file should contain a single <code>create proc</code> statement! The correct behavior earns you 4 points. Partially incorrect behavior earns you partial points.</p>
 </div>
 <h2 id="validate-all-invoices">Validate all invoices<a class="headerlink" href="#validate-all-invoices" title="Permanent link">&para;</a></h2>
 <p>Write T-SQL code that calls the procedure on all invoices. You should use a cursor to iterate all invoices.</p>
@@ -1126,7 +1112,7 @@
 <p>Verify the correct behavior of this code. You might need to alter a few records in the database to have any discrepancies. (The testing code does not need to be submitted.)</p>
 <div class="admonition example">
 <p class="admonition-title">SUBMISSION</p>
-<p>Submit the code checking all invoices in file <code>f2-exec.sql</code>. The file shall contain the T-SQL code. It should not include the stored procedure nor any <code>use</code> or <code>go</code> commands. You can earn 2 points with the completion of this task.</p>
+<p>Submit the code checking all invoices in file <code>f2-check-all.sql</code>. The file shall contain the T-SQL code. It should not include the stored procedure nor any <code>use</code> or <code>go</code> commands. You can earn 2 points with the completion of this task.</p>
 </div>
 <div class="admonition example">
 <p class="admonition-title">SUBMISSION</p>

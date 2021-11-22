@@ -413,20 +413,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../FAQ/" class="md-nav__link">
-        Typical issues
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../VisualStudio/" class="md-nav__link">
         Install Visual Studio & .NET Core SDK
       </a>
@@ -1039,15 +1025,65 @@
                 
                 <h1 id="exercise-4-optional-exercise">Exercise 4: Optional exercise<a class="headerlink" href="#exercise-4-optional-exercise" title="Permanent link">&para;</a></h1>
 <p><strong>You can earn an additional +3 points with the completion of this exercise.</strong> (In the evaluation, you will see the text "imsc" in the exercise title; this is meant for the Hungarian students. Please ignore that.)</p>
-<p>The category system is currently hierarchical. We want to simplify this.</p>
-<p>Write T-SQL code block that deletes every category that is not a top-level one (has non-empty <code>ParentCategoryId</code>) after moving all products from this category to the parent. Since the category system is a tree with multiple levels, you need to repeat this process as long as there are subcategories. You need to start from the bottom of the hierarch, and in each iteration, you need to handle the categories with parents, but are not parents themselves,</p>
-<div class="admonition example">
-<p class="admonition-title">SUBMISSION</p>
-<p>Submit the code in file <code>f4.sql</code>. The file shall contain the T-SQL code. It should not include any <code>use</code> or <code>go</code> commands. The solution should be a single T-SQL code block. Do not use stored procedures or triggers here. (There is no need to delete the <code>ParentCategoryId</code> column.)</p>
+<p>Query the <code>Categories</code> so that you get the following outcome:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Count</th>
+<th>Rank</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Building items</td>
+<td>3</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Months 0-6</td>
+<td>2</td>
+<td>2</td>
+</tr>
+<tr>
+<td>DUPLO</td>
+<td>1</td>
+<td>3</td>
+</tr>
+<tr>
+<td>LEGO</td>
+<td>1</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Months 18-24</td>
+<td>1</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Months 6-18</td>
+<td>1</td>
+<td>6</td>
+</tr>
+<tr>
+<td>Play house</td>
+<td>1</td>
+<td>7</td>
+</tr>
+</tbody>
+</table>
+<p>The first column is the name of the category. The second column contains the number of products in this category. And finally, the third is the rank of the results based on the number of products in the category, descending; if the counts are equal, then the order is based on the name of the category ascending. The ranking should be continuous without gaps, and the final results should be ordered by this rank. The query should be a single statement. The name of the columns in the result set should be the ones you see above.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The fact that the third column is called "rank" should give you an idea.</p>
 </div>
 <div class="admonition example">
 <p class="admonition-title">SUBMISSION</p>
-<p>Create a screenshot that shows the <code>Category</code> table after executing the script. Save the screenshot as <code>f4.png</code> and submit it with the other files of the solution. The screenshot shall display the database name (which should be your <strong>Neptun code</strong>) in the <em>Object Explorer</em> window and the <strong>contents of the <code>Category</code> table</strong>. The screenshot is required to earn the points.</p>
+<p>Submit the query in file <code>f4.sql</code>. The file shall contain a single <code>select</code> query without any <code>use</code> or <code>go</code> commands.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">SUBMISSION</p>
+<p>Create a screenshot that shows the outcome of the query. Save the screenshot as <code>f4.png</code> and submit it with the other files of the solution. The screenshot shall display the database name (which should be your <strong>Neptun code</strong>) in the <em>Object Explorer</em> window and the <strong>query results</strong>. The screenshot is required to earn the points.</p>
 </div>
                 
               
