@@ -1117,18 +1117,29 @@
 <ul>
 <li>Windows, Linux, or macOS: All tools are platform-independent, or a platform-independent alternative is available.</li>
 <li>MongoDB Community Server (<a href="https://www.mongodb.com/download-center/community">download</a>)</li>
-<li>Robo 3T (<a href="https://robomongo.org/download">download</a>)</li>
-<li>Sample database initialization script: (<a href="https://bmeviauac01.github.io/adatvezerelt/db/mongo.js">mongo.js</a>)</li>
-<li>GitHub account and a git client</li>
-<li>Microsoft Visual Studio 2019/2022 <a href="../VisualStudio/">with the settings here</a><ul>
-<li>When using Linux or macOS, you can use Visual Studio Code, the .NET Core SDK, and <a href="https://docs.microsoft.com/en-us/dotnet/core/tools/">dotnet CLI</a>.</li>
+<li>
+<p>Robo 3T (<a href="https://robomongo.org/download">download</a>)</p>
+<ul>
+<li>
+<p>Without installing you can run the server with the following command using Docker:</p>
+<p><code>cmd
+docker run --name swlab1-mongo -p 27017:27017 -d mongo</code></p>
+</li>
 </ul>
 </li>
 <li>
-<p><a href="https://dotnet.microsoft.com/download/dotnet-core/3.1">.NET Core <strong>3.1</strong> SDK</a></p>
+<p>Sample database initialization script: (<a href="https://bmeviauac01.github.io/adatvezerelt/db/mongo.js">mongo.js</a>)</p>
+</li>
+<li>GitHub account and a git client</li>
+<li>Microsoft Visual Studio 2022 <a href="../VisualStudio/">with the settings here</a><ul>
+<li>When using Linux or macOS, you can use Visual Studio Code, the .NET SDK, and <a href="https://docs.microsoft.com/en-us/dotnet/core/tools/">dotnet CLI</a>.</li>
+</ul>
+</li>
+<li>
+<p><a href="https://dotnet.microsoft.com/en-us/download/dotnet/6.0">.NET Core <strong>6.0</strong> SDK</a></p>
 <div class="admonition warning">
-<p class="admonition-title">.NET Core 3.1</p>
-<p>Mind the version! You need .NET Core SDK version <strong>3.1</strong> to solve these exercises.</p>
+<p class="admonition-title">.NET 6.0</p>
+<p>Mind the version! You need .NET SDK version <strong>6.0</strong> to solve these exercises.</p>
 <p>On Windows it might already be installed along with Visual Studio (see <a href="../VisualStudio/#check-and-install-net-core-sdk">here</a> how to check it); if not, use the link above to install (the SDK and <em>not</em> the runtime). You need to install it manually when using Linux or macOS.</p>
 </div>
 </li>
@@ -1139,7 +1150,7 @@
 <li>Check the materials of <em>Data-driven systems</em> including the <a href="https://bmeviauac01.github.io/datadriven-en/">seminars</a></li>
 </ul>
 </li>
-<li>Official Microsoft tutorial for <a href="https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mongo-app?view=aspnetcore-3.1&amp;tabs=visual-studio">WebApi using MongoDB</a><ul>
+<li>Official Microsoft tutorial for <a href="https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-mongo-app?view=aspnetcore-6.0&amp;tabs=visual-studio">WebApi using MongoDB</a><ul>
 <li>We will not be creating a WebApi in this lab, but the Mongo part is the same.</li>
 </ul>
 </li>
@@ -1153,7 +1164,8 @@
 </li>
 <li>
 <p>Wait for the repository creation to complete, then check out the repository.</p>
-<div class="admonition tip">
+<div class="admonition warning">
+<p class="admonition-title">Password in the labs</p>
 <p>If you are not asked for credentials to log in to GitHub in university computer laboratories when checking out the repository, the operation may fail. This is likely due to the machine using someone else's GitHub credentials. Delete these credentials first (see <a href="../GitHub-credentials/">here</a>), then retry the checkout.</p>
 </div>
 </li>
