@@ -1007,19 +1007,19 @@ docker run --name swlab1-mongo -p 27017:27017 -d mongo</code></p>
 <h3 id="create-the-database">Create the database<a class="headerlink" href="#create-the-database" title="Permanent link">&para;</a></h3>
 <p>Follow the steps in the <a href="https://bmeviauac01.github.io/datadriven-en/seminar/mongodb/#exercise-0-create-database-open-starter-code">seminar material</a> to start the database server and initialize the database.</p>
 <h2 id="exercise-1-listing-and-modifying-products">Exercise 1: Listing and modifying products<a class="headerlink" href="#exercise-1-listing-and-modifying-products" title="Permanent link">&para;</a></h2>
-<p><strong>You can earn 7 points with the completion of this exercise.</strong></p>
 <p>This exercise will implement CRUD (create, retrieve, update, delete) operations for <code>Product</code> entities.</p>
 <h3 id="open-the-visual-studio-solution">Open the Visual Studio solution<a class="headerlink" href="#open-the-visual-studio-solution" title="Permanent link">&para;</a></h3>
 <p>Open the Visual Studio solution (the <code>.sln</code>) file in the checked-out repository. If Visual Studio tells you that the project is not supported, you need to install a missing component (see <a href="../VisualStudio/">here</a>).</p>
 <div class="admonition warning">
 <p class="admonition-title">Do NOT upgrade any version</p>
-<p>Do not upgrade the project, the .NET Core version, or any Nuget package! If you see such a question, always choose no!</p>
+<p>Do not upgrade the project, the .NET version, or any NuGet package! If you see such a question, always choose no!</p>
 </div>
-<p>You will need to work in class <code>mongolab.DAL.Repository</code>! You can make changes to this class as long as the source code complies, the repository implements interface <code>mongolab.DAL.IRepository</code>, and the constructor accepts a single <code>IMongoDatabase</code> parameter.</p>
-<p>The database access is configured in class  <code>mongolab.DAL.MongoConnectionConfig</code>. If needed, you can change the database name in this file.</p>
+<p>You will need to work in class <code>Dal.Repository</code>! You can make changes to this class as long as the source code complies, the repository implements interface <code>mongolab.DAL.IRepository</code>, and the constructor accepts a single <code>IMongoDatabase</code> parameter.</p>
+<p>The database access is configured in class <code>Dal.MongoConnectionConfig</code>. If needed, you can change the database name in this file.</p>
 <p>Other parts of the application should <strong>NOT</strong> be modified!</p>
 <div class="admonition info">
-<p>The web application is a so-called <a href="https://docs.microsoft.com/en-us/aspnet/core/razor-pages/"><em>Razor Pages</em></a> ASP.NET Core project. It includes a presentation layer rendered on the server using C# code and the Razor engine. (You do not need to concern yourself with the UI.)</p>
+<p class="admonition-title">Razor Pages</p>
+<p>The web application is a so-called <a href="https://docs.microsoft.com/en-us/aspnet/core/razor-pages/"><em>Razor Pages</em></a> ASP.NET Core project. It includes a presentation layer rendered on the server using C# code and the Razor template. (You do not need to concern yourself with the UI.)</p>
 </div>
 <h3 id="start-the-web-app">Start the web app<a class="headerlink" href="#start-the-web-app" title="Permanent link">&para;</a></h3>
 <p>Check if the web application starts.</p>
@@ -1061,18 +1061,18 @@ docker run --name swlab1-mongo -p 27017:27017 -d mongo</code></p>
 <ol>
 <li>
 <p>First, you will need a way to access the <code>products</code> collection from C#. Create and initialize a new variable that represents the collection in class <code>Repository</code>. Use the injected <code>IMongoDatabase</code> variable to get the collection:</p>
-<div class="highlight"><pre><span></span><code><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="n">IMongoCollection</span><span class="o">&lt;</span><span class="n">Entities</span><span class="p">.</span><span class="n">Product</span><span class="o">&gt;</span><span class="w"> </span><span class="n">productCollection</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="n">IMongoCollection</span><span class="o">&lt;</span><span class="n">Entities</span><span class="p">.</span><span class="n">Product</span><span class="o">&gt;</span><span class="w"> </span><span class="n">_productCollection</span><span class="p">;</span>
 
 <span class="k">public</span><span class="w"> </span><span class="nf">Repository</span><span class="p">(</span><span class="n">IMongoDatabase</span><span class="w"> </span><span class="n">database</span><span class="p">)</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="n">productCollection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">database</span><span class="p">.</span><span class="n">GetCollection</span><span class="o">&lt;</span><span class="n">Entities</span><span class="p">.</span><span class="n">Product</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;products&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="n">_productCollection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">database</span><span class="p">.</span><span class="n">GetCollection</span><span class="o">&lt;</span><span class="n">Entities</span><span class="p">.</span><span class="n">Product</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;products&quot;</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </li>
 <li>
-<p>You can use <code>productCollection</code> to access the database's product records from now on. Let us start by implementing <code>ListProducts</code>. This will require two steps: first, to query the data from the database, then transform each record to an instance of <code>Models.Product</code>.</p>
+<p>You can use <code>_productCollection</code> to access the database's product records from now on. Let us start by implementing <code>ListProducts</code>. This will require two steps: first, to query the data from the database, then transform each record to an instance of <code>Models.Product</code>.</p>
 <p>The query is as follows:</p>
-<div class="highlight"><pre><span></span><code><span class="kt">var</span><span class="w"> </span><span class="n">dbProducts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">productCollection</span>
+<div class="highlight"><pre><span></span><code><span class="kt">var</span><span class="w"> </span><span class="n">dbProducts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_productCollection</span>
 <span class="w">    </span><span class="p">.</span><span class="n">Find</span><span class="p">(</span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">true</span><span class="p">)</span><span class="w"> </span><span class="c1">// listing all products hence an empty filter</span>
 <span class="w">    </span><span class="p">.</span><span class="n">ToList</span><span class="p">();</span>
 </code></pre></div>
@@ -1080,7 +1080,7 @@ docker run --name swlab1-mongo -p 27017:27017 -d mongo</code></p>
 <div class="highlight"><pre><span></span><code><span class="k">return</span><span class="w"> </span><span class="n">dbProducts</span>
 <span class="w">    </span><span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">t</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Product</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">ID</span><span class="p">.</span><span class="n">ToString</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">Id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">Id</span><span class="p">.</span><span class="n">ToString</span><span class="p">(),</span>
 <span class="w">        </span><span class="n">Name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">Name</span><span class="p">,</span>
 <span class="w">        </span><span class="n">Price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">Price</span><span class="p">,</span>
 <span class="w">        </span><span class="n">Stock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">Stock</span>
@@ -1089,11 +1089,11 @@ docker run --name swlab1-mongo -p 27017:27017 -d mongo</code></p>
 </code></pre></div>
 </li>
 <li>
-<p>The implementation of <code>FindProduct(string id)</code> is similar, except for querying a single record by matching the <code>ID</code>. Pay attention to the fact that the <code>ID</code> is received as a string, but it needs converting to <code>ObjectId</code>.</p>
+<p>The implementation of <code>FindProduct(string id)</code> is similar, except for querying a single record by matching the <code>Id</code>. Pay attention to the fact that the <code>Id</code> is received as a string, but it needs converting to <code>ObjectId</code>.</p>
 <p>The transformation to the model remains identical. However, we should also handle when there is no matching record found and return a <code>null</code> value in this case (without converting anything to a model).</p>
 <p>The query is as follows:</p>
-<div class="highlight"><pre><span></span><code><span class="kt">var</span><span class="w"> </span><span class="n">dbProduct</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">productCollection</span>
-<span class="w">    </span><span class="p">.</span><span class="n">Find</span><span class="p">(</span><span class="n">t</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">ID</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">ObjectId</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">id</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><span class="kt">var</span><span class="w"> </span><span class="n">dbProduct</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_productCollection</span>
+<span class="w">    </span><span class="p">.</span><span class="n">Find</span><span class="p">(</span><span class="n">t</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">Id</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">ObjectId</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">id</span><span class="p">))</span>
 <span class="w">    </span><span class="p">.</span><span class="n">SingleOrDefault</span><span class="p">();</span>
 <span class="c1">// ... model conversion</span>
 </code></pre></div>
@@ -1104,7 +1104,7 @@ docker run --name swlab1-mongo -p 27017:27017 -d mongo</code></p>
 <p>Test the behavior of these queries! Start the web application and go to <a href="http://localhost:5000">http://localhost:5000</a> in a browser. Click <code>Products</code> to list the data from the database. If you click on <code>Details</code> it will show the details of the selected product.</p>
 </li>
 </ol>
-<div class="admonition error">
+<div class="admonition failure">
 <p class="admonition-title">If you do not see any product</p>
 <p>If you see no items on this page, but there is no error, it is most likely due to a misconfigured database access. MongoDB will not return an error if the specified database does not exist. See the instructions for changing the connection details above.</p>
 </div>
@@ -1114,16 +1114,20 @@ docker run --name swlab1-mongo -p 27017:27017 -d mongo</code></p>
 <p>Implement the method <code>InsertProduct(Product product)</code>. The input is an instance of <code>Models.Product</code> that collects the information specified on the UI.</p>
 </li>
 <li>
-<p>To create a new product, we will first create a new database entity (in memory first). This is an instance of class <code>Entities.Product</code>. There is no need to set the <code>ID</code> - the database will generate it. <code>Name</code>, <code>Price</code> and <code>Stock</code> are provided by the user. What is left is <code>VAT</code> and <code>CategoryID</code>. We should hard-code values here: create a new VAT entity and find a random category using <em>Robo3T</em> and copy the <code>_id</code> value.</p>
+<p>To create a new product, we will first create a new database entity (in memory first). This is an instance of class <code>Entities.Product</code>. There is no need to set the <code>Id</code> - the database will generate it. <code>Name</code>, <code>Price</code> and <code>Stock</code> are provided by the user. What is left is <code>Vat</code> and <code>CategoryId</code>. We should hard-code values here: create a new VAT entity and find a random category using <em>Studio 3T</em> and copy the <code>_id</code> value.</p>
 <div class="highlight"><pre><span></span><code><span class="kt">var</span><span class="w"> </span><span class="n">dbProduct</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Entities</span><span class="p">.</span><span class="n">Product</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="n">Name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">product</span><span class="p">.</span><span class="n">Name</span><span class="p">,</span>
 <span class="w">    </span><span class="n">Price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">product</span><span class="p">.</span><span class="n">Price</span><span class="p">,</span>
 <span class="w">    </span><span class="n">Stock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">product</span><span class="p">.</span><span class="n">Stock</span><span class="p">,</span>
-<span class="w">    </span><span class="n">VAT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Entities</span><span class="p">.</span><span class="n">VAT</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;General&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Percentage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">20</span><span class="w"> </span><span class="p">},</span>
-<span class="w">    </span><span class="n">CategoryID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ObjectId</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="s">&quot;5d7e4370cffa8e1030fd2d99&quot;</span><span class="p">),</span>
+<span class="w">    </span><span class="n">Vat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Entities</span><span class="p">.</span><span class="n">Vat</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;General&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="n">Percentage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">20</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="n">CategoryId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ObjectId</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="s">&quot;5d7e4370cffa8e1030fd2d99&quot;</span><span class="p">),</span>
 <span class="p">};</span>
-<span class="c1">// ... insertion</span>
+<span class="n">_productCollection</span><span class="p">.</span><span class="n">InsertOne</span><span class="p">(</span><span class="n">dbProduct</span><span class="p">);</span>
 </code></pre></div>
 <p>Once the database entity is ready, use <code>InsertOne</code> to add it to the database.</p>
 </li>
@@ -1147,8 +1151,8 @@ docker run --name swlab1-mongo -p 27017:27017 -d mongo</code></p>
 </li>
 <li>
 <p>Using the atomicity guarantees of MongoDB, we will perform the changes in a single step. A filter will be used to find both the <code>id</code> and check if there are enough items in stock. A modification will decrease the stock only if the filter is matched.</p>
-<div class="highlight"><pre><span></span><code><span class="kt">var</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">productCollection</span><span class="p">.</span><span class="n">UpdateOne</span><span class="p">(</span>
-<span class="w">    </span><span class="n">filter</span><span class="p">:</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">ID</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">ObjectId</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">Stock</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">amount</span><span class="p">,</span>
+<div class="highlight"><pre><span></span><code><span class="kt">var</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_productCollection</span><span class="p">.</span><span class="n">UpdateOne</span><span class="p">(</span>
+<span class="w">    </span><span class="n">filter</span><span class="p">:</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">Id</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">ObjectId</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">Stock</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">amount</span><span class="p">,</span>
 <span class="w">    </span><span class="n">update</span><span class="p">:</span><span class="w"> </span><span class="n">Builders</span><span class="o">&lt;</span><span class="n">Entities</span><span class="p">.</span><span class="n">Product</span><span class="o">&gt;</span><span class="p">.</span><span class="n">Update</span><span class="p">.</span><span class="n">Inc</span><span class="p">(</span><span class="n">t</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">Stock</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="n">amount</span><span class="p">),</span>
 <span class="w">    </span><span class="n">options</span><span class="p">:</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">UpdateOptions</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">IsUpsert</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="w"> </span><span class="p">});</span>
 </code></pre></div>
@@ -1167,8 +1171,7 @@ docker run --name swlab1-mongo -p 27017:27017 -d mongo</code></p>
 <p>Create a <strong>screenshot</strong> of the web page listing the products <strong>after successfully adding at least one new product</strong>. Save the screenshot as <code>f1.png</code> and submit it with the other files of the solution. The screenshot shall display the <strong>list of products</strong>. Verify that your <strong>Neptun code</strong> is visible on the image at the bottom of the page! The screenshot is required to earn the points.</p>
 </div>
 <h2 id="exercise-2-listing-categories">Exercise 2: Listing categories<a class="headerlink" href="#exercise-2-listing-categories" title="Permanent link">&para;</a></h2>
-<p><strong>You can earn 4 points with the completion of this exercise.</strong></p>
-<p>We will be listing available categories here with the number of products in each category. We will need an aggregation pipeline here. Continue working in class <code>MongoLabor.DAL.Repository</code>.</p>
+<p>We will be listing available categories here with the number of products in each category. We will need an aggregation pipeline here. Continue working in class <code>Dal.Repository</code>.</p>
 <p>The method you should implement is <code>IList&lt;Category&gt; ListCategories()</code>. The method shall return all categories. Class <code>Models.Category</code> has 3 members.</p>
 <ul>
 <li><code>Name</code>: the name of the category</li>
@@ -1178,14 +1181,14 @@ docker run --name swlab1-mongo -p 27017:27017 -d mongo</code></p>
 <p>The outline of the solution is as follows.</p>
 <ol>
 <li>
-<p>Create and initialize a new <code>productCollection</code> similar to how <code>categoryCollection</code> is initialized. The name of the collection is <code>categories</code> - you can verify this using <em>Robo3T</em>.</p>
+<p>Create and initialize a new <code>_productCollection</code> similar to how <code>_categoryCollection</code> is initialized. The name of the collection is <code>categories</code> - you can verify this using <em>Studio 3T</em>.</p>
 </li>
 <li>
 <p><code>ListCategories()</code> should first query all categories. Perform this similarly to how it was done in the previous exercise. Store the result set in variable <code>dbCategories</code>.</p>
 </li>
 <li>
-<p>Query the number of products associated with each category (<code>Product.CategoryID</code>). Use an aggregation pipeline and a <a href="https://docs.mongodb.com/manual/reference/operator/aggregation/group/"><code>$group</code></a> step as follows.</p>
-<div class="highlight"><pre><span></span><code><span class="kt">var</span><span class="w"> </span><span class="n">productCounts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">productCollection</span>
+<p>Query the number of products associated with each category (<code>Product.CategoryId</code>). Use an aggregation pipeline and a <a href="https://docs.mongodb.com/manual/reference/operator/aggregation/group/"><code>$group</code></a> step as follows.</p>
+<div class="highlight"><pre><span></span><code><span class="kt">var</span><span class="w"> </span><span class="n">productCounts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_productCollection</span>
 <span class="w">    </span><span class="p">.</span><span class="n">Aggregate</span><span class="p">()</span>
 <span class="w">    </span><span class="p">.</span><span class="n">Group</span><span class="p">(</span><span class="n">t</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">CategoryID</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">CategoryID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">g</span><span class="p">.</span><span class="n">Key</span><span class="p">,</span><span class="w"> </span><span class="n">NumberOfProducts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">g</span><span class="p">.</span><span class="n">Count</span><span class="p">()</span><span class="w"> </span><span class="p">})</span>
 <span class="w">    </span><span class="p">.</span><span class="n">ToList</span><span class="p">();</span>
@@ -1195,19 +1198,19 @@ docker run --name swlab1-mongo -p 27017:27017 -d mongo</code></p>
 <li>
 <p>We have all information we need: all categories (including the parents) and the number of products for each. The final step is to "merge" the results in C# code.</p>
 <div class="highlight"><pre><span></span><code><span class="k">return</span><span class="w"> </span><span class="n">dbCategories</span>
-<span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">=&gt;</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="kt">string</span><span class="w"> </span><span class="n">parentCategoryName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="p">.</span><span class="n">ParentCategoryID</span><span class="p">.</span><span class="n">HasValue</span><span class="p">)</span>
-<span class="w">        </span><span class="n">parentCategoryName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dbCategories</span><span class="p">.</span><span class="n">Single</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">ID</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="n">ParentCategoryID</span><span class="p">.</span><span class="n">Value</span><span class="p">).</span><span class="n">Name</span><span class="p">;</span>
-
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">numProd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">productCounts</span><span class="p">.</span><span class="n">SingleOrDefault</span><span class="p">(</span><span class="n">pc</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">pc</span><span class="p">.</span><span class="n">CategoryID</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="n">ID</span><span class="p">)</span><span class="o">?.</span><span class="n">NumberOfProducts</span><span class="w"> </span><span class="o">??</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Category</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="n">Name</span><span class="p">,</span><span class="w"> </span><span class="n">ParentCategoryName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parentCategoryName</span><span class="p">,</span><span class="w"> </span><span class="n">NumberOfProducts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">numProd</span><span class="w"> </span><span class="p">};</span>
-<span class="p">})</span>
-<span class="p">.</span><span class="n">ToList</span><span class="p">();</span>
+<span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Category</span>
+<span class="w">   </span><span class="p">{</span>
+<span class="w">       </span><span class="n">Name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="p">.</span><span class="n">Name</span><span class="p">,</span>
+<span class="w">       </span><span class="n">ParentCategoryName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="p">.</span><span class="n">ParentCategoryId</span><span class="p">.</span><span class="n">HasValue</span>
+<span class="w">           </span><span class="o">?</span><span class="w"> </span><span class="n">dbCategories</span><span class="p">.</span><span class="n">Single</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">Id</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">k</span><span class="p">.</span><span class="n">ParentCategoryId</span><span class="p">.</span><span class="n">Value</span><span class="p">).</span><span class="n">Name</span>
+<span class="w">           </span><span class="p">:</span><span class="w"> </span><span class="k">null</span><span class="p">,</span>
+<span class="w">       </span><span class="n">NumberOfProducts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">productCounts</span><span class="p">.</span><span class="n">SingleOrDefault</span><span class="p">(</span><span class="n">pc</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">pc</span><span class="p">.</span><span class="n">CategoryID</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">k</span><span class="p">.</span><span class="n">Id</span><span class="p">)</span><span class="o">?.</span><span class="n">NumberOfProducts</span><span class="w"> </span><span class="o">??</span><span class="w"> </span><span class="m">0</span>
+<span class="w">   </span><span class="p">})</span>
+<span class="w">   </span><span class="p">.</span><span class="n">ToList</span><span class="p">();</span>
 </code></pre></div>
 <p>As seen above, this is performed using LINQ.</p>
-<div class="admonition note">
+<div class="admonition tip">
+<p class="admonition-title">Join with MongoDB</p>
 <p>This is not the only solution to "join" collections in MongoDB. Although there is no <code>join</code> operation, there are ways to query data across collections. Instead of doing this in MongoDB, we do the merging in C# as above. This would not be good if the data set were large. Also, if there were filtering involved, the code above would be much more complicated.</p>
 </div>
 </li>
@@ -1220,17 +1223,16 @@ docker run --name swlab1-mongo -p 27017:27017 -d mongo</code></p>
 <p>Create a <strong>screenshot</strong> of the web page listing the categories. Save the screenshot as <code>f2.png</code> and submit it with the other files of the solution. The screenshot shall display the <strong>list of categories</strong>. Verify that your <strong>Neptun code</strong> is visible on the image at the bottom of the page! The screenshot is required to earn the points.</p>
 </div>
 <h2 id="exercise-3-querying-and-modifying-orders">Exercise 3: Querying and modifying orders<a class="headerlink" href="#exercise-3-querying-and-modifying-orders" title="Permanent link">&para;</a></h2>
-<p><strong>You can earn 5 points with the completion of this exercise.</strong></p>
 <p>In this exercise, we will implement CRUD (create, retrieve, update, delete) operations for <code>Order</code> entities. This exercise is similar to the previous one; feel free to look back to the solutions of that exercise.</p>
 <p>The properties of <code>Model.Order</code> are:</p>
 <ul>
-<li><code>ID</code>: the <code>ID</code> of the database serialized using <code>ToString</code></li>
+<li><code>Id</code>: the <code>Id</code> of the database serialized using <code>ToString</code></li>
 <li><code>Date</code>, <code>Deadline</code>, <code>Status</code>: taken from the database directly</li>
 <li><code>PaymentMethod</code>: taken from the <code>Method</code> field of the <code>PaymentMethod</code> complex entity</li>
 <li><code>Total</code>: the cumulative sum of the product of <code>Amount</code> and <code>Price</code> for all items associated with this order (<code>OrderItems</code>)</li>
 </ul>
 <p>You will need to implement the management methods related to orders: <code>ListOrders</code>, <code>FindOrder</code>, <code>InsertOrder</code>, <code>DeleteOrder</code>, and <code>UpdateOrder</code>.</p>
-<p>Before starting the tasks below, do not forget to add and initialize an <code>orderCollection</code> in the repository class similar to the other one.</p>
+<p>Before starting the tasks below, do not forget to add and initialize an <code>_orderCollection</code> in the repository class similar to the other one.</p>
 <h3 id="listing_1">Listing<a class="headerlink" href="#listing_1" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
@@ -1248,11 +1250,11 @@ docker run --name swlab1-mongo -p 27017:27017 -d mongo</code></p>
 <li>
 <p>You need the set the following information in the database entity:</p>
 <ul>
-<li><code>CustomerID</code>, <code>SiteID</code>: find a chosen <code>Customer</code> in the database and copy the values from this record from fields <code>_id</code> and <code>mainSiteId</code>. Hard-wire these values in code.</li>
+<li><code>CustomerId</code>, <code>SiteId</code>: find a chosen <code>Customer</code> in the database and copy the values from this record from fields <code>_id</code> and <code>mainSiteId</code>. Hard-wire these values in code.</li>
 <li><code>Date</code>, <code>Deadline</code>, <code>Status</code>: take these values from the value received as <code>order</code> parameter</li>
 <li><code>PaymentMethod</code>: create a new instance of <code>PaymentMethod</code>. The <code>Method</code> should be <code>PaymentMethod</code> from the object received through the <code>order</code> parameter. Leave <code>Deadline</code> as <code>null</code>.</li>
 <li><code>OrderItems</code>: create a single item here with the following data:<ul>
-<li><code>ProductID</code> and <code>Price</code>: take the values from the parameter <code>product</code></li>
+<li><code>ProductId</code> and <code>Price</code>: take the values from the parameter <code>product</code></li>
 <li><code>Amount</code>: copy value from the method parameter <code>amount</code></li>
 <li><code>Status</code>: equals to the <code>Status</code> field of parameter <code>order</code></li>
 </ul>
@@ -1262,12 +1264,13 @@ docker run --name swlab1-mongo -p 27017:27017 -d mongo</code></p>
 </li>
 </ol>
 <h3 id="delete_1">Delete<a class="headerlink" href="#delete_1" title="Permanent link">&para;</a></h3>
-<p><code>DeleteOrder</code> should delete the record specified by the <code>ID</code>.</p>
+<p><code>DeleteOrder</code> should delete the record specified by the <code>Id</code>.</p>
 <h3 id="modification_1">Modification<a class="headerlink" href="#modification_1" title="Permanent link">&para;</a></h3>
 <p>When updating the record in <code>UpdateOrder</code>, only update the information present in <code>Models.Order</code>: <code>Date</code>, <code>Deadline</code>, <code>Status</code>, and <code>PaymentMethod</code>. Ignore the value <code>Total</code>; it does not need to be considered in this context.</p>
 <div class="admonition tip">
-<p>You can combine multiple updates using <code>Builders&lt;Entities.Order&gt;.Update.Combine</code>.</p>
+<p class="admonition-title">Hint</p>
 </div>
+<p>You can combine multiple updates using <code>Builders&lt;Entities.Order&gt;.Update.Combine</code>.</p>
 <p>Keep in mind that the <code>IsUpsert</code> property should be set to <code>false</code> in the update!</p>
 <p>The method should return <code>true</code> if there were a record with a matching <code>ID</code>.</p>
 <h3 id="testing">Testing<a class="headerlink" href="#testing" title="Permanent link">&para;</a></h3>
@@ -1277,7 +1280,6 @@ docker run --name swlab1-mongo -p 27017:27017 -d mongo</code></p>
 <p>Create a <strong>screenshot</strong> of the web page listing the orders <strong>after successfully adding at least one new order</strong>. Save the screenshot as <code>f3.png</code> and submit it with the other files of the solution. The screenshot shall display the <strong>list of orders</strong>. Verify that your <strong>Neptun code</strong> is visible on the image at the bottom of the page! The screenshot is required to earn the points.</p>
 </div>
 <h2 id="exercise-4-listing-customers">Exercise 4: Listing customers<a class="headerlink" href="#exercise-4-listing-customers" title="Permanent link">&para;</a></h2>
-<p><strong>You can earn 4 points with the completion of this exercise.</strong></p>
 <p>We will list the customers in this exercise, along with the cumulative value of their orders. This will be similar to exercise 2: we will use aggregation and merging in C# code.</p>
 <p>The method to implement is <code>IList&lt;Customer&gt; ListCustomers()</code>. The method shall return every customer. The properties of <code>Model.Customer</code> are:</p>
 <ul>
@@ -1288,13 +1290,13 @@ docker run --name swlab1-mongo -p 27017:27017 -d mongo</code></p>
 <p>Follow these steps to solve this exercise:</p>
 <ol>
 <li>
-<p>Create and initialize the <code>customerCollection</code>.</p>
+<p>Create and initialize the <code>_customerCollection</code>.</p>
 </li>
 <li>
-<p>List all customers. The customer entity has the list of <code>Sites</code>; the main site is the item <code>MainSiteID</code> points to. Use this value to find the main in among the list.</p>
+<p>List all customers. The customer entity has the list of <code>Sites</code>; the main site is the item <code>MainSiteId</code> points to. Use this value to find the main in among the list.</p>
 </li>
 <li>
-<p>In the collection of the orders, use an aggregation pipeline to calculate the total of all orders for each <code>CustomerID</code>.</p>
+<p>In the collection of the orders, use an aggregation pipeline to calculate the total of all orders for each <code>CustomerId</code>.</p>
 </li>
 <li>
 <p>Finally, you need the "merge" the two result sets. Every customer has a main site; however, not all of them have orders (in which case <code>TotalOrders</code> shall be <code>null</code>).</p>
@@ -1308,7 +1310,7 @@ docker run --name swlab1-mongo -p 27017:27017 -d mongo</code></p>
 <p>Create a <strong>screenshot</strong> of the web page listing the customers. Save the screenshot as <code>f4.png</code> and submit it with the other files of the solution. The screenshot shall display the <strong>list of customers</strong>. Verify that your <strong>Neptun code</strong> is visible on the image at the bottom of the page! The screenshot is required to earn the points.</p>
 </div>
 <h2 id="exercise-5-optional-exercise">Exercise 5: Optional exercise<a class="headerlink" href="#exercise-5-optional-exercise" title="Permanent link">&para;</a></h2>
-<p><strong>You can earn an additional +3 points with the completion of this exercise.</strong> (In the evaluation, you will see the text "imsc" in the exercise title; this is meant for the Hungarian students. Please ignore that.)</p>
+<p>(In the evaluation, you will see the text "imsc" in the exercise title; this is meant for the Hungarian students. Please ignore that.)</p>
 <p>We will group the orders in this exercise by date. We would like to see how our company performs by comparing the sales across time. We will use a <a href="https://docs.mongodb.com/manual/reference/operator/aggregation/bucket/"><code>$bucket</code></a> aggregation.</p>
 <h3 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h3>
 <p>The method to implement is <code>OrderGroups GroupOrders(int groupsCount)</code>. This operation shall group the orders into <code>groupsCount</code> equal date ranges. The return value contains two values:</p>
@@ -1340,13 +1342,13 @@ docker run --name swlab1-mongo -p 27017:27017 -d mongo</code></p>
 </ul>
 </li>
 <li>The intervals should be of equal size<ul>
-<li><em>Tip: C# has built-in support for date arithmetic using dates and the <code>TimeSpan</code> classes.</em></li>
+<li><em>Tip: C# has built-in support for date arithmetic using dates (<code>DateTime</code>) and duration (<code>TimeSpan</code>) classes.</em></li>
 </ul>
 </li>
 </ol>
 <p>You can assume the following:</p>
 <ul>
-<li>All orders in the database have <code>Date</code> values even though the type is <em>nullable</em> <code>DateTime?</code>.<ul>
+<li>All orders in the database have <code>Date</code> values even though the type is <em>nullable</em> (<code>DateTime?</code>).<ul>
 <li>You can use <code>date.Value</code> to get the date without checking <code>date.HasValue</code>.</li>
 </ul>
 </li>
@@ -1399,8 +1401,8 @@ docker run --name swlab1-mongo -p 27017:27017 -d mongo</code></p>
           </path>
         </svg>
       </span>
-      <span title="January 25, 2023 10:55:29">
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-01-25T10:55:29+01:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-01-25</span>
+      <span title="January 25, 2023 13:40:40">
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-01-25T13:40:40+01:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-01-25</span>
       </span>
     </span>
 
@@ -1428,10 +1430,10 @@ docker run --name swlab1-mongo -p 27017:27017 -d mongo</code></p>
       <span>Szerzők</span>
       <nav><a href="https://github.com/akosdudas" target="_blank" rel="noopener noreferrer" class="md-author" title="@akosdudas">
           <img src="https://avatars.githubusercontent.com/u/11335181?size=72" alt="@akosdudas">
-        </a><a href="https://github.com/tibitoth" target="_blank" rel="noopener noreferrer" class="md-author" title="@tibitoth">
-          <img src="https://avatars.githubusercontent.com/u/8333960?size=72" alt="@tibitoth">
         </a><a href="https://github.com/ialbert-AUT" target="_blank" rel="noopener noreferrer" class="md-author" title="@ialbert-AUT">
           <img src="https://avatars.githubusercontent.com/u/61751571?size=72" alt="@ialbert-AUT">
+        </a><a href="https://github.com/tibitoth" target="_blank" rel="noopener noreferrer" class="md-author" title="@tibitoth">
+          <img src="https://avatars.githubusercontent.com/u/8333960?size=72" alt="@tibitoth">
         </a></nav>      
     </span>
   </div>
