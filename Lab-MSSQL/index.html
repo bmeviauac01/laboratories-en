@@ -7,12 +7,17 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
       
+        <meta name="author" content="István Albert, ibor Tóth">
       
-        <meta name="author" content="Dudás Ákos">
       
       
-      <link rel="icon" href="../images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+        <link rel="prev" href="../Lab-QueryOptimization/">
+      
+      
+        <link rel="next" href="../Lab-MongoDB/">
+      
+      <link rel="icon" href="../favicon.ico">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.4">
     
     
       
@@ -20,30 +25,34 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.a57b2b03.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.9c788c91.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
         
-      
-    
-    
-    
-      
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
     
+      <link rel="stylesheet" href="../css/timeago.css">
     
       <link rel="stylesheet" href="../extra-material-theme.css">
     
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
-
+    
     
     
   </head>
@@ -56,12 +65,11 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="red" data-md-color-accent="red">
+    <body dir="ltr" data-md-color-scheme="aut" data-md-color-primary="aut" data-md-color-accent="red">
   
     
-    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
-      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -78,17 +86,18 @@
       
     </div>
     
+    
       
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href=".." title="BMEVIAUAC09 Software development laboratory 1" class="md-header__button md-logo" aria-label="BMEVIAUAC09 Software development laboratory 1" data-md-component="logo">
       
-  <img src="../images/logo-bme-aut.png" alt="logo">
+  <img src="../logo-bme-aut.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -110,20 +119,18 @@
       <form class="md-header__option" data-md-component="palette">
         
           
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="aut" data-md-color-primary="aut" data-md-color-accent="red"  aria-label="Switch to Dark Mode"  type="radio" name="__palette" id="__palette_1">
           
-          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="" data-md-color-primary="red" data-md-color-accent="red"  aria-label="Switch to dark theme"  type="radio" name="__palette" id="__palette_1">
-          
-            <label class="md-header__button md-icon" title="Switch to dark theme" for="__palette_2" hidden>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5z"/></svg>
+            <label class="md-header__button md-icon" title="Switch to Dark Mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
             </label>
           
         
           
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent=""  aria-label="Switch to Light Mode"  type="radio" name="__palette" id="__palette_2">
           
-          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent=""  aria-label="Switch to light theme"  type="radio" name="__palette" id="__palette_2">
-          
-            <label class="md-header__button md-icon" title="Switch to light theme" for="__palette_1" hidden>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1z"/></svg>
+            <label class="md-header__button md-icon" title="Switch to Light Mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
             </label>
           
         
@@ -132,22 +139,21 @@
     
     
       <label class="md-header__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
       </label>
-      
-<div class="md-search" data-md-component="search" role="dialog">
+      <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
       <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
       </label>
       <nav class="md-search__options" aria-label="Search">
         
-        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
       
@@ -169,11 +175,10 @@
     
     
       <div class="md-header__source">
-        
-<a href="https://github.com/bmeviauac01/laboratories-en/" title="Go to repository" class="md-source" data-md-component="source">
+        <a href="https://github.com/bmeviauac01/laboratories-en" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
   </div>
   <div class="md-source__repository">
     bmeviauac01/laboratories-en
@@ -214,38 +219,6 @@
         
   
   
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../Lab-ReportingServices/" class="md-tabs__link">
-        Reporting Services
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../Lab-QueryOptimization/" class="md-tabs__link">
-        Query optimization
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
     
   
 
@@ -254,40 +227,8 @@
   
   
     <li class="md-tabs__item">
-      <a href="./" class="md-tabs__link md-tabs__link--active">
-        MSSQL
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../Lab-MongoDB/" class="md-tabs__link">
-        MongoDB
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../Lab-EFREST/" class="md-tabs__link">
-        Entity Framework & REST
+      <a href="../Lab-ReportingServices/" class="md-tabs__link md-tabs__link--active">
+        Laboratories
       </a>
     </li>
   
@@ -316,18 +257,17 @@
   <label class="md-nav__title" for="__drawer">
     <a href=".." title="BMEVIAUAC09 Software development laboratory 1" class="md-nav__button md-logo" aria-label="BMEVIAUAC09 Software development laboratory 1" data-md-component="logo">
       
-  <img src="../images/logo-bme-aut.png" alt="logo">
+  <img src="../logo-bme-aut.png" alt="logo">
 
     </a>
     BMEVIAUAC09 Software development laboratory 1
   </label>
   
     <div class="md-nav__source">
-      
-<a href="https://github.com/bmeviauac01/laboratories-en/" title="Go to repository" class="md-source" data-md-component="source">
+      <a href="https://github.com/bmeviauac01/laboratories-en" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
   </div>
   <div class="md-source__repository">
     bmeviauac01/laboratories-en
@@ -348,12 +288,13 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
       
       
       
-      
-        <label class="md-nav__link" for="__nav_1">
+        <label class="md-nav__link" for="__nav_1" tabindex="0" aria-expanded="false">
           Software development laboratory 1
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -447,25 +388,28 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-        <label class="md-nav__link" for="__nav_2">
-          Reporting Services
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" tabindex="0" aria-expanded="true">
+          Laboratories
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Reporting Services" data-md-level="1">
+      <nav class="md-nav" aria-label="Laboratories" data-md-level="1">
         <label class="md-nav__title" for="__nav_2">
           <span class="md-nav__icon md-icon"></span>
-          Reporting Services
+          Laboratories
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -489,96 +433,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../Lab-ReportingServices/Exercise-1/" class="md-nav__link">
-        Exercise 1: Table report
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Lab-ReportingServices/Exercise-2/" class="md-nav__link">
-        Exercise 2: Visualization
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Lab-ReportingServices/Exercise-3/" class="md-nav__link">
-        Exercise 3: Sales personnel report
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Lab-ReportingServices/Exercise-4/" class="md-nav__link">
-        Exercise 4: Optional exercise
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_3">
-          Query optimization
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Query optimization" data-md-level="1">
-        <label class="md-nav__title" for="__nav_3">
-          <span class="md-nav__icon md-icon"></span>
-          Query optimization
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../Lab-QueryOptimization/" class="md-nav__link">
         Query optimization
       </a>
@@ -586,84 +440,6 @@
   
 
             
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Lab-QueryOptimization/Exercise-1/" class="md-nav__link">
-        Exercises solved together
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Lab-QueryOptimization/Exercise-2/" class="md-nav__link">
-        Individual exercises
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Lab-QueryOptimization/Exercise-3/" class="md-nav__link">
-        Optional exercises
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-    
-  
-  
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_4">
-          MSSQL
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="MSSQL" data-md-level="1">
-        <label class="md-nav__title" for="__nav_4">
-          <span class="md-nav__icon md-icon"></span>
-          MSSQL
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
           
             
               
@@ -691,7 +467,6 @@
       
         
 
-
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
@@ -739,6 +514,94 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#exercise-1-category-view-and-data-insertion" class="md-nav__link">
+    Exercise 1: Category view and data insertion
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercise 1: Category view and data insertion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-view" class="md-nav__link">
+    Create a view
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#insert-via-the-view" class="md-nav__link">
+    Insert via the view
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-2-validating-invoices" class="md-nav__link">
+    Exercise 2: Validating invoices
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercise 2: Validating invoices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stored-procedure" class="md-nav__link">
+    Stored procedure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validate-all-invoices" class="md-nav__link">
+    Validate all invoices
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-3-denormalize-invoices" class="md-nav__link">
+    Exercise 3: Denormalize invoices
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercise 3: Denormalize invoices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#new-column" class="md-nav__link">
+    New column
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maintaining-the-correct-value" class="md-nav__link">
+    Maintaining the correct value
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-4-optional-exercise" class="md-nav__link">
+    Exercise 4: Optional exercise
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -747,96 +610,6 @@
   
 
             
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="Exercise-1/" class="md-nav__link">
-        Exercise 1: Category view and data insertion
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="Exercise-2/" class="md-nav__link">
-        Exercise 2: Validating invoices
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="Exercise-3/" class="md-nav__link">
-        Exercise 3: Denormalize invoices
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="Exercise-4/" class="md-nav__link">
-        Exercise 4: Optional exercise
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_5">
-          MongoDB
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="MongoDB" data-md-level="1">
-        <label class="md-nav__title" for="__nav_5">
-          <span class="md-nav__icon md-icon"></span>
-          MongoDB
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
           
             
               
@@ -858,168 +631,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../Lab-MongoDB/Exercise-1/" class="md-nav__link">
-        Exercise 1: Listing and modifying products
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Lab-MongoDB/Exercise-2/" class="md-nav__link">
-        Exercise 2: Listing categories
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Lab-MongoDB/Exercise-3/" class="md-nav__link">
-        Exercise 3: Querying and modifying orders
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Lab-MongoDB/Exercise-4/" class="md-nav__link">
-        Exercise 4: Listing customers
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Lab-MongoDB/Exercise-5/" class="md-nav__link">
-        Exercise 5: Optional exercise
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_6">
-          Entity Framework & REST
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Entity Framework & REST" data-md-level="1">
-        <label class="md-nav__title" for="__nav_6">
-          <span class="md-nav__icon md-icon"></span>
-          Entity Framework & REST
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../Lab-EFREST/" class="md-nav__link">
-        Entity Framework and REST
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Lab-EFREST/Exercise-1/" class="md-nav__link">
-        Exercise 1: Managing statuses
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Lab-EFREST/Exercise-2/" class="md-nav__link">
-        Exercise 2: Task operations
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Lab-EFREST/Exercise-3/" class="md-nav__link">
-        Exercise 3: Task operations
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Lab-EFREST/Exercise-4/" class="md-nav__link">
-        Exercise 4: Optional exercise
+        Entity Framework & REST
       </a>
     </li>
   
@@ -1045,7 +658,6 @@
                   <div class="md-sidebar__inner">
                     
 
-
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
@@ -1093,6 +705,94 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#exercise-1-category-view-and-data-insertion" class="md-nav__link">
+    Exercise 1: Category view and data insertion
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercise 1: Category view and data insertion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-view" class="md-nav__link">
+    Create a view
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#insert-via-the-view" class="md-nav__link">
+    Insert via the view
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-2-validating-invoices" class="md-nav__link">
+    Exercise 2: Validating invoices
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercise 2: Validating invoices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stored-procedure" class="md-nav__link">
+    Stored procedure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validate-all-invoices" class="md-nav__link">
+    Validate all invoices
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-3-denormalize-invoices" class="md-nav__link">
+    Exercise 3: Denormalize invoices
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercise 3: Denormalize invoices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#new-column" class="md-nav__link">
+    New column
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maintaining-the-correct-value" class="md-nav__link">
+    Maintaining the correct value
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-4-optional-exercise" class="md-nav__link">
+    Exercise 4: Optional exercise
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1101,16 +801,18 @@
               </div>
             
           
-          <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset">
-              
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
                 
-                  <a href="https://github.com/bmeviauac01/laboratories-en/edit/master/docs/Lab-MSSQL/index.md" title="Edit this page" class="md-content__button md-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
-                  </a>
-                
-                
-                <h1 id="mssql">MSSQL<a class="headerlink" href="#mssql" title="Permanent link">&para;</a></h1>
+                  
+
+  
+  
+
+
+
+<h1 id="mssql">MSSQL<a class="headerlink" href="#mssql" title="Permanent link">&para;</a></h1>
 <p>In this lab, we will practice working with the server-side programming features of Microsoft SQL Server.</p>
 <h2 id="pre-requisites-and-preparation">Pre-requisites and preparation<a class="headerlink" href="#pre-requisites-and-preparation" title="Permanent link">&para;</a></h2>
 <p>Required tools to complete the tasks:</p>
@@ -1180,73 +882,286 @@
 <p><img alt="Listing tables" src="../images/sql-managment-tablak.png" />.</p>
 </li>
 </ol>
-                
-              
-              
-                
+<h2 id="exercise-1-category-view-and-data-insertion">Exercise 1: Category view and data insertion<a class="headerlink" href="#exercise-1-category-view-and-data-insertion" title="Permanent link">&para;</a></h2>
+<p><strong>You can earn 8 points with the completion of this exercise.</strong></p>
+<h3 id="create-a-view">Create a view<a class="headerlink" href="#create-a-view" title="Permanent link">&para;</a></h3>
+<p>Create a new <code>CategoryWithParent</code> view that lists the <code>Category</code> table's contents as follows. It should have two columns: the <code>Name</code> of the category and the name of the parent category (or null if it does not exist).</p>
+<p>Open a new <em>Query</em> window. Make sure to select the correct database. Create the view by executing the T-SQL command below.</p>
+<div class="highlight"><pre><span></span><code><span class="k">create</span><span class="w"> </span><span class="k">view</span><span class="w"> </span><span class="n">CategoryWithParent</span>
+<span class="k">as</span>
+<span class="k">select</span><span class="w"> </span><span class="k">c</span><span class="p">.</span><span class="n">Name</span><span class="w"> </span><span class="n">CategoryName</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">Name</span><span class="w"> </span><span class="n">ParentCategoryName</span>
+<span class="k">from</span><span class="w"> </span><span class="n">Category</span><span class="w"> </span><span class="k">c</span>
+<span class="k">left</span><span class="w"> </span><span class="k">outer</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">Category</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="k">c</span><span class="p">.</span><span class="n">ParentCategoryId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">ID</span>
+</code></pre></div>
+<p>Check the contents of the view!</p>
+<p><img alt="List the view" src="../images/sql-management-query-view.png" /></p>
+<h3 id="insert-via-the-view">Insert via the view<a class="headerlink" href="#insert-via-the-view" title="Permanent link">&para;</a></h3>
+<p>Create a trigger with the name <code>InsertCategoryWithParent</code> that allows inserting a new category through the view (that is, by specifying the category name and the parent category name). It is not necessary to set a parent category. Still, if it is specified and there is no category with the provided name, an error should be raised, and the operation aborted.</p>
+<p>You will need an <em>instead of</em> trigger that allows us to define how to insert the data. The skeleton of the trigger is provided below.</p>
+<div class="highlight"><pre><span></span><code><span class="k">create</span><span class="w"> </span><span class="k">trigger</span><span class="w"> </span><span class="n">InsertCategoryWithParent</span><span class="w"> </span><span class="c1">-- name of the trigger</span>
+<span class="k">on</span><span class="w"> </span><span class="n">CategoryWithParent</span><span class="w"> </span><span class="c1">-- name of the view</span>
+<span class="k">instead</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="k">insert</span><span class="w">    </span><span class="c1">-- trigger code executed insted of insert</span>
+<span class="k">as</span>
+<span class="k">begin</span>
+<span class="w">  </span><span class="k">declare</span><span class="w"> </span><span class="o">@</span><span class="n">newname</span><span class="w"> </span><span class="n">nvarchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="c1">-- variables used below</span>
+<span class="w">  </span><span class="k">declare</span><span class="w"> </span><span class="o">@</span><span class="n">parentname</span><span class="w"> </span><span class="n">nvarchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span>
+
+<span class="w">  </span><span class="c1">-- using a cursor to navigate the inserted table</span>
+<span class="w">  </span><span class="k">declare</span><span class="w"> </span><span class="n">ic</span><span class="w"> </span><span class="k">cursor</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">inserted</span>
+<span class="w">  </span><span class="k">open</span><span class="w"> </span><span class="n">ic</span>
+<span class="w">  </span><span class="c1">-- standard way of managing a cursor</span>
+<span class="w">  </span><span class="k">fetch</span><span class="w"> </span><span class="k">next</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">ic</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="o">@</span><span class="n">newname</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">parentname</span>
+<span class="w">  </span><span class="n">while</span><span class="w"> </span><span class="o">@@</span><span class="n">FETCH_STATUS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">  </span><span class="k">begin</span>
+<span class="w">    </span><span class="c1">-- check the received values available in the variables</span>
+<span class="w">    </span><span class="c1">-- find the id of the parent, if specified</span>
+<span class="w">    </span><span class="c1">-- throw error if anything is not right</span>
+<span class="w">    </span><span class="c1">-- or insert the record into the Category table</span>
+<span class="w">    </span><span class="k">fetch</span><span class="w"> </span><span class="k">next</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">ic</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="o">@</span><span class="n">newname</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">parentname</span>
+<span class="w">  </span><span class="k">end</span>
+
+<span class="w">  </span><span class="k">close</span><span class="w"> </span><span class="n">ic</span><span class="w"> </span><span class="c1">-- finish cursor usage</span>
+<span class="w">  </span><span class="k">deallocate</span><span class="w"> </span><span class="n">ic</span>
+<span class="k">end</span>
+</code></pre></div>
+<ol>
+<li>
+<p>Finish this trigger by completing the code in the cycle.</p>
+<ul>
+<li>
+<p>If a parent category name is provided, check whether any category with the same name as <code>@parentname</code> exists.</p>
+</li>
+<li>
+<p>If not, raise an error and abort the trigger.</p>
+</li>
+<li>
+<p>If everything is fine, insert the data into the <code>Category</code> table (and not the view... since the view does not store any data, hence this trigger).</p>
+</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">SUBMISSION</p>
+<p>Submit the code of the trigger in file <code>f1-trigger.sql</code>. The file should contain a single <code>create trigger</code> statement! Do not add <code>[use]</code> or <code>go</code> commands to the file! The correct behavior earns you 4 points.</p>
+</div>
+</li>
+<li>
+<p>Verify the correct behavior of the trigger! Write an insert statement that successfully inserts a new category record through the view. Then write an insert statement that fails.</p>
+<p>Suppose that the database is in its initial state: the categories in the table are the ones included in the initializer script. The two tests should <em>not</em> depend on each other. Both shall produce the expected output regardless of whether the other was executed before!</p>
+<div class="admonition warning">
+<p class="admonition-title">Use simple names</p>
+<p>It is recommended to use names (i.e., category names) that contain no special characters. Incorrect encoding of the SQL file might result in incorrect behavior otherwise. E.g., you may use the <em>LEGO</em> category as a known existing category.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">SUBMISSION</p>
+<p>Write the test insert statements into files <code>f1-test-ok.sql</code> and <code>f1-test-error.sql</code>. Each file shall contain a single <code>insert</code> statement! They should not include any <code>use</code> or <code>go</code> commands. Each file can earn you 2 points.</p>
+</div>
+</li>
+</ol>
+<h2 id="exercise-2-validating-invoices">Exercise 2: Validating invoices<a class="headerlink" href="#exercise-2-validating-invoices" title="Permanent link">&para;</a></h2>
+<p><strong>You can earn 6 points with the completion of this exercise.</strong></p>
+<h3 id="stored-procedure">Stored procedure<a class="headerlink" href="#stored-procedure" title="Permanent link">&para;</a></h3>
+<p>Create a store procedure with the name <code>CheckInvoice</code> that expects an <code>int</code> input parameter with the name <code>@invoiceid</code>.</p>
+<ul>
+<li>The procedure shall check the invoice corresponding to the provided id: check each <code>InvoiceItem</code> whether the <code>Amount</code> equals the amount on the corresponding <code>OrderItem</code>. (<code>InvoiceItem</code> directly references the corresponding <code>OrderItem</code>.)</li>
+<li>If there are any differences, print the amount values in both, and print the related product name as follows: <code>Error: Ball (invoice 5 order 6)</code></li>
+<li>The procedure should print any message only if an error was found. Do not leave test output in the submitted code!</li>
+<li>The procedure return value shall be an <code>int</code> equal to 0 when no discrepancies were found and 1 in case one was identified. This value should be <code>return</code>-ed at the end of the procedure (do not use an <code>output</code> parameter).</li>
+</ul>
+<p>Use the <code>print</code> command for output as follows: <code>PRINT 'Text' + @variable + 'Text'</code> Any variable you print must be of character type. To convert a number to characters use: <code>convert(varchar(5), @variable)</code>, e.g. <code>PRINT 'Text' + convert(varchar(5), @variable)</code></p>
+<div class="admonition example">
+<p class="admonition-title">SUBMISSION</p>
+<p>Write the stored procedure code in file <code>f2-procedure.sql</code>. The file should contain a single <code>create proc</code> statement! The correct behavior earns you 4 points. Partially incorrect behavior earns you partial points.</p>
+</div>
+<h3 id="validate-all-invoices">Validate all invoices<a class="headerlink" href="#validate-all-invoices" title="Permanent link">&para;</a></h3>
+<p>Write T-SQL code that calls the procedure on all invoices. You should use a cursor to iterate all invoices.</p>
+<p>The code shall print the ID of the invoice (e.g., <code>InvoiceID: 12</code>) before checking an invoice. If an invoice contains no discrepancies, print 'Invoice ok' before moving on to the next one. Check the <em>Messages</em> pane under the query window for the messages.</p>
+<div class="admonition tip">
+<p class="admonition-title">Invoking a stored procedure</p>
+<p>Invoking a stored procedure is performed with the <code>exec</code> statement:</p>
+<div class="highlight"><pre><span></span><code><span class="k">declare</span><span class="w"> </span><span class="o">@</span><span class="n">checkresult</span><span class="w"> </span><span class="nb">int</span>
+<span class="k">exec</span><span class="w"> </span><span class="o">@</span><span class="n">checkresult</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CheckInvoice</span><span class="w"> </span><span class="mi">123</span>
+</code></pre></div>
+</div>
+<p>Verify the correct behavior of this code. You might need to alter a few records in the database to have any discrepancies. (The testing code does not need to be submitted.)</p>
+<div class="admonition example">
+<p class="admonition-title">SUBMISSION</p>
+<p>Submit the code checking all invoices in file <code>f2-check-all.sql</code>. The file shall contain the T-SQL code. It should not include the stored procedure nor any <code>use</code> or <code>go</code> commands. You can earn 2 points with the completion of this task.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">SUBMISSION</p>
+<p>Create a screenshot of the output when a <strong>discrepancy was found</strong>. Save the screenshot as <code>f2.png</code> and submit it with the other files of the solution. The screenshot shall display the database name (which should be your <strong>Neptun code</strong>) in the <em>Object Explorer</em> window and the <strong>output messages</strong> too.</p>
+</div>
+<h2 id="exercise-3-denormalize-invoices">Exercise 3: Denormalize invoices<a class="headerlink" href="#exercise-3-denormalize-invoices" title="Permanent link">&para;</a></h2>
+<p><strong>You can earn 6 points with the completion of this exercise.</strong></p>
+<h3 id="new-column">New column<a class="headerlink" href="#new-column" title="Permanent link">&para;</a></h3>
+<p>Update the <code>Invoice</code> table by adding a new <code>ItemCount</code> integer column that contains the number of items on the invoice (regarding the <code>InvoiceItems</code> records associated with each invoice).</p>
+<div class="admonition example">
+<p class="admonition-title">SUBMISSION</p>
+<p>The code for adding the column shall be submitted in file <code>f3-column.sql</code>. The file shall contain a single <code>alter table</code> statement and should not include any <code>use</code> or <code>go</code> commands. You can earn 1 point with the completion of this task. This task is a prerequisite for the next ones.</p>
+</div>
+<p>Write T-SQL code block to fill this new column with the correct values.</p>
+<div class="admonition tip">
+<p>If an <code>Invoice</code> has an associated item with 2 red beach balls and another item with 1 tennis racket, then there are <strong>3</strong> items on this invoice. Note that it is invoices (and not orders) you have to consider here!</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">SUBMISSION</p>
+<p>Submit the code in file <code>f3-fill.sql</code>. The file shall contain a single T-SQL code block. Do not use stored procedures or triggers here, and the code should not have any <code>[use]</code> or <code>go</code> statements either. You can earn 1 point with the completion of this task.</p>
+</div>
+<h3 id="maintaining-the-correct-value">Maintaining the correct value<a class="headerlink" href="#maintaining-the-correct-value" title="Permanent link">&para;</a></h3>
+<p>Create a trigger with the name <code>InvoiceItemCountMaintenance</code> that ensures the value in this new column is updated when an invoice or related items are updated. The trigger must be efficient! Re-calculating the number of items is not an acceptable solution. The trigger must also work correctly when multiple items are updated at the same time.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The trigger shall be on the <code>InvoiceItem</code> table despite the new column being in the <code>Invoice</code> table.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Important</p>
+<p>Do not forget that triggers are executed <strong>per statement</strong> and not for each row; that is, your trigger will need to handle multiple changes in the implicit tables! The <code>inserted</code> and <code>deleted</code> implicit variables are <strong>tables</strong> must be treated as such.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">SUBMISSION</p>
+<p>Submit the code of the trigger in file <code>f3-trigger.sql</code>. The file shall contain a single <code>create trigger</code> statement and should not contain any <code>use</code> or <code>go</code> commands. The correct behavior earns you 4 points. Partially incorrect behavior earns you partial points.</p>
+</div>
+<p>Verify the correct behavior of the trigger! The test code need not be submitted, but make sure to verify the behavior. Make sure to check the case when multiple records are modified with a single statement, e.g., execute an <code>update</code> without a <code>where</code> condition).</p>
+<div class="admonition example">
+<p class="admonition-title">SUBMISSION</p>
+<p>Create a screenshot displaying the contents of the table <code>Invoice</code> with the <code>ItemCount</code> column and its correctly filled values. Save the screenshot as <code>f3.png</code> and submit it with the other files of the solution. The screenshot shall display the database name (which should be your <strong>Neptun code</strong>) in the <em>Object Explorer</em> window and the <strong>contents of the <code>Invoice</code> table</strong>. The screenshot is required to earn the points of this part of the exercise.</p>
+</div>
+<h2 id="exercise-4-optional-exercise">Exercise 4: Optional exercise<a class="headerlink" href="#exercise-4-optional-exercise" title="Permanent link">&para;</a></h2>
+<p><strong>You can earn an additional +3 points with the completion of this exercise.</strong> (In the evaluation, you will see the text "imsc" in the exercise title; this is meant for the Hungarian students. Please ignore that.)</p>
+<p>Query the <code>Categories</code> so that you get the following outcome:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Count</th>
+<th>Rank</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Building items</td>
+<td>3</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Months 0-6</td>
+<td>2</td>
+<td>2</td>
+</tr>
+<tr>
+<td>DUPLO</td>
+<td>1</td>
+<td>3</td>
+</tr>
+<tr>
+<td>LEGO</td>
+<td>1</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Months 18-24</td>
+<td>1</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Months 6-18</td>
+<td>1</td>
+<td>6</td>
+</tr>
+<tr>
+<td>Play house</td>
+<td>1</td>
+<td>7</td>
+</tr>
+</tbody>
+</table>
+<p>The first column is the name of the category. The second column contains the number of products in this category. And finally, the third is the rank of the results based on the number of products in the category, descending; if the counts are equal, then the order is based on the name of the category ascending. The ranking should be continuous without gaps, and the final results should be ordered by this rank. The query should be a single statement. The name of the columns in the result set should be the ones you see above.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The fact that the third column is called "rank" should give you an idea.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">SUBMISSION</p>
+<p>Submit the query in file <code>f4.sql</code>. The file shall contain a single <code>select</code> query without any <code>use</code> or <code>go</code> commands.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">SUBMISSION</p>
+<p>Create a screenshot that shows the outcome of the query. Save the screenshot as <code>f4.png</code> and submit it with the other files of the solution. The screenshot shall display the database name (which should be your <strong>Neptun code</strong>) in the <em>Object Explorer</em> window and the <strong>query results</strong>. The screenshot is required to earn the points.</p>
+</div>
+
+    <hr>
+  <div class="md-source-file">
+    <span class="md-source-file__fact"> <span class="md-icon" title="Last update"> <svg
+          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path
+            d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z">
+          </path>
+        </svg>
+      </span>
+      <span title="January 25, 2023 10:55:29">
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-01-25T10:55:29+01:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-01-25</span>
+      </span>
+    </span>
+
+    <span class="md-source-file__fact">
+      <span class="md-icon" title="Created"> <svg
+          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path
+            d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z">
+          </path>
+        </svg>
+      </span>
+      <span title="August 3, 2020 13:50:09">
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2020-08-03T13:50:09+02:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2020-08-03</span>
+      </span>
+    </span>
+
+    <span class="md-source-file__fact">
+      <span class="md-icon" title="Szerzők">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path
+            d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z">
+          </path>
+        </svg>
+      </span>
+      <span>Szerzők</span>
+      <nav><a href="https://github.com/akosdudas" target="_blank" rel="noopener noreferrer" class="md-author" title="@akosdudas">
+          <img src="https://avatars.githubusercontent.com/u/11335181?size=72" alt="@akosdudas">
+        </a><a href="https://github.com/tibitoth" target="_blank" rel="noopener noreferrer" class="md-author" title="@tibitoth">
+          <img src="https://avatars.githubusercontent.com/u/8333960?size=72" alt="@tibitoth">
+        </a></nav>      
+    </span>
+  </div>
 
 
-              
-            </article>
-          </div>
+
+
+
+                
+              </article>
+            </div>
+          
+          
         </div>
         
-          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
             Back to top
           </a>
         
       </main>
       
-        
-<footer class="md-footer">
-  
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
-      
-        
-        <a href="../Lab-QueryOptimization/Exercise-3/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Optional exercises" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              Optional exercises
-            </div>
-          </div>
-        </a>
-      
-      
-        
-        <a href="Exercise-1/" class="md-footer__link md-footer__link--next" aria-label="Next: Exercise 1: Category view and data insertion" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              Exercise 1: Category view and data insertion
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
+        <footer class="md-footer">
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright">
-        
-          <div class="md-footer-copyright__highlight">
-            Copyright &copy; BME VIK AUT
-          </div>
-        
-        
-        
-      </div>
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; BME VIK AUT
+    </div>
+  
+  
+</div>
       
     </div>
   </div>
@@ -1256,10 +1171,15 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.instant", "navigation.top", "search.suggest"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.instant", "navigation.top", "search.suggest"], "search": "../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.b1047164.min.js"></script>
+      <script src="../assets/javascripts/bundle.ba449ae6.min.js"></script>
+      
+        <script src="../js/timeago.min.js"></script>
+      
+        <script src="../js/timeago_mkdocs_material.js"></script>
       
     
   </body>
